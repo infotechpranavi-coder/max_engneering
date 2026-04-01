@@ -14,34 +14,35 @@ export default function AboutPage() {
       <Navigation />
       <main className="flex-1">
         {/* Header */}
-        <section className="bg-primary text-primary-foreground py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl font-bold mb-4">About FastGauge</h1>
-            <p className="text-lg opacity-90 max-w-2xl">
-              Over 20 years of excellence in industrial measurement solutions
+        <section className="bg-gradient-to-r from-primary via-primary to-secondary text-primary-foreground py-24 sm:py-32 relative overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 className="text-5xl sm:text-6xl font-bold mb-6 leading-tight tracking-tight">About FastGauge</h1>
+            <p className="text-xl opacity-90 max-w-2xl leading-relaxed">
+              Over 20 years of excellence in precision industrial measurement solutions
             </p>
           </div>
         </section>
 
         {/* Mission & Vision */}
-        <section className="py-16 sm:py-20">
+        <section className="py-20 sm:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
-                <h2 className="text-3xl font-bold text-foreground mb-4">Our Mission</h2>
-                <p className="text-lg text-muted-foreground mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+              <div className="group hover:-translate-y-1 transition-transform duration-300">
+                <h2 className="text-4xl font-bold text-foreground mb-6 group-hover:text-primary transition-colors">Our Mission</h2>
+                <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
                   To provide industrial enterprises with the most reliable, accurate, and innovative measurement instruments that enable precision monitoring and control of critical processes.
                 </p>
-                <p className="text-lg text-muted-foreground">
-                  We believe that quality measurement is the foundation of industrial excellence, and we're committed to delivering products that exceed expectations in reliability and performance.
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  We believe that quality measurement is the foundation of industrial excellence, and we&apos;re committed to delivering products that exceed expectations in reliability and performance.
                 </p>
               </div>
-              <div>
-                <h2 className="text-3xl font-bold text-foreground mb-4">Our Vision</h2>
-                <p className="text-lg text-muted-foreground mb-4">
+              <div className="group hover:-translate-y-1 transition-transform duration-300">
+                <h2 className="text-4xl font-bold text-foreground mb-6 group-hover:text-primary transition-colors">Our Vision</h2>
+                <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
                   To be the global leader in precision industrial measurement, recognized for innovation, quality, and customer success.
                 </p>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-lg text-muted-foreground leading-relaxed">
                   We envision a future where every industrial facility has access to world-class measurement technology, enabling greater efficiency, safety, and sustainability.
                 </p>
               </div>
@@ -50,9 +51,9 @@ export default function AboutPage() {
         </section>
 
         {/* Core Values */}
-        <section className="py-16 sm:py-20 bg-muted/50">
+        <section className="py-20 sm:py-28 bg-gradient-to-b from-muted/30 to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Our Core Values</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-16 text-center tracking-tight">Our Core Values</h2>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               {[
                 {

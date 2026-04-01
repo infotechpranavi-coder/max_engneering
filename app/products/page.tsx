@@ -21,17 +21,18 @@ export default async function ProductsPage(props: ProductsPageProps) {
       <Navigation />
       <main className="flex-1">
         {/* Header */}
-        <section className="bg-primary text-primary-foreground py-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl font-bold mb-4">Our Products</h1>
-            <p className="text-lg opacity-90 max-w-2xl">
-              Discover our comprehensive range of precision measurement instruments designed for industrial excellence.
+        <section className="bg-gradient-to-r from-primary via-primary to-secondary text-primary-foreground py-20 sm:py-28 relative overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 className="text-5xl sm:text-6xl font-bold mb-6 leading-tight tracking-tight">Our Products</h1>
+            <p className="text-lg opacity-90 max-w-3xl leading-relaxed">
+              Discover our comprehensive range of precision measurement instruments engineered for industrial excellence and optimal performance.
             </p>
           </div>
         </section>
 
         {/* Products Grid */}
-        <section className="py-12 sm:py-16">
+        <section className="py-16 sm:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ProductGrid initialCategory={categoryParam} />
           </div>

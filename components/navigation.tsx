@@ -8,40 +8,44 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-border">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border shadow-sm">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="w-9 h-9 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
             <span className="text-white font-bold text-lg">F</span>
           </div>
-          <span className="hidden sm:inline font-bold text-lg text-primary">FastGauge</span>
+          <span className="hidden sm:inline font-bold text-lg bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">FastGauge</span>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           <Link
             href="/"
-            className="text-foreground hover:text-primary transition-colors text-sm font-medium"
+            className="text-foreground hover:text-primary transition-colors text-sm font-semibold relative group"
           >
             Home
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link
             href="/products"
-            className="text-foreground hover:text-primary transition-colors text-sm font-medium"
+            className="text-foreground hover:text-primary transition-colors text-sm font-semibold relative group"
           >
             Products
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link
             href="/about"
-            className="text-foreground hover:text-primary transition-colors text-sm font-medium"
+            className="text-foreground hover:text-primary transition-colors text-sm font-semibold relative group"
           >
             About
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link
             href="/contact"
-            className="text-foreground hover:text-primary transition-colors text-sm font-medium"
+            className="text-foreground hover:text-primary transition-colors text-sm font-semibold relative group"
           >
             Contact
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
           </Link>
         </div>
 

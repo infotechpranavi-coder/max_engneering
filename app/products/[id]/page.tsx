@@ -45,86 +45,86 @@ export default async function ProductDetailPage(props: ProductDetailPageProps) {
       <Navigation />
       <main className="flex-1">
         {/* Breadcrumb */}
-        <div className="bg-muted/50 border-b border-border">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="bg-gradient-to-r from-muted/40 to-muted/20 border-b border-border">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Link href="/" className="hover:text-primary">
+              <Link href="/" className="hover:text-primary transition-colors">
                 Home
               </Link>
-              <span>/</span>
-              <Link href="/products" className="hover:text-primary">
+              <span className="opacity-50">/</span>
+              <Link href="/products" className="hover:text-primary transition-colors">
                 Products
               </Link>
-              <span>/</span>
-              <span className="text-foreground">{product.name}</span>
+              <span className="opacity-50">/</span>
+              <span className="text-foreground font-medium">{product.name}</span>
             </div>
           </div>
         </div>
 
         {/* Product Details */}
-        <section className="py-12 sm:py-16">
+        <section className="py-16 sm:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 text-primary hover:gap-3 font-medium transition-all mb-8"
+              className="inline-flex items-center gap-2 text-primary hover:gap-3 font-medium transition-all mb-12 group"
             >
-              <ArrowLeft size={20} />
+              <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
               Back to Products
             </Link>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
               {/* Product Image */}
-              <div className="flex items-center justify-center bg-muted rounded-lg aspect-square border border-border">
+              <div className="flex items-center justify-center bg-gradient-to-br from-muted to-muted/50 rounded-xl aspect-square border border-border shadow-sm">
                 <div className="text-center text-muted-foreground">
                   <p className="text-lg font-semibold">{product.image}</p>
-                  <p className="text-sm mt-2">[Product Image Placeholder]</p>
+                  <p className="text-sm mt-2 opacity-60">[Product Image Placeholder]</p>
                 </div>
               </div>
 
               {/* Product Info */}
               <div className="flex flex-col justify-between">
                 <div>
-                  <div className="inline-block px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-semibold uppercase mb-4">
+                  <div className="inline-block px-4 py-2 bg-secondary/15 text-secondary rounded-full text-xs font-bold uppercase mb-6 tracking-wider">
                     {product.category}
                   </div>
-                  <h1 className="text-4xl font-bold text-foreground mb-4">
+                  <h1 className="text-5xl font-bold text-foreground mb-6 leading-tight">
                     {product.name}
                   </h1>
-                  <p className="text-lg text-muted-foreground mb-6">
+                  <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                     {product.longDescription}
                   </p>
 
-                  <div className="mb-8">
-                    <p className="text-sm text-muted-foreground mb-2">Price</p>
-                    <p className="text-3xl font-bold text-primary">{product.price}</p>
+                  <div className="mb-10">
+                    <p className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wider">Price</p>
+                    <p className="text-4xl font-bold text-primary">{product.price}</p>
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <button className="flex-1 bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                    <button className="flex-1 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105">
                       Add to Cart
                     </button>
-                    <button className="flex-1 border-2 border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary/5 transition-colors">
+                    <button className="flex-1 border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary/5 transition-all duration-300">
                       Request Quote
                     </button>
                   </div>
                 </div>
 
                 {/* Stock Status */}
-                <div className="mt-8 p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <p className="text-sm font-medium text-green-900">In Stock - Ready to Ship</p>
+                <div className="mt-10 p-5 bg-gradient-to-r from-green-50 to-green-50/50 border border-green-200 rounded-lg">
+                  <p className="text-sm font-semibold text-green-900">✓ In Stock - Ready to Ship</p>
                 </div>
               </div>
             </div>
 
             {/* Specifications */}
-            <section className="mb-16">
-              <h2 className="text-2xl font-bold text-foreground mb-6">Specifications</h2>
+            <section className="mb-20">
+              <h2 className="text-3xl font-bold text-foreground mb-8 tracking-tight">Specifications</h2>
               <SpecificationsTable specifications={product.specifications} />
             </section>
 
             {/* Features */}
-            <section className="mb-16">
-              <h2 className="text-2xl font-bold text-foreground mb-6">Key Features</h2>
+            <section className="mb-20">
+              <h2 className="text-3xl font-bold text-foreground mb-8 tracking-tight">Key Features</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
                   'Precision-engineered for accuracy',
@@ -134,11 +134,11 @@ export default async function ProductDetailPage(props: ProductDetailPageProps) {
                   'Easy installation and maintenance',
                   'Certified for safety standards'
                 ].map((feature, idx) => (
-                  <div key={idx} className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold">
+                  <div key={idx} className="flex items-start gap-4 group">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold shadow-sm group-hover:shadow-md group-hover:scale-110 transition-all">
                       ✓
                     </div>
-                    <p className="text-foreground">{feature}</p>
+                    <p className="text-foreground font-medium group-hover:text-primary transition-colors">{feature}</p>
                   </div>
                 ))}
               </div>
