@@ -7,7 +7,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'FastGauge - Industrial Pressure & Temperature Gauges',
+  title: 'MAX ENGINEERING - Industrial Pressure & Temperature Gauges',
   description: 'Premium industrial gauges and measurement instruments for precision monitoring',
   generator: 'v0.app',
   icons: {

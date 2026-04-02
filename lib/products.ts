@@ -1,217 +1,191 @@
 export interface Product {
   id: string
   name: string
-  category: 'Pressure Gauges' | 'Temperature Gauges' | 'Industrial Hardware' | 'Custom Components'
+  category: string
   description: string
   longDescription: string
   price: string
   image: string
   specifications: {
-    range: string
-    accuracy: string
-    material: string
-    connection: string
+    [key: string]: string
   }
 }
 
 export const products: Product[] = [
-  // Pressure Gauges
+  // Transmitters
   {
-    id: 'pg-101',
-    name: 'Digital Pressure Gauge Pro',
-    category: 'Pressure Gauges',
-    description: 'High-precision digital pressure gauge for industrial applications',
-    longDescription:
-      'The Digital Pressure Gauge Pro delivers accurate measurements in the most challenging industrial environments. With advanced sensor technology and a durable stainless steel construction, it provides reliable performance for years.',
-    price: '$449.99',
-    image: 'Digital Display',
+    id: 'tr-101',
+    name: 'Pressure Transmitters',
+    category: 'Transmitters',
+    description: 'Max pressure transmitters feature industry-leading performance and unique features that lower total cost of ownership.',
+    longDescription: 'Max pressure transmitters feature industry-leading performance, unique features that lower total cost of ownership and Smart Connection Suite for the best control system integration. Pressure transmitters are used to measure the pressure or level of industrial liquids and gases. The output is transmitted to a control system. Accurate and stable process measurements ensure the safe, reliable, and profitable operation of your plant. Compact, lightweight, intuitive and intelligent, our pressure instruments simplify all aspects of handling, commissioning, installation, operation, and maintenance while delivering outstanding performance. Whether installed in the harsh environment of an offshore platform or a refinery in the burning desert heat, our DPharp series delivers accurate, repeatable, and high integrity process measurements.',
+    price: 'Custom Quote',
+    image: '/transmit_1.jpg',
+    specifications: {
+      series: 'DPharp High Performance',
+      integration: 'Smart Connection Suite',
+      maintenance: 'Predictive Lifecycle',
+      environment: 'Extreme Condition Certified'
+    }
+  },
+  // Gauges
+  {
+    id: 'ga-101',
+    name: 'Industrial Process Gauge PG-10',
+    category: 'Gauges',
+    description: 'Precision mechanical process gauge',
+    longDescription: 'Engineered for severe duty service, the PG-10 series process gauge provides reliable pressure measurement in the most challenging industrial conditions. Features a solid front safety case and a high-stability sensing element.',
+    price: 'Custom Quote',
+    image: '/premium_gauge_product_1775038995087.png',
     specifications: {
       range: '0-400 PSI',
-      accuracy: '±0.5%',
-      material: 'Stainless Steel',
-      connection: '1/4" NPT'
+      accuracy: 'Grade 2A (±0.5%)',
+      material: 'SS 316L',
+      connection: '1/2" NPT'
     }
   },
+  // Switches
   {
-    id: 'pg-102',
-    name: 'Analog Pressure Gauge Standard',
-    category: 'Pressure Gauges',
-    description: 'Reliable analog pressure gauge for general industrial use',
-    longDescription:
-      'Classic design meets modern reliability. This analog pressure gauge offers consistent performance without batteries or calibration issues, making it ideal for facilities requiring low-maintenance solutions.',
-    price: '$129.99',
-    image: 'Analog Dial',
+    id: 'sw-101',
+    name: 'Tactical Pressure Switch SW-5',
+    category: 'Switches',
+    description: 'Heavy-duty industrial pressure switch',
+    longDescription: 'Reliable switching for critical system control. The SW-5 series offers precise set-point adjustment and high-integrity microswitches for redundant safety systems in power and chemical plants.',
+    price: 'Custom Quote',
+    image: '/premium_gauge_product_1775038995087.png',
     specifications: {
-      range: '0-300 PSI',
-      accuracy: '±3%',
-      material: 'Steel with Glycerin',
-      connection: '1/4" NPT'
-    }
-  },
-  {
-    id: 'pg-103',
-    name: 'Industrial High-Range Gauge',
-    category: 'Pressure Gauges',
-    description: 'Heavy-duty gauge for extreme high-pressure applications',
-    longDescription:
-      'Engineered for the toughest conditions, this high-range pressure gauge withstands extreme pressures while maintaining accuracy. Perfect for hydraulic systems and high-pressure testing.',
-    price: '$599.99',
-    image: 'Heavy-Duty Gauge',
-    specifications: {
-      range: '0-5000 PSI',
+      setpoint: 'Adjustable 50-200 PSI',
       accuracy: '±1%',
-      material: 'Forged Steel',
-      connection: '1/2" NPT'
+      enclosure: 'IP66 Weatherproof',
+      contact: 'SPDT / DPDT'
     }
   },
-
-  // Temperature Gauges
+  // Temperature Sensors
   {
-    id: 'tg-101',
-    name: 'Digital Temperature Gauge',
-    category: 'Temperature Gauges',
-    description: 'Precision digital temperature measurement with data logging',
-    longDescription:
-      'Monitor temperature with pinpoint accuracy using our advanced digital gauge. Features include digital display, data logging capabilities, and wireless connectivity options.',
-    price: '$349.99',
-    image: 'Digital Thermometer',
-    specifications: {
-      range: '-50°C to 200°C',
-      accuracy: '±0.5°C',
-      material: 'Stainless Steel',
-      connection: '1/2" NPT'
-    }
-  },
-  {
-    id: 'tg-102',
-    name: 'Analog Bimetallic Thermometer',
-    category: 'Temperature Gauges',
-    description: 'Traditional bimetallic thermometer for reliable temperature reading',
-    longDescription:
-      'Time-tested bimetallic design provides reliable temperature measurements without electronic components. Ideal for applications where simplicity and durability are paramount.',
-    price: '$99.99',
-    image: 'Bimetallic Dial',
-    specifications: {
-      range: '0°C to 100°C',
-      accuracy: '±2%',
-      material: 'Brass with Stainless Steel',
-      connection: '1/2" NPT'
-    }
-  },
-  {
-    id: 'tg-103',
-    name: 'Industrial RTD Temperature Probe',
-    category: 'Temperature Gauges',
-    description: 'Platinum RTD probe for high-accuracy industrial temperature measurement',
-    longDescription:
-      'Platinum Resistance Thermometer offers exceptional accuracy for critical temperature monitoring in process control, HVAC, and research applications.',
-    price: '$249.99',
-    image: 'RTD Probe',
-    specifications: {
-      range: '-200°C to 850°C',
-      accuracy: '±0.15°C',
-      material: 'Platinum',
-      connection: '3/8" NPT'
-    }
-  },
-
-  // Industrial Hardware
-  {
-    id: 'hw-101',
-    name: 'Pressure Relief Valve Assembly',
-    category: 'Industrial Hardware',
-    description: 'Complete pressure relief valve system for safety and control',
-    longDescription:
-      'Precision-engineered relief valve ensures system safety by releasing excess pressure. Fully adjustable and certified for high-pressure applications.',
-    price: '$279.99',
-    image: 'Relief Valve',
-    specifications: {
-      range: '0-500 PSI',
-      accuracy: '±2%',
-      material: 'Ductile Iron',
-      connection: '1" NPT'
-    }
-  },
-  {
-    id: 'hw-102',
-    name: 'Gauge Isolation Block',
-    category: 'Industrial Hardware',
-    description: 'Protective isolation block for gauge protection and maintenance',
-    longDescription:
-      'Provides safe isolation of gauges for maintenance without shutting down the entire system. Features three-valve design with pressure drain.',
-    price: '$189.99',
-    image: 'Isolation Block',
-    specifications: {
-      range: '0-400 PSI',
-      accuracy: 'N/A',
-      material: 'Stainless Steel',
-      connection: '1/4" & 1/2" NPT'
-    }
-  },
-  {
-    id: 'hw-103',
-    name: 'Snubber & Damper Unit',
-    category: 'Industrial Hardware',
-    description: 'Protects gauges from pressure fluctuations and pulsations',
-    longDescription:
-      'Sintered bronze snubber eliminates gauge needle flutter caused by pressure pulsations. Extends gauge life and improves reading accuracy.',
-    price: '$79.99',
-    image: 'Snubber Unit',
-    specifications: {
-      range: '0-600 PSI',
-      accuracy: 'N/A',
-      material: 'Bronze & Stainless Steel',
-      connection: '1/4" NPT'
-    }
-  },
-
-  // Custom Components
-  {
-    id: 'cc-101',
-    name: 'Custom Pressure Transmitter',
-    category: 'Custom Components',
-    description: 'Bespoke pressure transmitter designed for your specific needs',
-    longDescription:
-      'Work with our engineering team to design pressure transmitters tailored to your exact specifications, including output signals, materials, and mounting options.',
+    id: 'ts-101',
+    name: 'Platinum RTD Probe TS-Pro',
+    category: 'Temperature Sensors',
+    description: 'High-accuracy temperature probe',
+    longDescription: 'The TS-Pro series utilizes high-stability platinum elements to provide absolute temperature certainty. Optimized for rapid response times and thermal shock resistance.',
     price: 'Custom Quote',
-    image: 'Custom Transmitter',
+    image: '/premium_gauge_product_1775038995087.png',
     specifications: {
-      range: 'Custom',
-      accuracy: 'Custom',
-      material: 'Custom',
-      connection: 'Custom'
+      range: '-200°C to +600°C',
+      element: 'Pt100 / Pt1000',
+      accuracy: 'Class A (±0.15°C)',
+      protection: '316 SS Sheath'
     }
   },
+  // Digital Indicators & Controllers
   {
-    id: 'cc-102',
-    name: 'Integrated Control Panel',
-    category: 'Custom Components',
-    description: 'Complete monitoring and control panel with multiple gauge inputs',
-    longDescription:
-      'Custom-designed control panels that integrate multiple gauges and sensors. Includes calibration, safety interlocks, and alarm systems.',
+    id: 'dc-101',
+    name: 'Matrix Digital Controller 900',
+    category: 'Digital Indicators & Controllers',
+    description: 'Universal process indicator and controller',
+    longDescription: 'Multi-input digital controller designed for local visualization and control of technical assets. Features a high-contrast matrix display and programmable logic for alarm management.',
     price: 'Custom Quote',
-    image: 'Control Panel',
+    image: '/premium_gauge_product_1775038995087.png',
     specifications: {
-      range: 'Custom',
-      accuracy: 'Custom',
-      material: 'Custom',
-      connection: 'Custom'
+      inputType: 'Universal (TC/RTD/Analog)',
+      display: '7-Segment LED High-Viz',
+      control: 'PID / On-Off',
+      ports: 'RS485 Modbus'
     }
   },
+  // Multimeters & Testers
   {
-    id: 'cc-103',
-    name: 'Smart Monitoring System',
-    category: 'Custom Components',
-    description: 'IoT-enabled system for remote pressure and temperature monitoring',
-    longDescription:
-      'Connect your gauges to the cloud with our smart monitoring system. Real-time alerts, data analytics, and mobile app access.',
+    id: 'mt-101',
+    name: 'Industrial Multimeter MT-9x',
+    category: 'Multimeters & Testers',
+    description: 'Severe condition electrical tester',
+    longDescription: 'The MT-9x is a professional-grade multimeter built for field maintenance in industrial environments. Features True-RMS measurement and specialized safety shielding for high-voltage diagnostics.',
     price: 'Custom Quote',
-    image: 'Smart System',
+    image: '/premium_gauge_product_1775038995087.png',
     specifications: {
-      range: 'Custom',
-      accuracy: 'Custom',
-      material: 'Custom',
-      connection: 'Custom'
+      catRating: 'CAT IV 600V',
+      accuracy: '0.05% DCV',
+      features: 'True-RMS / Data Logging',
+      battery: '1000+ Hours Ops'
+    }
+  },
+  // Variable Wires & Cables
+  {
+    id: 'wc-101',
+    name: 'Shielded Control Cable WC-S',
+    category: 'Variable Wires & Cables',
+    description: 'Armored signal and control cabling',
+    longDescription: 'Designed for mission-critical signal integrity, the WC-S series provides superior electromagnetic shielding and mechanical protection for industrial plant wiring.',
+    price: 'Custom Quote',
+    image: '/premium_gauge_product_1775038995087.png',
+    specifications: {
+      cores: '2 to 12 Multi-Core',
+      shielding: 'Al-PET / Braided Copper',
+      jacket: 'LSZH (Low Smoke)',
+      voltage: '300V / 500V'
+    }
+  },
+  // Online Moisture Analyser
+  {
+    id: 'om-101',
+    name: 'Matrix Moisture Analyser MA-1',
+    category: 'Online Moisture Analyser',
+    description: 'Real-time online moisture monitoring',
+    longDescription: 'Continuous, non-destructive moisture analysis for process lines. The MA-1 uses microwave or NIR technology to provide instantaneous data for quality control systems.',
+    price: 'Custom Quote',
+    image: '/premium_gauge_product_1775038995087.png',
+    specifications: {
+      method: 'NIR / Microwave Scan',
+      range: '0% - 80% Absolute',
+      interface: 'Digital API / 4-20mA',
+      response: 'Real-Time (<100ms)'
+    }
+  },
+  // SS Pipe & Fittings
+  {
+    id: 'pf-101',
+    name: 'High-Pressure SS Fittings',
+    category: 'SS Pipe & Fittings',
+    description: 'Precision forged stainless steel fittings',
+    longDescription: 'Comprehensive range of forged fittings designed for high-integrity piping systems. Manufactured to ASME and ASTM standards for maximum safety in high-pressure steam and chemical lines.',
+    price: 'Custom Quote',
+    image: '/premium_gauge_product_1775038995087.png',
+    specifications: {
+      grade: 'ASTM A182 F316/316L',
+      rating: '3000 LB / 6000 LB',
+      size: '1/4" to 4" Nominal',
+      type: 'NPT / Socket Weld'
+    }
+  },
+  // Panel Buildings
+  {
+    id: 'pb-101',
+    name: 'Process Control Building Enclosure',
+    category: 'Panel Buildings',
+    description: 'Custom modular control panel buildings',
+    longDescription: 'Fully integrated panel buildings designed for housing critical DCS and PLC assets. Features climate control, fire suppression, and electromagnetic shielding for remote site installations.',
+    price: 'Custom Quote',
+    image: '/premium_gauge_product_1775038995087.png',
+    specifications: {
+      enclosure: 'NEMA 4X / IP66',
+      HVAC: 'Integrated Unit',
+      wiring: 'Pre-wired / Tested',
+      material: 'Double-Skin Insulated'
+    }
+  },
+  // Wireless System
+  {
+    id: 'ws-101',
+    name: 'Mesh Wireless Node WS-500',
+    category: 'Wireless System',
+    description: 'Self-healing mesh wireless sensor node',
+    longDescription: 'Deploy sensors without the cost of cabling. The WS-500 creates a robust, self-healing wireless mesh network for distributed monitoring in massive industrial facilities.',
+    price: 'Custom Quote',
+    image: '/premium_gauge_product_1775038995087.png',
+    specifications: {
+      protocol: 'WirelessHART / ISA100.11a',
+      range: 'Up to 500m (Line of Sight)',
+      battery: '10-Year Life',
+      security: 'AES-128 Encrypted'
     }
   }
 ]

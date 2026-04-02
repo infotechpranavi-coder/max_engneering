@@ -1,99 +1,146 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
+import { useState, useEffect } from 'react'
+import { Menu, X, ShoppingBag } from 'lucide-react'
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border shadow-sm">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
-            <span className="text-white font-bold text-lg">F</span>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-4' : 'py-8'}`}>
+      <nav className={`max-w-5xl mx-auto px-6 h-16 flex items-center justify-between transition-all duration-500 rounded-full border border-white/10 ${scrolled ? 'bg-primary/90 backdrop-blur-2xl shadow-xl border-white/20' : 'bg-transparent'}`}>
+        <Link href="/" className="flex items-center gap-2 group">
+          {/* Left Logo - Official Mark 1 (Iconographic) */}
+          <div className="w-28 h-18 relative group-hover:scale-105 transition-transform duration-500 shrink-0 translate-y-3">
+            <Image 
+              src="/max_eng_old.png" 
+              alt="Max Engineering Mark 1"
+              fill
+              className="object-contain"
+            />
           </div>
-          <span className="hidden sm:inline font-bold text-lg bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">FastGauge</span>
+
+          {/* Vertical Divider Line */}
+          <div className="w-px h-12 bg-white/20 hidden sm:block mx-1" />
+
+          {/* Right Logo - official Mark 2 (Typographic) */}
+          <div className="w-64 h-16 relative group-hover:translate-x-1 transition-transform duration-500 shrink-0 -ml-10">
+            <Image 
+              src="/Transparent Logo.png" 
+              alt="Max Engineering Mark 2"
+              fill
+              className="object-contain"
+            />
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <Link
-            href="/"
-            className="text-foreground hover:text-primary transition-colors text-sm font-semibold relative group"
-          >
-            Home
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+          <Link href="/" className="group relative py-2">
+            <span className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors duration-500 ${scrolled ? 'text-white/70 group-hover:text-white' : 'text-white/80 group-hover:text-white'}`}>Home</span>
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500 rounded-full"></span>
           </Link>
-          <Link
-            href="/products"
-            className="text-foreground hover:text-primary transition-colors text-sm font-semibold relative group"
-          >
-            Products
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+
+          {/* Products Dropdown - Minimalist Grid */}
+          <div className="group relative py-2">
+            <div className="flex items-center gap-2 cursor-pointer">
+               <Link 
+                 href="/products" 
+                 className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors duration-500 ${scrolled ? 'text-white/70 group-hover:text-white' : 'text-white/80 group-hover:text-white'}`}
+               >
+                 Products
+               </Link>
+               <svg className="w-3 h-3 text-secondary transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" /></svg>
+            </div>
+            
+            <div className="absolute top-full -left-20 pt-6 opacity-0 translate-y-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-700 z-50">
+               <div className="w-[540px] bg-primary/95 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-12 grid grid-cols-2 gap-x-12 gap-y-6 shadow-[0_40px_120px_rgba(0,0,0,0.6)]">
+                  {[
+                    'Transmitters', 'Gauges', 'Switches', 'Temperature Sensors', 'Digital Indicators & Controllers', 
+                    'Multimeters & Testers', 'Variable Wires & Cables', 'Online Moisture Analyser', 
+                    'SS Pipe & Fittings', 'Panel Buildings', 'Wireless System'
+                  ].map(item => (
+                    <Link 
+                      key={item} 
+                      href={`/${item.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} 
+                      className="group/item flex items-center gap-3 text-[11px] font-black uppercase tracking-widest text-white/60 hover:text-secondary transition-all"
+                    >
+                      <div className="w-1.5 h-1.5 bg-secondary/20 rounded-full group-hover/item:bg-secondary transition-colors" />
+                      {item}
+                    </Link>
+                  ))}
+               </div>
+            </div>
+          </div>
+
+          <Link href="/about" className="group relative py-2">
+            <span className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors duration-500 ${scrolled ? 'text-white/70 group-hover:text-white' : 'text-white/80 group-hover:text-white'}`}>About Us</span>
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500 rounded-full"></span>
           </Link>
-          <Link
-            href="/about"
-            className="text-foreground hover:text-primary transition-colors text-sm font-semibold relative group"
-          >
-            About
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
-          </Link>
-          <Link
-            href="/contact"
-            className="text-foreground hover:text-primary transition-colors text-sm font-semibold relative group"
-          >
-            Contact
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+          <Link href="/contact" className="group relative py-2">
+            <span className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors duration-500 ${scrolled ? 'text-white/70 group-hover:text-white' : 'text-white/80 group-hover:text-white'}`}>Contact</span>
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500 rounded-full"></span>
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-foreground"
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-4">
+           {/* Cart Placeholder */}
+           <button className="relative p-2 text-white/80 hover:text-white transition-colors group">
+              <ShoppingBag size={20} strokeWidth={2.5} className="group-hover:scale-110 transition-transform" />
+              <span className="absolute top-1 right-1 w-2 h-2 bg-secondary rounded-full shadow-lg shadow-secondary/50"></span>
+           </button>
+
+           {/* Mobile Menu Button */}
+           <button
+             onClick={() => setIsOpen(!isOpen)}
+             className="md:hidden p-2 text-white transition-transform hover:scale-110"
+             aria-label="Toggle menu"
+           >
+             {isOpen ? <X size={26} strokeWidth={3} /> : <Menu size={26} strokeWidth={3} />}
+           </button>
+        </div>
       </nav>
 
       {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="md:hidden border-t border-border bg-white">
-          <div className="px-4 py-4 space-y-3">
-            <Link
-              href="/"
-              className="block text-foreground hover:text-primary transition-colors font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              href="/products"
-              className="block text-foreground hover:text-primary transition-colors font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              Products
-            </Link>
-            <Link
-              href="/about"
-              className="block text-foreground hover:text-primary transition-colors font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="/contact"
-              className="block text-foreground hover:text-primary transition-colors font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact
-            </Link>
+      <div className={`fixed inset-0 bg-primary/95 backdrop-blur-3xl z-40 md:hidden transition-all duration-700 ease-in-out ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'}`}>
+        <div className="h-full flex flex-col items-center justify-center space-y-8 overflow-y-auto pt-20 pb-10">
+          <Link href="/" className="text-4xl font-black text-white hover:text-secondary transition-colors tracking-tighter" onClick={() => setIsOpen(false)}>Home</Link>
+          
+          <div className="text-center space-y-6">
+            <h4 className="text-[10px] font-black uppercase tracking-[0.5em] text-secondary opacity-50 underline underline-offset-8 decoration-2">Industrial Solutions</h4>
+            <div className="grid grid-cols-1 gap-4">
+              {[
+                'Transmitters', 'Gauges', 'Switches', 'Temperature Sensors', 'Digital Indicators & Controllers', 
+                'Multimeters & Testers', 'Variable Wires & Cables', 'Online Moisture Analyser', 
+                'SS Pipe & Fittings', 'Panel Buildings', 'Wireless System'
+              ].map(item => (
+                <Link 
+                  key={item} 
+                  href={`/${item.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} 
+                  className="text-xl font-black text-white/80 hover:text-secondary transition-colors tracking-tight uppercase italic"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item}
+                </Link>
+              ))}
+            </div>
           </div>
+
+          <Link href="/about" className="text-4xl font-black text-white hover:text-secondary transition-colors tracking-tighter uppercase italic" onClick={() => setIsOpen(false)}>About Us</Link>
+          <Link href="/contact" className="text-4xl font-black text-white hover:text-secondary transition-colors tracking-tighter uppercase italic" onClick={() => setIsOpen(false)}>Contact</Link>
         </div>
-      )}
+      </div>
     </header>
   )
 }
