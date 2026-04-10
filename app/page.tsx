@@ -13,7 +13,16 @@ import {
 } from 'lucide-react'
 
 export default function Home() {
-  const featuredProducts = products.slice(0, 5)
+  const featuredCategories = [
+    'Transmitters',
+    'Gauges',
+    'Switches',
+    'Temperature Sensors',
+    'Digital Indicators & Controllers'
+  ]
+  const featuredProducts = featuredCategories
+    .map(cat => products.find(p => p.category === cat))
+    .filter((p): p is typeof products[0] => p !== undefined)
   const categories = [
     { name: 'Transmitters', icon: Radio, href: '/transmitters' },
     { name: 'Gauges', icon: Gauge, href: '/gauges' },
@@ -183,12 +192,16 @@ export default function Home() {
               {/* Two sets of same items for infinite seamless scroll */}
               {[...Array(2)].map((_, setIdx) => (
                 <div key={setIdx} className="flex items-center gap-10 pr-10">
-                  {['ABB', 'Honeywell', 'HNL', 'Precision MASS', 'Wika', 'Fluke', 'Baumer', 'Schneider', 'Festo', 'Aira', 'Masibus', 'Hager', 'Polycab', 'Yokogawa India', 'Jupiter Electronics'].map((partner) => (
+                  {Array.from({ length: 30 }, (_, i) => (
                     <div
-                      key={`${setIdx}-${partner}`}
-                      className="w-64 h-32 flex items-center justify-center bg-[#F8F9FA] rounded-[1.5rem] border border-primary/5 shadow-sm grayscale hover:grayscale-0 hover:bg-white hover:shadow-xl transition-all duration-500"
+                      key={`${setIdx}-${i + 1}`}
+                      className="w-56 h-28 flex items-center justify-center bg-white rounded-2xl border border-primary/5 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden p-2"
                     >
-                      <span className="font-black text-xl italic tracking-tighter text-primary/60 hover:text-primary transition-colors">{partner}</span>
+                      <img
+                        src={`/partners/${i + 1}.jpg`}
+                        alt={`Strategic Partner Logo ${i + 1}`}
+                        className="max-w-full max-h-full object-contain"
+                      />
                     </div>
                   ))}
                 </div>
@@ -198,7 +211,7 @@ export default function Home() {
         </section>
 
         {/* Flagship Models - Tactical Technical List */}
-        <section className="py-32 bg-[#FDFDFD]">
+        <section className="pt-16 pb-32 bg-[#FDFDFD]">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-24 gap-8">
               <div>

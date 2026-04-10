@@ -8,6 +8,13 @@ import { Menu, X } from 'lucide-react'
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const productCategories = [
+    'Transmitters', 'Gauges', 'Switches', 'Temperature Sensors', 'Digital Indicators & Controllers', 
+    'Multimeters & Testers', 'Variable Wires & Cables', 'Online Moisture Analyser', 
+    'SS Pipe & Fittings', 'Panel Buildings', 'Wireless System'
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +26,7 @@ export function Navigation() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-4' : 'py-8'}`}>
-      <nav className={`max-w-5xl mx-auto px-6 h-20 flex items-center justify-between transition-all duration-500 rounded-full border border-white/10 ${scrolled ? 'bg-primary/90 backdrop-blur-2xl shadow-xl border-white/20' : 'bg-white shadow-lg'}`}>
+      <nav className={`max-w-5xl mx-auto px-6 h-20 flex items-center justify-between transition-all duration-500 rounded-full border border-white/10 bg-primary/95 backdrop-blur-2xl shadow-xl ${scrolled ? 'border-white/20' : 'border-white/10'}`}>
         <Link href="/" className="flex items-center gap-2 group">
           {/* Left Logo - official Mark 2 (Typographic) */}
           <div className="w-24 h-14 relative group-hover:translate-x-1 transition-transform duration-500 shrink-0 ml-5 -mr-4">
@@ -48,7 +55,7 @@ export function Navigation() {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-6">
           <Link href="/" className="group relative py-2">
-            <span className={`text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 ${scrolled ? 'text-white/70 group-hover:text-white' : 'text-black/80 group-hover:text-black'}`}>Home</span>
+            <span className="text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white">Home</span>
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500 rounded-full"></span>
           </Link>
 
@@ -57,20 +64,16 @@ export function Navigation() {
             <div className="flex items-center gap-2 cursor-pointer">
                <button 
                  type="button"
-                 className={`text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 ${scrolled ? 'text-white/70 group-hover:text-white' : 'text-black/80 group-hover:text-black'}`}
+                 className="text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white"
                >
                  Products
                </button>
-               <svg className={`w-3 h-3 transition-transform group-hover:rotate-180 ${scrolled ? 'text-secondary' : 'text-black/60'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" /></svg>
+               <svg className="w-3 h-3 text-secondary transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" /></svg>
             </div>
             
             <div className="absolute top-full -left-20 pt-6 opacity-0 translate-y-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-700 z-50">
                <div className="w-[540px] bg-primary/95 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-12 grid grid-cols-2 gap-x-12 gap-y-6 shadow-[0_40px_120px_rgba(0,0,0,0.6)]">
-                  {[
-                    'Transmitters', 'Gauges', 'Switches', 'Temperature Sensors', 'Digital Indicators & Controllers', 
-                    'Multimeters & Testers', 'Variable Wires & Cables', 'Online Moisture Analyser', 
-                    'SS Pipe & Fittings', 'Panel Buildings', 'Wireless System'
-                  ].map(item => (
+                  {productCategories.map(item => (
                     <Link 
                       key={item} 
                       href={`/${item.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} 
@@ -85,24 +88,24 @@ export function Navigation() {
           </div>
 
           <Link href="/about" className="group relative py-2">
-            <span className={`text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 ${scrolled ? 'text-white/70 group-hover:text-white' : 'text-black/80 group-hover:text-black'}`}>About Us</span>
+            <span className="text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white">About Us</span>
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500 rounded-full"></span>
           </Link>
           <Link href="/contact" className="group relative py-2">
-            <span className={`text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 ${scrolled ? 'text-white/70 group-hover:text-white' : 'text-black/80 group-hover:text-black'}`}>Contact</span>
+            <span className="text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white">Contact</span>
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500 rounded-full"></span>
           </Link>
           <a href="/profile.pdf" target="_blank" rel="noopener noreferrer" className="group relative py-2">
-            <span className={`text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 ${scrolled ? 'text-white/70 group-hover:text-white' : 'text-black/80 group-hover:text-black'}`}>Download</span>
+            <span className="text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white">Download</span>
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500 rounded-full"></span>
           </a>
         </div>
 
         <div className="flex items-center gap-4">
-           {/* Mobile Menu Button */}
+           {/* Mobile Menu Button - Toggle Black/White based on state */}
            <button
              onClick={() => setIsOpen(!isOpen)}
-             className="md:hidden p-2 text-white transition-transform hover:scale-110"
+             className="lg:hidden p-2 text-white transition-transform hover:scale-110"
              aria-label="Toggle menu"
            >
              {isOpen ? <X size={26} strokeWidth={3} /> : <Menu size={26} strokeWidth={3} />}
@@ -111,32 +114,38 @@ export function Navigation() {
       </nav>
 
       {/* Mobile Navigation */}
-      <div className={`fixed inset-0 bg-primary/95 backdrop-blur-3xl z-40 md:hidden transition-all duration-700 ease-in-out ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'}`}>
-        <div className="h-full flex flex-col items-center justify-center space-y-8 overflow-y-auto pt-20 pb-10">
-          <Link href="/" className="text-4xl font-black text-white hover:text-secondary transition-colors tracking-tighter" onClick={() => setIsOpen(false)}>Home</Link>
+      <div className={`fixed inset-0 bg-primary/95 backdrop-blur-3xl z-40 lg:hidden transition-all duration-700 ease-in-out ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'}`}>
+        <div className="h-full flex flex-col items-center justify-center space-y-6 overflow-y-auto pt-24 pb-12">
+          <Link href="/" className="text-3xl font-black text-white hover:text-secondary transition-colors tracking-tighter uppercase italic" onClick={() => setIsOpen(false)}>Home</Link>
           
-          <div className="text-center space-y-6">
-            <h4 className="text-[10px] font-black uppercase tracking-[0.5em] text-secondary opacity-50 underline underline-offset-8 decoration-2">Industrial Solutions</h4>
-            <div className="grid grid-cols-1 gap-4">
-              {[
-                'Transmitters', 'Gauges', 'Switches', 'Temperature Sensors', 'Digital Indicators & Controllers', 
-                'Multimeters & Testers', 'Variable Wires & Cables', 'Online Moisture Analyser', 
-                'SS Pipe & Fittings', 'Panel Buildings', 'Wireless System'
-              ].map(item => (
-                <Link 
-                  key={item} 
-                  href={`/${item.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} 
-                  className="text-xl font-black text-white/80 hover:text-secondary transition-colors tracking-tight uppercase italic"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item}
-                </Link>
-              ))}
+          <div className="w-full max-w-[280px] text-center space-y-4">
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="flex items-center justify-center gap-3 w-full text-3xl font-black text-white hover:text-secondary transition-colors tracking-tighter uppercase italic"
+            >
+              Products
+              <svg className={`w-5 h-5 text-secondary transition-transform ${mobileMenuOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            
+            <div className={`grid transition-all duration-500 ease-in-out ${mobileMenuOpen ? 'max-h-[500px] opacity-100 mt-6' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+              <div className="flex flex-col gap-3 py-2">
+                {productCategories.map(item => (
+                  <Link 
+                    key={item} 
+                    href={`/${item.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} 
+                    className="text-[13px] font-black text-white/60 hover:text-secondary transition-colors tracking-widest uppercase italic"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 
-          <Link href="/about" className="text-4xl font-black text-white hover:text-secondary transition-colors tracking-tighter uppercase italic" onClick={() => setIsOpen(false)}>About Us</Link>
-          <Link href="/contact" className="text-4xl font-black text-white hover:text-secondary transition-colors tracking-tighter uppercase italic" onClick={() => setIsOpen(false)}>Contact</Link>
+          <Link href="/about" className="text-3xl font-black text-white hover:text-secondary transition-colors tracking-tighter uppercase italic" onClick={() => setIsOpen(false)}>About Us</Link>
+          <Link href="/contact" className="text-3xl font-black text-white hover:text-secondary transition-colors tracking-tighter uppercase italic" onClick={() => setIsOpen(false)}>Contact</Link>
+          <a href="/profile.pdf" target="_blank" rel="noopener noreferrer" className="text-3xl font-black text-white hover:text-secondary transition-colors tracking-tighter uppercase italic" onClick={() => setIsOpen(false)}>Download</a>
         </div>
       </div>
     </header>

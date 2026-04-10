@@ -20,7 +20,7 @@ export function Hero() {
   }, [banners.length])
 
   return (
-    <section className="relative w-full h-[60vh] sm:h-[80vh] lg:h-[90vh] overflow-hidden bg-primary mt-20 sm:mt-0">
+    <section className="relative w-full h-[180px] sm:h-[80vh] lg:h-[90vh] overflow-hidden bg-[#FDFDFD] mt-28 sm:mt-8">
       {/* Background Slider */}
       <div className="absolute inset-0 z-0">
         {banners.map((src, idx) => (
@@ -35,7 +35,7 @@ export function Hero() {
               alt={`Industrial Showcase ${idx + 1}`}
               fill
               priority={idx === 0}
-              className="object-cover"
+              className="object-contain sm:object-cover"
             />
           </div>
         ))}
