@@ -46,7 +46,7 @@ export default async function ProductDetailPage(props: ProductDetailPageProps) {
       <Navigation />
       <main className="flex-1">
         {/* Breadcrumb - Subtle */}
-        <div className="bg-white border-b border-border/40 pb-4 pt-40 px-6">
+        <div className="bg-white border-b border-border/40 pb-4 pt-32 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-primary/40">
               <Link href="/" className="hover:text-primary transition-colors">ROOT</Link>
@@ -59,75 +59,75 @@ export default async function ProductDetailPage(props: ProductDetailPageProps) {
         </div>
 
         {/* Product Details Section */}
-        <section className="py-24 bg-white overflow-hidden">
+        <section className="py-16 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+            <div className={`grid grid-cols-1 ${(!product.image || product.image === '/placeholder.jpg' || product.image === '/placeholder.svg') ? 'lg:grid-cols-1 max-w-4xl mx-auto' : 'lg:grid-cols-2'} gap-12 items-start`}>
               
               {/* Cinematic Product Display */}
-              <div className="lg:col-span-7">
-                <div className="relative aspect-square bg-[#F8F9FA] rounded-[3rem] p-16 flex items-center justify-center overflow-hidden group border border-border/40">
+              {product.image && product.image !== '/placeholder.jpg' && product.image !== '/placeholder.svg' && (
+                <div className="relative aspect-[4/3] bg-[#F8F9FA] rounded-[2.5rem] p-12 flex items-center justify-center overflow-hidden group border border-border/40 max-w-2xl mx-auto w-full">
                   <Image
-                    src="/premium_gauge_product_1775038995087.png"
+                    src={product.image}
                     alt={product.name}
-                    width={800}
-                    height={800}
+                    width={600}
+                    height={600}
                     className="object-contain mix-blend-multiply transition-transform duration-1000 group-hover:scale-105"
                   />
-                  <div className="absolute top-12 left-12">
-                     <div className="w-16 h-16 bg-primary/5 rounded-[1.5rem] flex items-center justify-center rotate-3 group-hover:rotate-12 transition-transform duration-700">
-                        <Package className="text-primary size-8" />
+                  <div className="absolute top-8 left-8">
+                     <div className="w-12 h-12 bg-primary/5 rounded-[1.2rem] flex items-center justify-center rotate-3 group-hover:rotate-12 transition-transform duration-700">
+                        <Package className="text-primary size-6" />
                      </div>
                   </div>
-                  <div className="absolute bottom-12 right-12 text-right">
-                     <span className="text-[10px] font-black text-primary/20 uppercase tracking-[0.5em] block mb-2">PRECISION LEVEL</span>
-                     <span className="text-2xl font-black text-primary tracking-tighter italic">NIST-0.05</span>
+                  <div className="absolute bottom-8 right-8 text-right">
+                     <span className="text-[9px] font-black text-primary/20 uppercase tracking-[0.5em] block mb-1">PRECISION LEVEL</span>
+                     <span className="text-xl font-black text-primary tracking-tighter italic">NIST-0.05</span>
                   </div>
                 </div>
-              </div>
+              )}
 
               {/* Product Info - Editorial Style */}
-              <div className="lg:col-span-5 flex flex-col justify-center">
-                <div className="mb-10">
-                   <div className="inline-flex items-center gap-3 bg-secondary/10 px-4 py-2 rounded-full mb-8">
-                      <Zap className="size-4 text-secondary-foreground" />
-                      <span className="text-[10px] font-black uppercase tracking-widest text-secondary-foreground">{product.category}</span>
+              <div className="flex flex-col justify-center">
+                <div className="mb-6">
+                   <div className="inline-flex items-center gap-2 bg-secondary/10 px-3 py-1.5 rounded-full mb-6">
+                      <Zap className="size-3.5 text-secondary-foreground" />
+                      <span className="text-[9px] font-black uppercase tracking-widest text-secondary-foreground">{product.category}</span>
                    </div>
-                   <h1 className="text-5xl lg:text-7xl font-black text-primary mb-8 tracking-tighter leading-[0.9] uppercase italic sticky top-0">
+                   <h1 className="text-4xl lg:text-5xl font-black text-primary mb-6 tracking-tighter leading-[1] uppercase italic">
                      {product.name}
                    </h1>
-                   <p className="text-xl text-muted-foreground font-medium leading-relaxed mb-12">
+                   <p className="text-base text-muted-foreground font-medium leading-relaxed mb-8">
                      {product.longDescription}
                    </p>
                    
-                   <div className="flex items-end gap-6 mb-16 border-t border-border/40 pt-10">
+                   <div className="flex items-end gap-6 mb-10 border-t border-border/40 pt-8">
                       <div>
-                        <span className="text-[10px] font-black text-primary/40 uppercase tracking-[0.3em] block mb-2">UNIT COST</span>
-                        <span className="text-5xl font-black text-primary tracking-tighter">{product.price}</span>
+                        <span className="text-[9px] font-black text-primary/40 uppercase tracking-[0.3em] block mb-1">UNIT COST</span>
+                        <span className="text-4xl font-black text-primary tracking-tighter">{product.price}</span>
                       </div>
-                      <div className="pb-2">
-                        <span className="bg-green-100 text-green-700 text-[10px] font-black px-3 py-1 rounded-lg uppercase tracking-widest">READY-TO-SHIP</span>
+                      <div className="pb-1.5">
+                        <span className="bg-green-100 text-green-700 text-[9px] font-black px-2.5 py-1 rounded-md uppercase tracking-widest">READY-TO-SHIP</span>
                       </div>
                    </div>
 
-                   <div className="flex flex-col sm:flex-row gap-5">
-                     <button className="flex-1 bg-primary text-white px-10 py-6 rounded-2xl font-black text-sm uppercase tracking-[0.2em] shadow-2xl hover:bg-black transition-all hover:scale-105 active:scale-95">
+                   <div className="flex flex-col sm:flex-row gap-4">
+                     <button className="flex-1 bg-primary text-white px-8 py-5 rounded-xl font-black text-xs uppercase tracking-[0.2em] shadow-xl hover:bg-black transition-all hover:scale-105 active:scale-95">
                        PROCEED TO CART
                      </button>
-                     <button className="flex-1 bg-white border-2 border-primary text-primary px-10 py-6 rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:bg-primary hover:text-white transition-all">
+                     <button className="flex-1 bg-white border-2 border-primary text-primary px-8 py-5 rounded-xl font-black text-xs uppercase tracking-[0.2em] hover:bg-primary hover:text-white transition-all">
                        REQUEST SPEC
                      </button>
                    </div>
                 </div>
 
                 {/* Trust Badges */}
-                <div className="grid grid-cols-2 gap-6 border-t border-border/40 pt-12 mt-4 opacity-40 grayscale group-hover:grayscale-0 transition-all duration-700">
-                   <div className="flex items-center gap-3">
-                      <ShieldCheck className="size-5" />
-                      <span className="text-[10px] font-black uppercase tracking-widest">MIL-SPEC CERTIFIED</span>
+                <div className="grid grid-cols-2 gap-4 border-t border-border/40 pt-8 mt-2 opacity-50 grayscale group-hover:grayscale-0 transition-all duration-700">
+                   <div className="flex items-center gap-2">
+                      <ShieldCheck className="size-4" />
+                      <span className="text-[9px] font-black uppercase tracking-widest">MIL-SPEC CERTIFIED</span>
                    </div>
-                   <div className="flex items-center gap-3">
-                      <Globe className="size-5" />
-                      <span className="text-[10px] font-black uppercase tracking-widest">GLOBAL LOGISTICS</span>
+                   <div className="flex items-center gap-2">
+                      <Globe className="size-4" />
+                      <span className="text-[9px] font-black uppercase tracking-widest">GLOBAL LOGISTICS</span>
                    </div>
                 </div>
               </div>
@@ -136,7 +136,7 @@ export default async function ProductDetailPage(props: ProductDetailPageProps) {
         </section>
 
         {/* Technical Data Section */}
-        <section className="py-32 bg-[#F8F9FA] relative rounded-[4rem] mx-6 mb-16 overflow-hidden">
+        <section className="py-20 bg-[#F8F9FA] relative rounded-[4rem] mx-6 mb-16 overflow-hidden">
           <div className="absolute top-0 left-0 w-1/4 h-full bg-secondary/5 blur-[120px]" />
           <div className="max-w-7xl mx-auto px-10 relative z-10">
             <div className="grid lg:grid-cols-12 gap-20">
@@ -157,7 +157,7 @@ export default async function ProductDetailPage(props: ProductDetailPageProps) {
         </section>
 
         {/* Feature Highlights Grid */}
-        <section className="py-32 bg-white">
+        <section className="py-20 bg-white">
            <div className="max-w-7xl mx-auto px-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                  {[

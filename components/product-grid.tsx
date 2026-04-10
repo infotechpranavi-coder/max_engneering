@@ -164,18 +164,77 @@ export function ProductGrid({ initialCategory }: ProductGridProps) {
              <div className="space-y-40">
                 {categoriesWithProducts
                   .find(c => c.name === selectedCategory)?.items
-                  .map((item, idx) => (
-                    <div key={item.id} id={item.id} className={`flex flex-col lg:flex-row gap-16 lg:gap-24 group/item scroll-mt-40 ${idx % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
-                       <div className="lg:w-1/2 space-y-8">
+                  .map((item, idx) => {
+                    const isPlaceholder = !item.image || item.image === '/placeholder.jpg' || item.image === '/placeholder.svg'
+                    const isLandscapeLayout = 
+                      item.name.toUpperCase().includes('MANIFOLD') || 
+                      item.id === 'mt-102' || 
+                      item.id === 'ga-104' || 
+                      item.id.startsWith('wc-')
+                    
+                    if (isLandscapeLayout) {
+                       return (
+                         <div key={item.id} id={item.id} className="flex flex-col gap-12 group/item scroll-mt-40">
+                            <h4 className="text-4xl lg:text-5xl font-black text-primary group-hover/item:text-secondary transition-colors italic tracking-tighter uppercase">
+                              {item.name}
+                            </h4>
+                            
+                            <div className="w-full aspect-[16/9] lg:aspect-[21/9] bg-[#F8F9FA] rounded-[3rem] relative flex items-center justify-center p-12 overflow-hidden group-hover/item:shadow-[0_40px_100px_rgba(0,0,0,0.08)] transition-all duration-700">
+                               <Image 
+                                 src={item.image} 
+                                 alt={item.name}
+                                 fill
+                                 className="object-contain p-12 group-hover/item:scale-105 transition-transform duration-700"
+                               />
+                               <div className="absolute top-8 left-8">
+                                  <span className="bg-white/80 backdrop-blur-md px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest text-primary border border-primary/10 shadow-sm">
+                                     Certified Component
+                                  </span>
+                               </div>
+                            </div>
+
+                            <div className="space-y-8">
+                               <p className="text-xl text-muted-foreground leading-relaxed font-medium max-w-5xl">
+                                 {item.longDescription ? item.longDescription : `Precision engineered ${item.name} featuring high-stability sensors and rugged industrial housing.`}
+                               </p>
+                               
+                               <div className="space-y-6 pt-6 border-t border-border/20">
+                                  <div className="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-6">
+                                     {Object.entries(item.specifications).map(([key, value]) => (
+                                       <div key={key} className="space-y-1">
+                                          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/30">{key}</p>
+                                          <p className="text-sm font-bold text-primary italic uppercase">{value}</p>
+                                       </div>
+                                     ))}
+                                  </div>
+                                  
+                                  <div className="pt-8">
+                                     <Link 
+                                       href={`/products/${item.id}`} 
+                                       className="inline-flex items-center gap-4 bg-primary text-white px-10 py-5 rounded-xl font-black text-[10px] uppercase tracking-[0.2em] hover:bg-secondary hover:text-secondary-foreground shadow-xl transition-all hover:scale-105"
+                                     >
+                                        Technical Data Sheet
+                                        <ArrowRight size={14} />
+                                     </Link>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                       )
+                    }
+
+                    return (
+                    <div key={item.id} id={item.id} className={`flex flex-col lg:flex-row gap-16 lg:gap-24 group/item scroll-mt-40 ${idx % 2 === 0 || isPlaceholder ? '' : 'lg:flex-row-reverse'}`}>
+                       <div className={`${isPlaceholder ? 'lg:w-full' : 'lg:w-1/2'} space-y-8`}>
                           <h4 className="text-4xl font-black text-primary group-hover/item:text-secondary transition-colors italic tracking-tighter uppercase">
                             {item.name}
                           </h4>
-                          <p className="text-lg text-muted-foreground leading-relaxed font-medium">
+                          <p className={`text-lg text-muted-foreground leading-relaxed font-medium ${isPlaceholder ? 'max-w-4xl' : ''}`}>
                             {item.longDescription ? item.longDescription : `Precision engineered ${item.name} featuring high-stability sensors and rugged industrial housing. Designed to lower total cost of ownership while providing maximum system integration.`}
                           </p>
                           
                           <div className="space-y-6 pt-6 border-t border-border/20">
-                             <div className="grid grid-cols-2 gap-x-12 gap-y-6">
+                             <div className={`grid ${isPlaceholder ? 'grid-cols-2 md:grid-cols-4' : 'grid-cols-2'} gap-x-12 gap-y-6`}>
                                 {Object.entries(item.specifications).map(([key, value]) => (
                                   <div key={key} className="space-y-1">
                                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/30">{key}</p>
@@ -196,23 +255,25 @@ export function ProductGrid({ initialCategory }: ProductGridProps) {
                           </div>
                        </div>
                        
-                       <div className="lg:w-1/2">
-                          <div className="aspect-[4/5] bg-[#F8F9FA] rounded-[3rem] relative flex items-center justify-center p-12 overflow-hidden group-hover/item:shadow-[0_40px_100px_rgba(0,0,0,0.08)] transition-all duration-700">
-                             <Image 
-                               src={item.image} 
-                               alt={item.name}
-                               fill
-                               className="object-contain p-12 group-hover/item:scale-105 transition-transform duration-700"
-                             />
-                             <div className="absolute top-8 left-8">
-                                <span className="bg-white/80 backdrop-blur-md px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest text-primary border border-primary/10 shadow-sm">
-                                   Certified Component
-                                </span>
-                             </div>
-                          </div>
-                       </div>
+                       {!isPlaceholder && (
+                         <div className="lg:w-1/2">
+                            <div className="aspect-[4/5] bg-[#F8F9FA] rounded-[3rem] relative flex items-center justify-center p-12 overflow-hidden group-hover/item:shadow-[0_40px_100px_rgba(0,0,0,0.08)] transition-all duration-700">
+                               <Image 
+                                 src={item.image} 
+                                 alt={item.name}
+                                 fill
+                                 className="object-contain p-12 group-hover/item:scale-105 transition-transform duration-700"
+                               />
+                               <div className="absolute top-8 left-8">
+                                  <span className="bg-white/80 backdrop-blur-md px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest text-primary border border-primary/10 shadow-sm">
+                                     Certified Component
+                                  </span>
+                               </div>
+                            </div>
+                         </div>
+                       )}
                     </div>
-                  ))}
+                  )})}
              </div>
           </div>
         )}

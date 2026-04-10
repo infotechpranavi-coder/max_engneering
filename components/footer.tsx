@@ -14,22 +14,22 @@ export function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-20">
           {/* Brand Column */}
           <div className="lg:col-span-4">
-            <div className="flex items-center gap-4 mb-12">
-              {/* Left Logo - Official Mark 1 (Iconographic) */}
-              <div className="w-48 h-32 relative shrink-0 translate-y-4">
+            <div className="flex items-center gap-2 mb-12 -ml-12">
+              {/* Left Logo - official Mark 2 (Typographic) */}
+              <div className="w-64 h-24 relative shrink-0 -mr-20">
                 <Image 
-                  src="/max_eng_old.png" 
-                  alt="Max Engineering"
+                  src="/Transparent Logo.png" 
+                  alt="Max Engineering Logo"
                   fill
                   className="object-contain"
                 />
               </div>
-              <div className="w-px h-20 bg-white/10" />
-              {/* Right Logo - official Mark 2 (Typographic) */}
-              <div className="w-64 h-24 relative shrink-0 -ml-18">
+              <div className="w-[2px] h-20 bg-white/10 ml-6 mr-0" />
+              {/* Right Logo - Official Mark 1 (Iconographic) */}
+              <div className="w-48 h-32 relative shrink-0 translate-y-4">
                 <Image 
-                  src="/Transparent Logo.png" 
-                  alt="Max Engineering Logo"
+                  src="/max_eng_old.png" 
+                  alt="Max Engineering"
                   fill
                   className="object-contain"
                 />

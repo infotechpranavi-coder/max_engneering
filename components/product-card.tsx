@@ -16,34 +16,36 @@ export function ProductCard({ id, name, category, description, price, image }: P
     <Link href={`/products/${id}`} className="block group">
       <div className="relative bg-white rounded-[2rem] border border-border/60 overflow-hidden hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-700 hover:-translate-y-3">
         {/* Product Image Area */}
-        <div className="aspect-[4/5] bg-[#F8F9FB] overflow-hidden relative flex items-center justify-center p-8">
-          <Image
-            src={image || "/premium_gauge_product_1775038995087.png"}
-            alt={name}
-            width={400}
-            height={400}
-            className="object-contain group-hover:scale-110 transition-transform duration-700"
-          />
-          
-          {/* Discount/Badge tag */}
-          <div className="absolute top-6 left-6">
-             <span className="bg-primary/5 backdrop-blur-md border border-primary/10 text-primary text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
-               Standard Edition
-             </span>
-          </div>
+        {image && image !== '/placeholder.jpg' && image !== '/placeholder.svg' && (
+          <div className="aspect-[4/5] bg-[#F8F9FB] overflow-hidden relative flex items-center justify-center p-8">
+            <Image
+              src={image}
+              alt={name}
+              width={400}
+              height={400}
+              className="object-contain group-hover:scale-110 transition-transform duration-700"
+            />
+            
+            {/* Discount/Badge tag */}
+            <div className="absolute top-6 left-6">
+               <span className="bg-primary/5 backdrop-blur-md border border-primary/10 text-primary text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
+                 Standard Edition
+               </span>
+            </div>
 
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-          
-          {/* Quick Add / Interaction */}
-          <div className="absolute bottom-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-             <div className="w-12 h-12 bg-primary text-white rounded-2xl flex items-center justify-center shadow-xl">
-               <Plus size={24} strokeWidth={3} />
-             </div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            
+            {/* Quick Add / Interaction */}
+            <div className="absolute bottom-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+               <div className="w-12 h-12 bg-primary text-white rounded-2xl flex items-center justify-center shadow-xl">
+                 <Plus size={24} strokeWidth={3} />
+               </div>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Content Area */}
-        <div className="p-8 pt-0 -mt-4 relative z-10">
+        <div className={`p-8 ${(!image || image === '/placeholder.jpg' || image === '/placeholder.svg') ? 'pt-8' : 'pt-0 -mt-4'} relative z-10`}>
           <div className="bg-white rounded-[1.5rem] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.04)] border border-border/40">
             <div className="text-[10px] font-black text-primary/40 uppercase tracking-[0.2em] mb-2">{category}</div>
             <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-1">

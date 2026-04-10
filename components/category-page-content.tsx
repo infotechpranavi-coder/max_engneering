@@ -5,9 +5,10 @@ import Image from 'next/image'
 
 interface CategoryPageContentProps {
   category: string
+  children?: React.ReactNode
 }
 
-export function CategoryPageContent({ category }: CategoryPageContentProps) {
+export function CategoryPageContent({ category, children }: CategoryPageContentProps) {
   return (
     <div className="min-h-screen bg-[#FDFDFD] flex flex-col selection:bg-secondary selection:text-secondary-foreground">
       <Navigation />
@@ -37,6 +38,8 @@ export function CategoryPageContent({ category }: CategoryPageContentProps) {
             <ProductGrid initialCategory={category} />
           </div>
         </section>
+
+        {children}
       </main>
       <Footer />
     </div>

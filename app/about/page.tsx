@@ -45,7 +45,7 @@ export default function AboutPage() {
               {/* Technical Imagery */}
               <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border border-primary/5">
                 <Image 
-                  src="/industrial_hero_bg_1775038948618.png"
+                  src="/abt_1.jpg"
                   alt="Industrial Installation"
                   fill
                   className="object-cover"
@@ -64,13 +64,15 @@ export default function AboutPage() {
                   </p>
                 </div>
                 
-                <Link
-                  href="/contact"
+                <a
+                  href="/profile.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-4 border-2 border-primary/10 text-primary px-8 py-4 rounded-xl font-black text-xs uppercase tracking-[0.2em] hover:bg-primary hover:text-white transition-all shadow-sm group"
                 >
                   COMPANY PROFILE
                   <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform text-secondary" />
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -120,7 +122,7 @@ export default function AboutPage() {
               <div className="space-y-8 group">
                 <div className="relative aspect-[1/1.4] bg-[#F8F9FA] rounded-3xl overflow-hidden shadow-2xl border border-primary/5 transition-transform duration-700 group-hover:-translate-y-4">
                   <Image 
-                    src="/media__1775100258357.png"
+                    src="/abt_2.jpg"
                     alt="ISO 9001:2015 Certificate"
                     fill
                     className="object-contain p-8 md:p-12"
@@ -137,7 +139,7 @@ export default function AboutPage() {
               <div className="space-y-8 group">
                 <div className="relative aspect-[1/1.4] bg-[#F8F9FA] rounded-3xl overflow-hidden shadow-2xl border border-primary/5 transition-transform duration-700 group-hover:-translate-y-4">
                   <Image 
-                    src="/media__1775100565332.png"
+                    src="/abt_3.jpg"
                     alt="MSME Udyog Aadhaar Certificate"
                     fill
                     className="object-contain p-8 md:p-12"

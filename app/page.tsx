@@ -204,16 +204,9 @@ export default function Home() {
               <div>
                 <span className="text-primary/40 font-black tracking-[0.4em] uppercase text-[10px] mb-4 block underline decoration-secondary decoration-2 underline-offset-8">Precision Series</span>
                 <h2 className="text-4xl sm:text-6xl font-black text-primary tracking-tighter uppercase italic leading-none">
-                  Flagship <span className="text-secondary">Assets</span>
+                  Featured <span className="text-secondary">Products</span>
                 </h2>
               </div>
-              <Link
-                href="/products"
-                className="inline-flex items-center gap-4 bg-primary text-white px-8 py-4 rounded-xl font-black text-[10px] uppercase tracking-[0.2em] hover:bg-secondary hover:text-secondary-foreground transition-all group shadow-xl"
-              >
-                Full Repository
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
             </div>
 
             <div className="divide-y-2 divide-primary/10 border-y-2 border-primary/10">
@@ -244,10 +237,10 @@ export default function Home() {
                     <div className="hidden lg:block w-px h-12 bg-primary/10" />
                     <div className="w-24 h-24 bg-white rounded-2xl relative flex items-center justify-center p-4 border border-primary/5 group-hover:shadow-lg transition-all group-hover:scale-105">
                       <Image
-                        src="/premium_gauge_product_1775038995087.png"
+                        src={product.image}
                         alt={product.name}
                         fill
-                        className="object-contain p-2 grayscale group-hover:grayscale-0 transition-all duration-700"
+                        className="object-contain p-2 transition-all duration-700"
                       />
                     </div>
                     <ArrowRight className="text-primary group-hover:translate-x-2 group-hover:text-secondary transition-all" size={24} />
