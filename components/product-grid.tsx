@@ -39,9 +39,9 @@ export function ProductGrid({ initialCategory }: ProductGridProps) {
         <div className="sticky top-32 space-y-12">
           {/* Search Area */}
           <div className="space-y-6">
-             <div className="flex items-center gap-3 font-black uppercase text-[10px] tracking-widest text-primary/40">
+             <div className="flex items-center gap-3 font-black uppercase text-[10px] tracking-widest text-primary">
                 <Search size={14} className="text-secondary" />
-                Live Asset Scan
+                Search
              </div>
              <div className="relative group">
                <input
@@ -49,16 +49,16 @@ export function ProductGrid({ initialCategory }: ProductGridProps) {
                  placeholder="SCAN..."
                  value={searchQuery}
                  onChange={e => setSearchQuery(e.target.value)}
-                 className="w-full bg-white px-6 py-4 rounded-xl border-2 border-transparent focus:border-secondary focus:ring-0 transition-all font-black text-primary placeholder:text-primary/10 tracking-widest uppercase text-[10px] shadow-sm"
+                 className="w-full bg-[#F4F4F5] px-6 py-4 rounded-xl border-2 border-transparent focus:border-secondary focus:ring-0 transition-all font-black text-primary placeholder:text-primary/10 tracking-widest uppercase text-[10px] shadow-sm"
                />
              </div>
           </div>
 
           {/* Sidebar Navigation - Conditional Index or Categories */}
           <div className="space-y-6">
-             <div className="flex items-center gap-3 font-black uppercase text-[10px] tracking-widest text-primary/40">
+             <div className="flex items-center gap-3 font-black uppercase text-[10px] tracking-widest text-primary">
                 {initialCategory ? <Table size={14} className="text-secondary" /> : <Filter size={14} className="text-secondary" />}
-                {initialCategory ? 'Domain Index' : 'Category Domains'}
+                Products
              </div>
              <div className="flex flex-col gap-2">
                {initialCategory ? (
@@ -70,7 +70,7 @@ export function ProductGrid({ initialCategory }: ProductGridProps) {
                      <a
                        key={product.id}
                        href={`#${product.id}`}
-                       className="w-full text-left px-6 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest bg-white text-primary border border-border/40 hover:bg-secondary hover:text-secondary-foreground hover:translate-x-2 transition-all shadow-sm"
+                       className="w-full text-left px-6 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest bg-[#F4F4F5] text-primary border border-border/40 hover:bg-secondary hover:text-secondary-foreground hover:translate-x-2 transition-all shadow-sm"
                      >
                        {product.name}
                      </a>
@@ -83,7 +83,7 @@ export function ProductGrid({ initialCategory }: ProductGridProps) {
                      className={`w-full text-left px-6 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all ${
                        selectedCategory === null
                          ? 'bg-primary text-white shadow-xl translate-x-2'
-                         : 'bg-white text-primary border border-border/40 hover:bg-white/80'
+                         : 'bg-[#F4F4F5] text-primary border border-border/40 hover:bg-[#E4E4E7]'
                      }`}
                    >
                      All Systems
@@ -95,7 +95,7 @@ export function ProductGrid({ initialCategory }: ProductGridProps) {
                        className={`w-full text-left px-6 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all ${
                          selectedCategory === category
                            ? 'bg-primary text-white shadow-xl translate-x-2'
-                           : 'bg-white text-primary border border-border/40 hover:bg-white/80'
+                           : 'bg-[#F4F4F5] text-primary border border-border/40 hover:bg-[#E4E4E7]'
                        }`}
                      >
                        {category}
@@ -127,9 +127,9 @@ export function ProductGrid({ initialCategory }: ProductGridProps) {
                   <div className="lg:w-3/5 space-y-10">
                     <div className="space-y-4">
                       <span className="text-secondary font-black tracking-[0.4em] uppercase text-xs">Technical Vertical</span>
-                      <h2 className="text-5xl lg:text-7xl font-black text-primary tracking-tighter leading-[0.9]">{category.name}</h2>
+                      <h2 className="text-5xl lg:text-7xl font-black text-primary tracking-tighter leading-[0.9] font-poppins">{category.name}</h2>
                     </div>
-                    <p className="text-xl text-muted-foreground leading-relaxed font-medium max-w-2xl">
+                    <p className="text-base text-muted-foreground leading-relaxed font-medium max-w-2xl">
                       High-performance {category.name.toLowerCase()} engineered with the latest smart connection suite. Optimized for integration with existing control systems.
                     </p>
                     <Link 
@@ -158,7 +158,7 @@ export function ProductGrid({ initialCategory }: ProductGridProps) {
           <div className="space-y-32">
              <div className="flex items-center gap-4 py-8 border-b-2 border-primary mb-20 scroll-mt-40">
                 <Box className="text-secondary" size={18} />
-                <h2 className="text-5xl font-black text-primary tracking-tighter uppercase">{selectedCategory}</h2>
+                <h2 className="text-5xl font-black text-primary tracking-tighter uppercase font-poppins">{selectedCategory}</h2>
              </div>
              
              <div className="space-y-40">
@@ -175,7 +175,7 @@ export function ProductGrid({ initialCategory }: ProductGridProps) {
                     if (isLandscapeLayout) {
                        return (
                          <div key={item.id} id={item.id} className="flex flex-col gap-12 group/item scroll-mt-40">
-                            <h4 className="text-4xl lg:text-5xl font-black text-primary group-hover/item:text-secondary transition-colors italic tracking-tighter uppercase">
+                            <h4 className="text-4xl lg:text-5xl font-bold text-primary group-hover/item:text-secondary transition-colors tracking-tighter uppercase font-poppins">
                               {item.name}
                             </h4>
                             
@@ -194,7 +194,7 @@ export function ProductGrid({ initialCategory }: ProductGridProps) {
                             </div>
 
                             <div className="space-y-8">
-                               <p className="text-xl text-muted-foreground leading-relaxed font-medium max-w-5xl">
+                               <p className="text-base text-muted-foreground leading-relaxed font-medium max-w-5xl">
                                  {item.longDescription ? item.longDescription : `Precision engineered ${item.name} featuring high-stability sensors and rugged industrial housing.`}
                                </p>
                                
@@ -226,7 +226,7 @@ export function ProductGrid({ initialCategory }: ProductGridProps) {
                     return (
                     <div key={item.id} id={item.id} className="group/item scroll-mt-40 space-y-12">
                        {/* Header Title - Full width on all screens for consistent hierarchy */}
-                       <h4 className="text-4xl lg:text-5xl font-black text-primary group-hover/item:text-secondary transition-colors italic tracking-tighter uppercase">
+                       <h4 className="text-4xl lg:text-5xl font-bold text-primary group-hover/item:text-secondary transition-colors tracking-tighter uppercase font-poppins">
                           {item.name}
                        </h4>
 
@@ -250,7 +250,7 @@ export function ProductGrid({ initialCategory }: ProductGridProps) {
                           )}
 
                           <div className={`${isPlaceholder ? 'lg:w-full' : 'lg:w-1/2'} space-y-8`}>
-                             <p className={`text-xl text-muted-foreground leading-relaxed font-medium ${isPlaceholder ? 'max-w-4xl' : ''}`}>
+                             <p className={`text-base text-muted-foreground leading-relaxed font-medium ${isPlaceholder ? 'max-w-4xl' : ''}`}>
                                 {item.longDescription ? item.longDescription : `Precision engineered ${item.name} featuring high-stability sensors and rugged industrial housing. Designed to lower total cost of ownership while providing maximum system integration.`}
                              </p>
                              

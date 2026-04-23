@@ -22,15 +22,15 @@ export default async function ProductsPage(props: ProductsPageProps) {
       <Navigation />
       <main className="flex-1">
         {/* Cinematic Header */}
-        <section className="relative pt-40 pb-32 overflow-hidden bg-primary">
-          <div className="absolute inset-0 z-0 opacity-30">
+        <section className="relative pt-32 pb-16 overflow-hidden bg-primary">
+          <div className="absolute inset-0 z-0">
              <Image 
                src="/industrial_hero_bg_1775038948618.png"
                alt="Background"
                fill
-               className="object-cover"
+               className="object-cover opacity-60"
              />
-             <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary to-primary" />
+             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/80" />
           </div>
           
           <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">

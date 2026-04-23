@@ -48,7 +48,7 @@ export function ProductCard({ id, name, category, description, price, image }: P
         <div className={`p-8 ${(!image || image === '/placeholder.jpg' || image === '/placeholder.svg') ? 'pt-8' : 'pt-0 -mt-4'} relative z-10`}>
           <div className="bg-white rounded-[1.5rem] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.04)] border border-border/40">
             <div className="text-[10px] font-black text-primary/40 uppercase tracking-[0.2em] mb-2">{category}</div>
-            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-1">
+            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-1 font-poppins">
               {name}
             </h3>
             <p className="text-sm text-muted-foreground/80 mb-5 line-clamp-2 leading-relaxed">

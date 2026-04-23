@@ -92,7 +92,7 @@ export default async function ProductDetailPage(props: ProductDetailPageProps) {
                       <Zap className="size-3.5 text-secondary-foreground" />
                       <span className="text-[9px] font-black uppercase tracking-widest text-secondary-foreground">{product.category}</span>
                    </div>
-                   <h1 className="text-4xl lg:text-5xl font-black text-primary mb-6 tracking-tighter leading-[1] uppercase italic">
+                   <h1 className="text-4xl lg:text-5xl font-bold text-primary mb-6 tracking-tighter leading-[1] uppercase font-poppins">
                      {product.name}
                    </h1>
                    <p className="text-base text-muted-foreground font-medium leading-relaxed mb-8">

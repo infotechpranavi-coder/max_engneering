@@ -24,12 +24,23 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-4' : 'py-8'}`}>
-      <nav className={`max-w-5xl mx-auto px-6 h-20 flex items-center justify-between transition-all duration-500 rounded-full border border-white/10 bg-primary/95 backdrop-blur-2xl shadow-xl ${scrolled ? 'border-white/20' : 'border-white/10'}`}>
-        <Link href="/" className="flex items-center gap-2 group">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 bg-primary border-b border-white/10 shadow-2xl`}>
+      <nav className="w-full h-24 flex items-center justify-between px-6 lg:px-12">
+        <Link href="/" className="flex items-center gap-4 group">
           {/* Left Logo - official Mark 2 (Typographic) */}
-          <div className="w-24 h-14 relative group-hover:translate-x-1 transition-transform duration-500 shrink-0 ml-5 -mr-4">
+          <div className="w-24 h-14 relative group-hover:translate-x-1 transition-transform duration-500 shrink-0">
             <Image 
               src="/Transparent Logo.png" 
               alt="Max Engineering Mark 2"
@@ -39,10 +50,10 @@ export function Navigation() {
           </div>
 
           {/* Vertical Divider Line */}
-          <div className="w-[2px] h-16 bg-white/20 hidden sm:block ml-4 mr-0" />
+          <div className={`w-[1px] h-10 hidden sm:block transition-colors duration-500 bg-white/20`} />
 
           {/* Right Logo - Official Mark 1 (Iconographic) */}
-          <div className="w-32 h-24 relative group-hover:scale-105 transition-transform duration-500 shrink-0 translate-y-0">
+          <div className="w-32 h-24 relative group-hover:scale-105 transition-transform duration-500 shrink-0">
             <Image 
               src="/max_eng_old.png" 
               alt="Max Engineering Mark 1"
@@ -55,7 +66,7 @@ export function Navigation() {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-6">
           <Link href="/" className="group relative py-2">
-            <span className="text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white">Home</span>
+            <span className={`text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white`}>Home</span>
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500 rounded-full"></span>
           </Link>
 
@@ -64,11 +75,11 @@ export function Navigation() {
             <div className="flex items-center gap-2 cursor-pointer">
                <button 
                  type="button"
-                 className="text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white"
+                 className={`text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white`}
                >
                  Products
                </button>
-               <svg className="w-3 h-3 text-secondary transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" /></svg>
+               <svg className={`w-3 h-3 text-secondary transition-transform group-hover:rotate-180`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" /></svg>
             </div>
             
             <div className="absolute top-full -left-20 pt-6 opacity-0 translate-y-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-700 z-50">
@@ -88,15 +99,15 @@ export function Navigation() {
           </div>
 
           <Link href="/about" className="group relative py-2">
-            <span className="text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white">About Us</span>
+            <span className={`text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white`}>About Us</span>
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500 rounded-full"></span>
           </Link>
           <Link href="/contact" className="group relative py-2">
-            <span className="text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white">Contact</span>
+            <span className={`text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white`}>Contact</span>
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500 rounded-full"></span>
           </Link>
           <a href="/profile.pdf" target="_blank" rel="noopener noreferrer" className="group relative py-2">
-            <span className="text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white">Download</span>
+            <span className={`text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white`}>Download</span>
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500 rounded-full"></span>
           </a>
         </div>
@@ -105,7 +116,7 @@ export function Navigation() {
            {/* Mobile Menu Button - Toggle Black/White based on state */}
            <button
              onClick={() => setIsOpen(!isOpen)}
-             className="lg:hidden p-2 text-white transition-transform hover:scale-110"
+             className={`lg:hidden p-2 transition-all hover:scale-110 z-50 text-white`}
              aria-label="Toggle menu"
            >
              {isOpen ? <X size={26} strokeWidth={3} /> : <Menu size={26} strokeWidth={3} />}
@@ -114,7 +125,7 @@ export function Navigation() {
       </nav>
 
       {/* Mobile Navigation */}
-      <div className={`fixed inset-0 bg-primary/95 backdrop-blur-3xl z-40 lg:hidden transition-all duration-700 ease-in-out ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'}`}>
+      <div className={`fixed inset-0 bg-primary/95 backdrop-blur-3xl z-40 lg:hidden transition-all duration-700 ease-in-out ${isOpen ? 'opacity-100 translate-y-0 pointer-events-auto visible' : 'opacity-0 -translate-y-full pointer-events-none invisible'}`}>
         <div className="h-full flex flex-col items-center justify-center space-y-6 overflow-y-auto pt-24 pb-12">
           <Link href="/" className="text-3xl font-black text-white hover:text-secondary transition-colors tracking-tighter uppercase italic" onClick={() => setIsOpen(false)}>Home</Link>
           

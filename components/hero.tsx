@@ -2,58 +2,133 @@
 
 import React from 'react'
 import Image from 'next/image'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowRight, Phone } from 'lucide-react'
+import Link from 'next/link'
 
 export function Hero() {
-  const [currentBanner, setCurrentBanner] = React.useState(0)
-  const banners = [
-    '/banners/slider_1.jpg',
-    '/banners/slider_2.jpg',
-    '/banners/slider_3.jpg',
-    '/banners/slider_4.jpg'
+  const [currentSlide, setCurrentSlide] = React.useState(0)
+  const slides = [
+    {
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop',
+      tag: 'INDUSTRIAL AUTOMATION EXPERTS',
+      title: 'SMART ELECTRICAL &',
+      highlight: 'INSTRUMENTATION SOLUTIONS',
+      description: 'Precision engineering for safe, efficient, and modern industrial automation systems.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1565106430482-8f6e7434931e?q=80&w=2070&auto=format&fit=crop',
+      tag: 'PROCESS CONTROL SPECIALISTS',
+      title: 'ADVANCED MEASUREMENT &',
+      highlight: 'CONTROL TECHNOLOGIES',
+      description: 'Bridging the gap between world-class technology and complex industrial applications.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?q=80&w=2000&auto=format&fit=crop',
+      tag: 'PRECISION ENGINEERING',
+      title: 'HIGH-INTEGRITY FIELD',
+      highlight: 'INSTRUMENTATION',
+      description: 'Supply and integration of specialized instruments for mission-critical processes.'
+    }
   ]
 
   React.useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentBanner((prev) => (prev + 1) % banners.length)
-    }, 5000)
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
+    }, 6000)
     return () => clearInterval(timer)
-  }, [banners.length])
+  }, [slides.length])
 
   return (
-    <section className="relative w-full h-[180px] sm:h-[80vh] lg:h-[90vh] overflow-hidden bg-[#FDFDFD] mt-28 sm:mt-8">
-      {/* Background Slider */}
+    <section className="relative w-full h-[85vh] lg:h-[90vh] overflow-hidden bg-primary">
+      {/* Background Slider with Ken Burns Effect */}
       <div className="absolute inset-0 z-0">
-        {banners.map((src, idx) => (
-          <div
-            key={src}
-            className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
-              idx === currentBanner ? 'opacity-100' : 'opacity-0'
-            }`}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5 }}
+            className="absolute inset-0"
           >
-            <Image
-              src={src}
-              alt={`Industrial Showcase ${idx + 1}`}
-              fill
-              priority={idx === 0}
-              className="object-contain sm:object-cover"
-            />
-          </div>
-        ))}
+            <motion.div
+              initial={{ scale: 1.1, opacity: 0.3 }}
+              animate={{ scale: 1, opacity: 0.5 }}
+              transition={{ duration: 10, ease: "linear" }}
+              className="relative w-full h-full"
+            >
+              <Image
+                src={slides[currentSlide].image}
+                alt="Industrial Machinery"
+                fill
+                priority
+                className="object-cover"
+              />
+            </motion.div>
+          </motion.div>
+        </AnimatePresence>
         
-        {/* Subtle Bottom Vignette to keep navigation/dots visible if needed */}
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/40 to-transparent z-10" />
+        {/* Overlays */}
+        <div className="absolute inset-x-0 inset-y-0 bg-gradient-to-r from-primary via-primary/80 to-transparent z-10" />
+        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-primary to-transparent z-10" />
+      </div>
 
-        {/* Slider Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-2">
-          {banners.map((_, i) => (
+      {/* Content Overlay */}
+      <div className="relative z-20 h-full max-w-7xl mx-auto px-6 flex flex-col justify-center pt-24 lg:pt-32">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="max-w-4xl space-y-5"
+          >
+            <div className="flex items-center gap-4">
+               <div className="w-10 h-0.5 bg-secondary" />
+               <span className="text-secondary font-black text-[9px] sm:text-[10px] uppercase tracking-[0.4em] font-poppins">{slides[currentSlide].tag}</span>
+            </div>
+
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.1] tracking-tighter uppercase font-poppins">
+              {slides[currentSlide].title}
+              <span className="block text-secondary">{slides[currentSlide].highlight}</span>
+            </h1>
+
+            <p className="text-sm sm:text-base lg:text-[15px] text-white/50 max-w-xl font-poppins font-normal leading-relaxed">
+              {slides[currentSlide].description}
+            </p>
+
+            <div className="pt-6 flex flex-wrap gap-4 sm:gap-6">
+              <Link 
+                href="/contact"
+                className="bg-secondary text-secondary-foreground px-8 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest hover:scale-105 transition-all shadow-xl flex items-center gap-3"
+              >
+                GET FREE QUOTE
+                <ArrowRight size={16} />
+              </Link>
+              <Link 
+                href="tel:+919471181180"
+                className="border-2 border-white/20 text-white px-8 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-white hover:text-primary transition-all flex items-center gap-3"
+              >
+                CALL NOW
+                <Phone size={14} fill="currentColor" />
+              </Link>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-12 left-6 z-30 flex items-center gap-4">
+          {slides.map((_, i) => (
             <button
               key={i}
-              onClick={() => setCurrentBanner(i)}
-              className={`w-3 h-3 rounded-full border-2 border-white transition-all duration-500 ${
-                i === currentBanner ? 'bg-secondary border-secondary scale-125' : 'bg-transparent hover:bg-white/30'
-              }`}
+              onClick={() => setCurrentSlide(i)}
+              className="group py-4"
               aria-label={`Go to slide ${i + 1}`}
-            />
+            >
+              <div className={`h-1 transition-all duration-500 rounded-full ${i === currentSlide ? 'w-16 bg-secondary' : 'w-8 bg-white/20 group-hover:bg-white/40'}`} />
+            </button>
           ))}
         </div>
       </div>
