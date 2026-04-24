@@ -1,3 +1,5 @@
+import { Gauge } from 'lucide-react'
+
 interface SpecificationsTableProps {
   specifications: Record<string, string>
 }
@@ -5,30 +7,36 @@ interface SpecificationsTableProps {
 export function SpecificationsTable({ specifications }: SpecificationsTableProps) {
   return (
     <div className="overflow-hidden">
-      <table className="w-full text-left border-collapse">
-        <thead className="bg-[#F8F9FA]">
-          <tr>
-            <th className="px-6 py-4 text-[10px] font-black text-primary/40 uppercase tracking-widest border-b border-border/40">Parameter</th>
-            <th className="px-6 py-4 text-[10px] font-black text-primary/40 uppercase tracking-widest border-b border-border/40">Calibration Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.entries(specifications).map(([key, value], idx) => (
-            <tr
-              key={key}
-              className="group hover:bg-[#FDFDFD] transition-colors"
-            >
-              <td className="px-6 py-4 font-black text-primary uppercase tracking-[0.1em] text-xs w-1/3 border-b border-border/20 whitespace-nowrap">
-                <span className="opacity-40 mr-3">0{idx + 1} //</span>
-                {key}
-              </td>
-              <td className="px-6 py-4 text-primary font-bold tracking-tight border-b border-border/20">
-                 {value}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {Object.entries(specifications).map(([key, value], idx) => (
+          <div
+            key={key}
+            className="group bg-primary border border-white/10 p-6 rounded-2xl flex items-center justify-between transition-all hover:bg-black hover:scale-[1.02] shadow-lg"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center group-hover:bg-secondary transition-colors">
+                <Gauge className="text-secondary size-5" />
+              </div>
+              <div>
+                <div className="text-[10px] font-black text-white/40 uppercase tracking-widest mb-1">
+                  Parameter 0{idx + 1}
+                </div>
+                <div className="font-black text-white uppercase tracking-[0.1em] text-xs">
+                  {key}
+                </div>
+              </div>
+            </div>
+            <div className="text-right">
+              <div className="text-[10px] font-black text-white/40 uppercase tracking-widest mb-1">
+                Value
+              </div>
+              <div className="text-secondary font-bold tracking-tight text-sm">
+                {value}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

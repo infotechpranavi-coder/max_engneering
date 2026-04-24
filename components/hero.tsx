@@ -10,25 +10,32 @@ export function Hero() {
   const [currentSlide, setCurrentSlide] = React.useState(0)
   const slides = [
     {
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop',
+      image: '/banners/factory.jpg',
       tag: 'INDUSTRIAL AUTOMATION EXPERTS',
       title: 'SMART ELECTRICAL &',
       highlight: 'INSTRUMENTATION SOLUTIONS',
       description: 'Precision engineering for safe, efficient, and modern industrial automation systems.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1565106430482-8f6e7434931e?q=80&w=2070&auto=format&fit=crop',
+      image: '/banners/factory2.jpg',
       tag: 'PROCESS CONTROL SPECIALISTS',
       title: 'ADVANCED MEASUREMENT &',
       highlight: 'CONTROL TECHNOLOGIES',
       description: 'Bridging the gap between world-class technology and complex industrial applications.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?q=80&w=2000&auto=format&fit=crop',
+      image: '/banners/wielding 2.jpg',
       tag: 'PRECISION ENGINEERING',
       title: 'HIGH-INTEGRITY FIELD',
       highlight: 'INSTRUMENTATION',
       description: 'Supply and integration of specialized instruments for mission-critical processes.'
+    },
+    {
+      image: '/banners/wielding.jpg',
+      tag: 'TECHNICAL EXCELLENCE',
+      title: 'INTELLIGENT PROCESS',
+      highlight: 'MONITORING',
+      description: 'Real-time data and precision monitoring for optimized factory performance.'
     }
   ]
 
@@ -40,21 +47,21 @@ export function Hero() {
   }, [slides.length])
 
   return (
-    <section className="relative w-full h-[85vh] lg:h-[90vh] overflow-hidden bg-primary">
+    <section className="relative w-full h-screen overflow-hidden bg-primary">
       {/* Background Slider with Ken Burns Effect */}
       <div className="absolute inset-0 z-0">
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           <motion.div
             key={currentSlide}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.5 }}
+            transition={{ duration: 0.8 }}
             className="absolute inset-0"
           >
             <motion.div
               initial={{ scale: 1.1, opacity: 0.3 }}
-              animate={{ scale: 1, opacity: 0.5 }}
+              animate={{ scale: 1, opacity: 0.9 }}
               transition={{ duration: 10, ease: "linear" }}
               className="relative w-full h-full"
             >
@@ -70,7 +77,8 @@ export function Hero() {
         </AnimatePresence>
         
         {/* Overlays */}
-        <div className="absolute inset-x-0 inset-y-0 bg-gradient-to-r from-primary via-primary/80 to-transparent z-10" />
+        {/* Localized Left-side Overlay - Converted to only cover text area */}
+        <div className="absolute inset-y-0 left-0 w-full lg:w-[50%] bg-gradient-to-r from-primary/95 via-primary/40 to-transparent z-10" />
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-primary to-transparent z-10" />
       </div>
 
@@ -90,12 +98,12 @@ export function Hero() {
                <span className="text-secondary font-black text-[9px] sm:text-[10px] uppercase tracking-[0.4em] font-poppins">{slides[currentSlide].tag}</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.1] tracking-tighter uppercase font-poppins">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.1] tracking-tighter uppercase font-poppins">
               {slides[currentSlide].title}
               <span className="block text-secondary">{slides[currentSlide].highlight}</span>
             </h1>
 
-            <p className="text-sm sm:text-base lg:text-[15px] text-white/50 max-w-xl font-poppins font-normal leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-[16px] text-white/50 max-w-xl font-poppins font-normal leading-relaxed">
               {slides[currentSlide].description}
             </p>
 

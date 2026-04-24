@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 export default function AboutPage() {
-  const partners = ['Precision MASS', 'HNL', 'Honeywell', 'ABB', 'YBL', 'Wika', 'Fluke', 'Baumer', 'Schnider', 'Festo', 'Aira', 'Masibus', 'Hager', 'Polycab']
+
 
   return (
     <div className="min-h-screen bg-[#FDFDFD] flex flex-col selection:bg-secondary selection:text-secondary-foreground">
@@ -39,9 +39,9 @@ export default function AboutPage() {
                     <div className="absolute inset-0 bg-black/20 mix-blend-multiply" />
                   </div>
                   {/* Floating Stat Badge */}
-                  <div className="absolute -bottom-10 -right-10 bg-white text-primary p-10 rounded-[2rem] shadow-2xl border border-black/10 hidden md:block">
-                    <div className="text-6xl font-black text-secondary tracking-tighter font-poppins mb-2">10+</div>
-                    <div className="text-[10px] font-black uppercase tracking-widest text-primary/60">Years of<br/>Excellence</div>
+                  <div className="absolute -bottom-10 -right-10 bg-white/10 backdrop-blur-xl text-white p-10 rounded-[2rem] shadow-2xl border border-white/20 hidden md:block group">
+                    <div className="text-6xl font-black text-secondary tracking-tighter font-poppins mb-2 group-hover:scale-110 transition-transform duration-500">10+</div>
+                    <div className="text-[10px] font-black uppercase tracking-widest text-white/60">Years of<br/>Excellence</div>
                   </div>
                 </div>
               </ScrollReveal>
@@ -49,20 +49,23 @@ export default function AboutPage() {
               <ScrollReveal direction="left" delay={0.2}>
                 <div className="space-y-10">
                   <div>
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
-                      <div className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-                      <span className="text-[10px] font-black uppercase tracking-widest text-white/80">Established 2005</span>
+                    <div className="flex flex-col gap-1 mb-6">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 w-fit">
+                        <div className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+                        <span className="text-[10px] font-black uppercase tracking-widest text-white/80">Established 2005</span>
+                      </div>
+                      <span className="text-secondary font-black tracking-[0.4em] uppercase text-[9px] mt-4 ml-1">Premium Industrial Solutions</span>
                     </div>
-                    <h1 className="text-5xl sm:text-7xl font-bold text-white tracking-tighter uppercase font-poppins mb-6 leading-[1.1]">
-                      COMPANY <span className="text-secondary opacity-80">PROFILE</span>
+                    <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white tracking-tighter uppercase font-poppins mb-8 leading-[1.1]">
+                      MAX <span className="text-secondary">ENGINEERING</span>
                     </h1>
                   </div>
 
-                  <div className="space-y-6 text-white/70">
-                    <p className="text-lg leading-relaxed font-medium">
+                  <div className="space-y-8 text-white/80">
+                    <p className="text-lg leading-relaxed font-medium border-l-2 border-secondary/50 pl-6">
                       This is to introduce ourselves <span className="text-white font-bold">M/S. Max Engineering</span> as a Supplier Erection & Commissioning for Process Control Instruments as well as general Order Supplier for all Items & also authorized Partner of M/s Precision MASS, HNL, Honeywell, ABB, YBL, Wika, Fluke, Baumer, Schnider, Festo, Aira, Masibus, Hager & Polycab. Our aim is to provide better service to the customers and we will also do commissioning and calibration of industrial process control equipment's. Our team has over 10 years experience in the field of industrial process control equipment's like field instruments.
                     </p>
-                    <p className="text-lg leading-relaxed font-medium">
+                    <p className="text-lg leading-relaxed font-medium pl-6">
                       We also supply Pipes, Tubes, Fittings, Flanges Materials Like S.S, M.S, C.S Copper, Brass, Gunmetal and Alloy Steel, Air filter regulators, Solenoid Valves, Reducers, Power Cylinders, Isolation valves, Nut & Ferrules, Locknuts, Nipples, Sockets, Control Valves, Instrumentation, Power & Control Cables, Online Moisture Analysers, Gas & Water Analysers & Systems, Thermal Imagers, Pyrometers Online & Portable, Digital Indicators, PU-Tube, PU-Fittings and all variable Instruments and related Instrumentation Job & it's hardware fittings and accessories Products.
                     </p>
                   </div>
@@ -80,20 +83,35 @@ export default function AboutPage() {
         </section>
 
         {/* Global Partners Marquee */}
-        <section className="py-20 bg-primary overflow-hidden border-y border-white/5">
+        <section className="py-12 bg-white overflow-hidden border-y border-primary/10">
            <ScrollReveal>
-              <div className="text-center mb-12">
-                 <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40">Authorized Partners & Integrators</span>
+              <div className="text-center mb-8">
+                 <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary/40">Authorized Partners & Integrators</span>
               </div>
            </ScrollReveal>
-           <div className="relative flex w-full overflow-hidden">
-             <div className="flex w-max animate-marquee gap-16 px-8 items-center">
-                {[...partners, ...partners, ...partners].map((partner, idx) => (
-                  <span key={idx} className="text-3xl font-bold text-white/20 uppercase tracking-tighter font-poppins hover:text-secondary transition-colors duration-300 cursor-default">
-                    {partner}
-                  </span>
+           <div className="relative group">
+              {/* Overlay Gradients for smooth fade-in/out */}
+              <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-white to-transparent z-10" />
+              <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-white to-transparent z-10" />
+
+              <div className="flex w-fit whitespace-nowrap animate-marquee group-hover:[animation-play-state:paused]">
+                {[...Array(2)].map((_, setIdx) => (
+                  <div key={setIdx} className="flex items-center gap-16 pr-16">
+                    {Array.from({ length: 30 }, (_, i) => (
+                      <div
+                        key={`${setIdx}-${i + 1}`}
+                        className="w-48 h-20 flex items-center justify-center pointer-events-none"
+                      >
+                        <img
+                          src={`/partners/${i + 1}.jpg`}
+                          alt={`Strategic Partner Logo ${i + 1}`}
+                          className="max-w-full max-h-full object-contain grayscale hover:grayscale-0 transition-all duration-500"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 ))}
-             </div>
+              </div>
            </div>
         </section>
 
@@ -103,7 +121,7 @@ export default function AboutPage() {
             <ScrollReveal>
               <div className="text-center mb-24 max-w-4xl mx-auto">
                 <h2 className="text-4xl sm:text-6xl font-bold text-primary tracking-tighter uppercase font-poppins mb-6 leading-tight">
-                  CERTIFIED <span className="text-secondary italic opacity-60">QUALITY</span>
+                  CERTIFIED <span className="text-secondary italic">QUALITY</span>
                 </h2>
                 <p className="text-xl text-muted-foreground font-medium">
                   Operating with absolute transparency and rigorous standards. We are an ISO 9001:2015 certified entity and an MSME registered enterprise.
@@ -151,7 +169,7 @@ export default function AboutPage() {
                   </ScrollReveal>
                   
                   <ScrollReveal direction="up" delay={0.4}>
-                    <div className="group relative sm:mt-16">
+                    <div className="group relative">
                       <div className="aspect-[1/1.4] bg-[#F8F9FA] rounded-[2rem] p-6 shadow-xl border border-primary/5 transition-transform duration-700 group-hover:-translate-y-2">
                         <Image src="/abt_3.jpg" alt="MSME Certificate" fill className="object-contain p-6" />
                       </div>

@@ -148,7 +148,7 @@ export default async function ProductDetailPage(props: ProductDetailPageProps) {
                       <h2 className="text-4xl sm:text-6xl font-black text-primary tracking-tighter">DATA <span className="italic opacity-40">MATRIX</span></h2>
                     </div>
                   </div>
-                  <div className="bg-white rounded-[3rem] p-4 shadow-xl border border-border/20 overflow-hidden">
+                  <div className="overflow-hidden">
                     <SpecificationsTable specifications={product.specifications} />
                   </div>
                </div>
@@ -157,7 +157,7 @@ export default async function ProductDetailPage(props: ProductDetailPageProps) {
         </section>
 
         {/* Feature Highlights Grid */}
-        <section className="py-20 bg-white">
+        <section className="pt-10 pb-20 bg-white">
            <div className="max-w-7xl mx-auto px-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                  {[
@@ -168,10 +168,10 @@ export default async function ProductDetailPage(props: ProductDetailPageProps) {
                    { title: 'QUICK-MOUNT', desc: 'Universal threading system for rapid integration.' },
                    { title: 'LIFETIME CAL', desc: 'Auto-zero technology reduces maintenance cycles.' }
                  ].map((feat, idx) => (
-                   <div key={idx} className="bg-[#FDFDFD] border border-border/40 p-10 rounded-[2.5rem] group hover:border-secondary transition-all duration-500">
+                   <div key={idx} className="bg-[#F8F9FA] border border-border/60 p-10 rounded-[2.5rem] group hover:bg-gray-100 hover:border-secondary transition-all duration-500 shadow-sm hover:shadow-md">
                       <span className="text-[10px] font-black text-secondary block mb-4 tracking-[0.3em]">UNIT-F{idx+1}</span>
-                      <h3 className="text-xl font-black text-primary mb-3 tracking-tighter">{feat.title}</h3>
-                      <p className="text-sm text-muted-foreground font-medium leading-relaxed italic">{feat.desc}</p>
+                      <h3 className="text-xl font-black text-primary mb-3 tracking-tighter uppercase">{feat.title}</h3>
+                      <p className="text-sm text-muted-foreground font-medium leading-relaxed">{feat.desc}</p>
                    </div>
                  ))}
               </div>

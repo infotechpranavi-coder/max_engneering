@@ -1,11 +1,13 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 
 export function Navigation() {
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -35,8 +37,14 @@ export function Navigation() {
     }
   }, [isOpen])
 
+  const isHomePage = pathname === '/'
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 bg-primary border-b border-white/10 shadow-2xl`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 
+      ${isHomePage 
+        ? (scrolled ? 'bg-primary border-none shadow-2xl' : 'bg-primary/5 backdrop-blur-[2px] border-b border-white/10 shadow-none') 
+        : 'bg-primary border-b border-white/10 shadow-2xl'}
+    `}>
       <nav className="w-full h-24 flex items-center justify-between px-6 lg:px-12">
         <Link href="/" className="flex items-center gap-4 group">
           {/* Left Logo - official Mark 2 (Typographic) */}
