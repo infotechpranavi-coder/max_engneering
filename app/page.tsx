@@ -259,6 +259,16 @@ export default function Home() {
                     year: '2015',
                     title: 'Technological Growth',
                     description: 'Expanded into high-voltage electrical installations and complete system design for power plants.'
+                  },
+                  {
+                    year: '2020',
+                    title: '200+ Projects Done',
+                    description: 'Reached a major milestone of 200+ successful projects across multiple states in India.'
+                  },
+                  {
+                    year: '2025',
+                    title: 'Years of Excellence',
+                    description: 'Celebrating 20 years of delivering safety, efficiency, and modern industrial infrastructure.'
                   }
                 ].map((item, idx) => (
                   <motion.div 
