@@ -15,7 +15,9 @@ export function Navigation() {
   const productCategories = [
     'Transmitters', 'Gauges', 'Switches', 'Temperature Sensors', 'Digital Indicators & Controllers', 
     'Multimeters & Testers', 'Variable Wires & Cables', 'Online Moisture Analyser', 
-    'SS Pipe & Fittings', 'Panel Buildings', 'Wireless System'
+    'SS Pipe & Fittings', 'Panel Buildings', 'Wireless System', 'Dust Monitor',
+    'Level Transmitter', 'Pressure / Flow Switch', 'Emission Monitoring Analyzer',
+    'Gas Analyzer', 'Sampling & Water Analysis', 'Industrial Communication', 'Ultrasonic Transmitter'
   ]
 
   useEffect(() => {
@@ -95,7 +97,7 @@ export function Navigation() {
                   {productCategories.map(item => (
                     <Link 
                       key={item} 
-                      href={`/${item.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} 
+                      href={`/${item.toLowerCase().replace(/ & /g, '-').replace(/ \/ /g, '-').replace(/ /g, '-')}`} 
                       className="group/item flex items-center gap-3 text-[11px] font-black uppercase tracking-widest text-white/60 hover:text-secondary transition-all"
                     >
                       <div className="w-1.5 h-1.5 bg-secondary/20 rounded-full group-hover/item:bg-secondary transition-colors" />
@@ -151,7 +153,7 @@ export function Navigation() {
                 {productCategories.map(item => (
                   <Link 
                     key={item} 
-                    href={`/${item.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} 
+                    href={`/${item.toLowerCase().replace(/ & /g, '-').replace(/ \/ /g, '-').replace(/ /g, '-')}`} 
                     className="text-[13px] font-black text-white/60 hover:text-secondary transition-colors tracking-widest uppercase italic"
                     onClick={() => setIsOpen(false)}
                   >

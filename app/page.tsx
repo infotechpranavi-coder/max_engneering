@@ -14,7 +14,8 @@ import {
   ArrowRight, Box, Cpu, Globe, Infinity,
   Radio, Gauge, ToggleRight, Thermometer,
   Activity, Zap, Link2, Droplets,
-  CircleDot, Layout, Wifi
+  CircleDot, Layout, Wifi, Wind,
+  Signal, Sliders, CloudFog, FlaskConical, TestTube2, Headphones, Waves
 } from 'lucide-react'
 
 export default function Home() {
@@ -33,7 +34,15 @@ export default function Home() {
     { name: 'Online Moisture Analyser', icon: Droplets, href: '/online-moisture-analyser', description: 'Continuous moisture detection solutions for bulk materials.' },
     { name: 'SS Pipe & Fittings', icon: CircleDot, href: '/ss-pipe-fittings', description: 'Corrosion-resistant stainless steel plumbing for industrial instrumentation.' },
     { name: 'Panel Buildings', icon: Layout, href: '/panel-buildings', description: 'Custom engineered control panels and industrial enclosures.' },
-    { name: 'Wireless System', icon: Wifi, href: '/wireless-system', description: 'Advanced telemetry and wireless monitoring for remote industrial sites.' }
+    { name: 'Wireless System', icon: Wifi, href: '/wireless-system', description: 'Advanced telemetry and wireless monitoring for remote industrial sites.' },
+    { name: 'Dust Monitor', icon: Wind, href: '/dust-monitor', description: 'Continuous particulate concentration measurement for industrial exhaust gases.' },
+    { name: 'Level Transmitter', icon: Signal, href: '/level-transmitter', description: 'Non-contact microwave radar level measurement for tanks, silos, and process vessels.' },
+    { name: 'Pressure / Flow Switch', icon: Sliders, href: '/pressure-flow-switch', description: 'Reliable switching devices for pressure and flow monitoring in process protection.' },
+    { name: 'Emission Monitoring Analyzer', icon: CloudFog, href: '/emission-monitoring-analyzer', description: 'Dust, opacity, and zirconia analyzers for complete stack emission compliance.' },
+    { name: 'Gas Analyzer', icon: FlaskConical, href: '/gas-analyzer', description: 'SOx and NOx continuous analyzers for combustion control and environmental compliance.' },
+    { name: 'Sampling & Water Analysis', icon: TestTube2, href: '/sampling-water-analysis', description: 'SWAS panel systems for steam and water chemistry monitoring in power plants.' },
+    { name: 'Industrial Communication', icon: Headphones, href: '/industrial-communication', description: 'IoT-enabled walkie-talkie systems for plant-wide workforce coordination and tracking.' },
+    { name: 'Ultrasonic Transmitter', icon: Waves, href: '/ultrasonic-transmitter', description: 'Non-contact ultrasonic pulse echo transmitters for reliable liquid and solid level sensing.' }
   ]
 
   return (
@@ -309,45 +318,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Specialized Solutions - Valve Stands */}
-        <section className="py-32 bg-[#0A0A0A] text-white relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('/industrial_hero_bg_1775038948618.png')] opacity-5 bg-fixed grayscale brightness-0" />
-          <div className="max-w-7xl mx-auto px-6 relative z-10">
-            <div className="grid lg:grid-cols-2 gap-24 items-center">
-              <div className="space-y-10">
-                <div>
-                  <SectionHeader 
-                    title="VARIABLE"
-                    highlightedTitle="VALVE STANDS"
-                    description="We specialize in custom engineering and design of Variable Valve Stands for critical industrial lines including Nitrogen, Oxygen, Argon, HSD, and Spray Cooling."
-                    light
-                    centered={false}
-                  />
-                </div>
-                <div className="flex flex-col sm:flex-row gap-6">
-                  <button className="bg-secondary text-secondary-foreground px-10 py-5 rounded-xl font-black text-[10px] uppercase tracking-widest shadow-xl hover:scale-105 transition-all">
-                    Technical Specifications
-                  </button>
-                  <button className="border-2 border-white/20 text-white px-10 py-5 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-white hover:text-black transition-all">
-                    Request Integration
-                  </button>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                {['/service_1.jpg', '/service_2.jpg', '/service_3.jpg', '/service_4.jpg'].map((img, i) => (
-                  <div key={i} className="aspect-square bg-white/5 rounded-3xl relative overflow-hidden border border-white/10 group">
-                    <Image
-                      src={img}
-                      alt="Valve Stand Installation"
-                      fill
-                      className="object-cover transition-all duration-700"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+
 
         {/* CTA Section - Tactical Minimal */}
         <section className="pt-16 pb-16 bg-white relative overflow-hidden border-t border-primary/5">
