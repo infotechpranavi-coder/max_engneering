@@ -15,7 +15,7 @@ import {
   Radio, Gauge, ToggleRight, Thermometer,
   Activity, Zap, Link2, Droplets,
   CircleDot, Layout, Wifi, Wind,
-  Signal, Sliders, CloudFog, FlaskConical, TestTube2, Headphones, Waves
+  Signal, Sliders, CloudFog, FlaskConical, TestTube2, Headphones, Waves, Rss
 } from 'lucide-react'
 
 export default function Home() {
@@ -42,7 +42,8 @@ export default function Home() {
     { name: 'Gas Analyzer', icon: FlaskConical, href: '/gas-analyzer', description: 'SOx and NOx continuous analyzers for combustion control and environmental compliance.' },
     { name: 'Sampling & Water Analysis', icon: TestTube2, href: '/sampling-water-analysis', description: 'SWAS panel systems for steam and water chemistry monitoring in power plants.' },
     { name: 'Industrial Communication', icon: Headphones, href: '/industrial-communication', description: 'IoT-enabled walkie-talkie systems for plant-wide workforce coordination and tracking.' },
-    { name: 'Ultrasonic Transmitter', icon: Waves, href: '/ultrasonic-transmitter', description: 'Non-contact ultrasonic pulse echo transmitters for reliable liquid and solid level sensing.' }
+    { name: 'Ultrasonic Transmitter', icon: Waves, href: '/ultrasonic-transmitter', description: 'Non-contact ultrasonic pulse echo transmitters for reliable liquid and solid level sensing.' },
+    { name: 'Radar Level Sensor', icon: Rss, href: '/radar-level-sensor', description: 'Compact 80 GHz radar sensors for continuous, non-contact level measurement.' }
   ]
 
   return (

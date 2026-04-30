@@ -17,7 +17,7 @@ export function Navigation() {
     'Multimeters & Testers', 'Variable Wires & Cables', 'Online Moisture Analyser', 
     'SS Pipe & Fittings', 'Panel Buildings', 'Wireless System', 'Dust Monitor',
     'Level Transmitter', 'Pressure / Flow Switch', 'Emission Monitoring Analyzer',
-    'Gas Analyzer', 'Sampling & Water Analysis', 'Industrial Communication', 'Ultrasonic Transmitter'
+    'Gas Analyzer', 'Sampling & Water Analysis', 'Industrial Communication', 'Ultrasonic Transmitter', 'Radar Level Sensor'
   ]
 
   useEffect(() => {

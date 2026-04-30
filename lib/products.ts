@@ -646,7 +646,7 @@ export const products: Product[] = [
     description: 'The DSL-340 MkIII is an optical double-pass dust monitoring system designed for continuous measurement of particulate concentration in industrial exhaust gases, ducts, stacks, and filtration systems.',
     longDescription: 'The DSL-340 MkIII is an optical double-pass dust monitoring system designed for continuous measurement of particulate concentration in industrial exhaust gases, ducts, stacks, and filtration systems. Using Dynamic Detection Principle (DDP), it provides highly stable dust monitoring with reduced drift, improved reliability, and accurate mg/m³ readings when calibrated.\n\nDDP technology minimizes signal drift caused by temperature, contamination, or optical degradation. It provides precise dust concentration monitoring with ±2% accuracy and is built with stainless steel construction for demanding industrial environments. Supports analogue, USB, and Modbus communication for easy system integration. No moving parts and accessible optical surfaces simplify routine servicing. Meets US EPA PS-11 and EU regulatory standards.',
     price: 'Custom Quote',
-    image: '/dust_1.png',
+    image: '/dsl-340.jpg',
     specifications: {
       range: '0–1000 mg/m³',
       principle: 'Dynamic Detection Principle (DDP)',
@@ -667,7 +667,7 @@ export const products: Product[] = [
     description: 'Radar level transmitters provide continuous, non-contact level measurement for liquids, solids, and bulk materials in industrial tanks, silos, and process vessels.',
     longDescription: 'Radar level transmitters provide continuous, non-contact level measurement for liquids, solids, and bulk materials in industrial tanks, silos, and process vessels. Using microwave radar technology, they deliver accurate, reliable readings even in harsh conditions such as dust, vapor, pressure, or temperature variations.\n\nThese transmitters measure level without direct media contact, ensuring precise level measurement for demanding processes. They operate in dust, vapor, and extreme temperatures with no moving parts, reducing service needs. Supports 4–20mA, HART, and Modbus communication protocols for flexible integration into existing plant automation systems.',
     price: 'Custom Quote',
-    image: '/placeholder.jpg',
+    image: '/non-contact-radar-level-transmitter.jpg',
     specifications: {
       type: 'Non-contact Microwave Radar',
       range: 'Up to 120 m',
@@ -687,7 +687,7 @@ export const products: Product[] = [
     description: 'Industrial protection and control devices used to monitor system pressure, liquid flow, and gas movement, providing reliable switching outputs for alarms, automation, and equipment safety.',
     longDescription: 'Pressure and flow switches are industrial protection and control devices used to monitor system pressure, liquid flow, and gas movement. They provide reliable switching outputs for alarms, automation, and equipment safety across utilities and process industries.\n\nThese switches deliver stable process monitoring and alarms across varied industrial conditions. Compact design enables easy integration into existing systems, while the rugged SS316 / Brass construction ensures continuous plant operation. Adjustable set points allow precise control for pressure ranges from vacuum to 600 bar across liquid and gas applications.',
     price: 'Custom Quote',
-    image: '/placeholder.jpg',
+    image: '/flow-pressure-switch-600.jpg',
     specifications: {
       type: 'Mechanical / Electronic Switch',
       pressureRange: 'Vacuum to 600 bar',
@@ -707,7 +707,7 @@ export const products: Product[] = [
     description: 'Comprehensive stack emission monitoring for particulate concentration, combustion efficiency, and oxygen analysis for industrial compliance and process optimization.',
     longDescription: 'Dust, opacity, and zirconia analyzers provide comprehensive stack emission monitoring for particulate concentration, combustion efficiency, and oxygen analysis. These systems are designed for industrial compliance, process optimization, and complete analytical monitoring solutions.\n\nThis integrated analytical platform combines multiple emission parameters — dust, opacity, and O₂ — in a single system. Using optical and zirconia technology, these analyzers support environmental regulations and provide high long-term stability. They simplify plant monitoring architecture and enhance combustion and emission control efficiency.',
     price: 'Custom Quote',
-    image: '/placeholder.jpg',
+    image: '/zirconia-oxygen-analyzer-for-stack-gas-emission-control-systems-500x500.webp',
     specifications: {
       type: 'Continuous Emission Monitoring',
       dustRange: '0–1000 mg/m³',
@@ -727,7 +727,7 @@ export const products: Product[] = [
     description: 'Continuously monitor sulfur oxides and nitrogen oxides in industrial emissions, combustion processes, and environmental systems for regulatory compliance and pollution control.',
     longDescription: 'SOx and NOx analyzers continuously monitor sulfur oxides and nitrogen oxides in industrial emissions, combustion processes, and environmental systems. They support regulatory compliance, process optimization, and pollution control.\n\nUsing UV, NDIR, and chemiluminescence technology, these analyzers measure SO₂, SO₃, NO, and NO₂ at ppm to percent levels with ±1% accuracy and response times under 60 seconds. Designed for harsh plant conditions, they provide real-time emission data to enhance combustion efficiency and ensure environmental compliance.',
     price: 'Custom Quote',
-    image: '/placeholder.jpg',
+    image: '/sox-nox-analyzer.jpg',
     specifications: {
       type: 'Continuous Gas Analyzer',
       measurements: 'SO₂, SO₃, NO, NO₂',
@@ -747,7 +747,7 @@ export const products: Product[] = [
     description: 'Accurate steam and water analysis systems for power plants, boilers, and industrial utilities, ensuring controlled sample conditioning and precise analytical measurements.',
     longDescription: 'Sampling systems with SWAS panels provide accurate steam and water analysis for power plants, boilers, and industrial utilities. They ensure controlled sample conditioning and precise analytical measurements for plant safety and efficiency.\n\nThe SWAS (Steam and Water Analysis System) panel integrates sample coolers and analytical instruments to monitor pH, conductivity, silica, and sodium levels. This complete system reduces high-pressure sample handling risks and simplifies installation and operation, making it ideal for critical utility systems in power generation.',
     price: 'Custom Quote',
-    image: '/placeholder.jpg',
+    image: '/steam-and-water-analysis-system-01.jpg',
     specifications: {
       type: 'Steam & Water Analysis System',
       panelType: 'SWAS',
@@ -766,7 +766,7 @@ export const products: Product[] = [
     description: 'Industrial wireless communication systems with IoT integration combining tracking, monitoring, and remote connectivity to improve workforce coordination and operational visibility.',
     longDescription: 'Walkie talkie systems with IoT integration combine industrial wireless communication with tracking, monitoring, and remote connectivity. These solutions improve workforce coordination, safety, and operational visibility.\n\nThese two-way radio systems are enhanced with GPS, cloud telemetry, and IoT networking to enable real-time communication, personnel tracking, and centralized communication oversight. Rechargeable batteries ensure continuous operation across shift cycles, making these ideal for plant floors, construction sites, and large industrial facilities.',
     price: 'Custom Quote',
-    image: '/placeholder.jpg',
+    image: '/walie talkie.jpg',
     specifications: {
       type: 'Wireless Communication + IoT',
       communication: 'Two-way radio',
@@ -784,7 +784,7 @@ export const products: Product[] = [
     description: 'Reliable non-contact level measurement for liquids and solids using ultrasonic pulse echo technology, suitable for tanks, reservoirs, wastewater, and process applications.',
     longDescription: 'Ultrasonic transmitters provide reliable non-contact level measurement for liquids and solids using sound wave reflection technology. They are suitable for tanks, reservoirs, wastewater, and process applications.\n\nUsing the ultrasonic pulse echo principle, these transmitters measure level without touching the media, offering ±0.25% accuracy with ranges up to 15 m. Simple mounting and setup, IP67 protection, and stable continuous readings make them a low-maintenance choice for water treatment, chemical storage, and general process industries.',
     price: 'Custom Quote',
-    image: '/placeholder.jpg',
+    image: '/Ultrasonic-Level-Transmitter.jpg',
     specifications: {
       type: 'Non-contact Ultrasonic',
       principle: 'Ultrasonic pulse echo',
@@ -794,6 +794,26 @@ export const products: Product[] = [
       power: '24 Vdc',
       temperature: '-20°C to +70°C',
       protection: 'IP67'
+    }
+  },
+  // Radar Level Sensor
+  {
+    id: 'rls-101',
+    name: 'VEGAPULS C 21',
+    category: 'Radar Level Sensor',
+    description: 'Compact 80 GHz radar sensor for continuous, non-contact level measurement of liquids and bulk solids.',
+    longDescription: 'VEGAPULS C 21 is a compact 80 GHz radar sensor for continuous, non-contact level measurement of liquids and bulk solids. It provides high accuracy independent of process conditions and is ideal for water treatment, open channels, and general industrial applications. The device ensures maintenance-free operation with robust protection for harsh environments. Bluetooth connectivity enables easy setup and monitoring via mobile devices. Supports multiple communication protocols including HART, SDI-12, and Modbus.',
+    price: 'Custom Quote',
+    image: '/vegac21.png',
+    specifications: {
+      technology: '80 GHz Radar',
+      range: 'Up to 15 m',
+      output: '4–20 mA / HART',
+      temperature: '-40 to +80 °C',
+      pressure: '-1 to +3 bar',
+      protection: 'IP66/IP68',
+      material: 'PVDF',
+      communication: 'HART, SDI-12, Modbus'
     }
   }
 ]

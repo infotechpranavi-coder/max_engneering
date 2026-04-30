@@ -15,7 +15,7 @@ export function SpecificationsTable({ specifications }: SpecificationsTableProps
           >
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center group-hover:bg-secondary transition-colors">
-                <Gauge className="text-secondary size-5" />
+                <Gauge className="text-secondary size-5 group-hover:text-secondary-foreground transition-colors" />
               </div>
               <div>
                 <div className="text-[10px] font-black text-white/40 uppercase tracking-widest mb-1">
