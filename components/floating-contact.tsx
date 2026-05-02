@@ -4,8 +4,8 @@ import { Phone, MessageCircle } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export function FloatingContact() {
-  const whatsappNumber = '919471181180' // Using the provided number or a placeholder
-  const phoneNumber = '+919471181180'
+  const whatsappNumber = '919835139863'
+  const phoneNumber = '+919835139863'
 
   return (
     <div className="fixed right-6 bottom-8 flex flex-col gap-3 z-50">

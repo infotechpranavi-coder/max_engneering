@@ -110,12 +110,20 @@ export default async function ProductDetailPage(props: ProductDetailPageProps) {
                    </div>
 
                    <div className="flex flex-col sm:flex-row gap-4">
-                     <button className="flex-1 bg-primary text-white px-8 py-5 rounded-xl font-black text-xs uppercase tracking-[0.2em] shadow-xl hover:bg-black transition-all hover:scale-105 active:scale-95">
-                       PROCEED TO CART
-                     </button>
-                     <button className="flex-1 bg-white border-2 border-primary text-primary px-8 py-5 rounded-xl font-black text-xs uppercase tracking-[0.2em] hover:bg-primary hover:text-white transition-all">
-                       REQUEST SPEC
-                     </button>
+                      <Link 
+                        href={`/contact?subject=${encodeURIComponent(`Quote Request: ${product.name}`)}`}
+                        className="flex-1 inline-flex items-center justify-center bg-primary text-white px-8 py-5 rounded-xl font-black text-xs uppercase tracking-[0.2em] shadow-xl hover:bg-black transition-all hover:scale-105 active:scale-95"
+                      >
+                        GET A QUOTE
+                      </Link>
+                     <a 
+                       href="/profile.pdf" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       className="flex-1 inline-flex items-center justify-center bg-white border-2 border-primary text-primary px-8 py-5 rounded-xl font-black text-xs uppercase tracking-[0.2em] hover:bg-primary hover:text-white transition-all"
+                     >
+                       DOWNLOAD SPEC
+                     </a>
                    </div>
                 </div>
 

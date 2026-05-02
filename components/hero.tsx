@@ -116,7 +116,7 @@ export function Hero() {
                 <ArrowRight size={16} />
               </Link>
               <Link 
-                href="tel:+919471181180"
+                href="tel:+919835139863"
                 className="border-2 border-white/20 text-white px-8 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-white hover:text-primary transition-all flex items-center gap-3"
               >
                 CALL NOW
