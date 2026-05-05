@@ -65,23 +65,38 @@ export default async function ProductDetailPage(props: ProductDetailPageProps) {
               
               {/* Cinematic Product Display */}
               {product.image && product.image !== '/placeholder.jpg' && product.image !== '/placeholder.svg' && (
-                <div className="relative aspect-[4/3] bg-[#F8F9FA] rounded-[2.5rem] p-12 flex items-center justify-center overflow-hidden group border border-border/40 max-w-2xl mx-auto w-full">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    width={600}
-                    height={600}
-                    className="object-contain mix-blend-multiply transition-transform duration-1000 group-hover:scale-105"
-                  />
-                  <div className="absolute top-8 left-8">
-                     <div className="w-12 h-12 bg-primary/5 rounded-[1.2rem] flex items-center justify-center rotate-3 group-hover:rotate-12 transition-transform duration-700">
-                        <Package className="text-primary size-6" />
-                     </div>
+                <div className="space-y-6 max-w-2xl mx-auto w-full">
+                  <div className="relative aspect-[4/3] bg-[#F8F9FA] rounded-[2.5rem] p-12 flex items-center justify-center overflow-hidden group border border-border/40">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      width={600}
+                      height={600}
+                      className="object-contain mix-blend-multiply transition-transform duration-1000 group-hover:scale-105"
+                    />
+                    <div className="absolute top-8 left-8">
+                       <div className="w-12 h-12 bg-primary/5 rounded-[1.2rem] flex items-center justify-center rotate-3 group-hover:rotate-12 transition-transform duration-700">
+                          <Package className="text-primary size-6" />
+                       </div>
+                    </div>
                   </div>
-                  <div className="absolute bottom-8 right-8 text-right">
-                     <span className="text-[9px] font-black text-primary/20 uppercase tracking-[0.5em] block mb-1">PRECISION LEVEL</span>
-                     <span className="text-xl font-black text-primary tracking-tighter italic">NIST-0.05</span>
-                  </div>
+                  
+                  {/* Thumbnail Gallery */}
+                  {product.images && product.images.length > 1 && (
+                    <div className="grid grid-cols-4 gap-4">
+                      {product.images.map((img, idx) => (
+                        <div key={idx} className="aspect-square bg-[#F8F9FA] rounded-2xl p-4 border border-border/40 flex items-center justify-center cursor-pointer hover:border-secondary transition-colors overflow-hidden group/thumb">
+                          <Image
+                            src={img}
+                            alt={`${product.name} view ${idx + 1}`}
+                            width={100}
+                            height={100}
+                            className="object-contain mix-blend-multiply transition-transform group-hover/thumb:scale-110"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -117,7 +132,7 @@ export default async function ProductDetailPage(props: ProductDetailPageProps) {
                         GET A QUOTE
                       </Link>
                      <a 
-                       href="/profile.pdf" 
+                       href={product.documents?.technical_datasheet || "/profile.pdf"} 
                        target="_blank" 
                        rel="noopener noreferrer"
                        className="flex-1 inline-flex items-center justify-center bg-white border-2 border-primary text-primary px-8 py-5 rounded-xl font-black text-xs uppercase tracking-[0.2em] hover:bg-primary hover:text-white transition-all"
@@ -167,22 +182,22 @@ export default async function ProductDetailPage(props: ProductDetailPageProps) {
         {/* Feature Highlights Grid */}
         <section className="pt-10 pb-20 bg-white">
            <div className="max-w-7xl mx-auto px-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                 {[
-                   { title: 'PRECISION CORE', desc: 'Surgical accuracy within 0.05% margin error.' },
-                   { title: 'INDESTRUCTIBLE', desc: 'Grade 5 Titanium and 316L Stainless Steel.' },
-                   { title: 'IOT READY', desc: 'Wireless 5G data relay for remote monitoring.' },
-                   { title: 'HYPER-TEMP', desc: 'Engineered for thermal extremes up to 1200°C.' },
-                   { title: 'QUICK-MOUNT', desc: 'Universal threading system for rapid integration.' },
-                   { title: 'LIFETIME CAL', desc: 'Auto-zero technology reduces maintenance cycles.' }
-                 ].map((feat, idx) => (
-                   <div key={idx} className="bg-[#F8F9FA] border border-border/60 p-10 rounded-[2.5rem] group hover:bg-gray-100 hover:border-secondary transition-all duration-500 shadow-sm hover:shadow-md">
-                      <span className="text-[10px] font-black text-secondary block mb-4 tracking-[0.3em]">UNIT-F{idx+1}</span>
-                      <h3 className="text-xl font-black text-primary mb-3 tracking-tighter uppercase">{feat.title}</h3>
-                      <p className="text-sm text-muted-foreground font-medium leading-relaxed">{feat.desc}</p>
-                   </div>
-                 ))}
-              </div>
+               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {(product.features || [
+                    { title: 'PRECISION CORE', description: 'Surgical accuracy within 0.05% margin error.' },
+                    { title: 'INDESTRUCTIBLE', description: 'Grade 5 Titanium and 316L Stainless Steel.' },
+                    { title: 'IOT READY', description: 'Wireless 5G data relay for remote monitoring.' },
+                    { title: 'HYPER-TEMP', description: 'Engineered for thermal extremes up to 1200°C.' },
+                    { title: 'QUICK-MOUNT', description: 'Universal threading system for rapid integration.' },
+                    { title: 'LIFETIME CAL', description: 'Auto-zero technology reduces maintenance cycles.' }
+                  ]).map((feat, idx) => (
+                    <div key={idx} className="bg-[#F8F9FA] border border-border/60 p-10 rounded-[2.5rem] group hover:bg-gray-100 hover:border-secondary transition-all duration-500 shadow-sm hover:shadow-md">
+                       <span className="text-[10px] font-black text-secondary block mb-4 tracking-[0.3em]">UNIT-F{idx+1}</span>
+                       <h3 className="text-xl font-black text-primary mb-3 tracking-tighter uppercase">{feat.title}</h3>
+                       <p className="text-sm text-muted-foreground font-medium leading-relaxed">{feat.description}</p>
+                    </div>
+                  ))}
+               </div>
            </div>
         </section>
 

@@ -8,9 +8,10 @@ import { X, Search, Filter, Box, ArrowRight, Table, Cpu, Target, ShieldCheck } f
 
 interface ProductGridProps {
   initialCategory?: string
+  description?: string
 }
 
-export function ProductGrid({ initialCategory }: ProductGridProps) {
+export function ProductGrid({ initialCategory, description }: ProductGridProps) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
     initialCategory || null
   )
@@ -156,10 +157,17 @@ export function ProductGrid({ initialCategory }: ProductGridProps) {
         ) : (
           /* High-Fidelity Catalog Stack for Specific Categories */
           <div className="space-y-32">
-             <div className="flex items-center gap-4 py-8 border-b-2 border-primary mb-20 scroll-mt-40">
-                <Box className="text-secondary" size={18} />
-                <h2 className="text-5xl font-black text-primary tracking-tighter uppercase font-poppins">{selectedCategory}</h2>
-             </div>
+              <div className="mb-20 scroll-mt-40">
+                <div className="flex items-center gap-4 py-8 border-b-2 border-primary mb-6">
+                   <Box className="text-secondary" size={18} />
+                   <h2 className="text-5xl font-black text-primary tracking-tighter uppercase font-poppins">{selectedCategory}</h2>
+                </div>
+                {description && (
+                  <p className="text-lg text-muted-foreground font-medium max-w-3xl leading-relaxed italic">
+                    {description}
+                  </p>
+                )}
+              </div>
              
              <div className="space-y-40">
                 {categoriesWithProducts

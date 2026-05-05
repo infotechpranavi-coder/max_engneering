@@ -5,20 +5,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import { productCategories } from '@/lib/products'
 
 export function Navigation() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  const productCategories = [
-    'Transmitters', 'Gauges', 'Switches', 'Temperature Sensors', 'Digital Indicators & Controllers', 
-    'Multimeters & Testers', 'Variable Wires & Cables', 'Online Moisture Analyser', 
-    'SS Pipe & Fittings', 'Panel Buildings', 'Wireless System', 'Dust Monitor',
-    'Level Transmitter', 'Pressure / Flow Switch', 'Emission Monitoring Analyzer',
-    'Gas Analyzer', 'Sampling & Water Analysis', 'Industrial Communication', 'Ultrasonic Transmitter', 'Radar Level Sensor'
-  ]
 
   useEffect(() => {
     const handleScroll = () => {

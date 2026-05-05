@@ -1,9 +1,15 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Mail, Phone, MapPin, Twitter, Linkedin, Facebook, Instagram } from 'lucide-react'
+import { productCategories } from '@/lib/products'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
+
+  const footerCategories = productCategories.map(cat => ({
+    name: cat,
+    href: `/${cat.toLowerCase().replace(/ & /g, '-').replace(/ \/ /g, '-').replace(/ /g, '-')}`
+  }))
 
   return (
     <footer className="bg-primary text-white pt-24 pb-12 overflow-hidden relative">
@@ -49,23 +55,11 @@ export function Footer() {
 
           {/* Expanded Quick Links Grid */}
           <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
-            {/* Solutions - Shifted Left */}
-            <div className="md:col-span-6 lg:col-span-6">
+            {/* Solutions - Now 3 Columns */}
+            <div className="md:col-span-9 lg:col-span-9">
               <h4 className="text-xs font-black uppercase tracking-[0.2em] text-secondary mb-8 underline underline-offset-8 decoration-2 decoration-secondary/30">Solutions</h4>
-              <ul className="grid grid-cols-2 gap-x-8 gap-y-4">
-                {[
-                  { name: 'Transmitters', href: '/transmitters' },
-                  { name: 'Gauges', href: '/gauges' },
-                  { name: 'Switches', href: '/switches' },
-                  { name: 'Temperature Sensors', href: '/temperature-sensors' },
-                  { name: 'Digital Indicators & Controllers', href: '/digital-indicators-controllers' },
-                  { name: 'Multimeters & Testers', href: '/multimeters-testers' },
-                  { name: 'Variable Wires & Cables', href: '/variable-wires-cables' },
-                  { name: 'Online Moisture Analyser', href: '/online-moisture-analyser' },
-                  { name: 'SS Pipe & Fittings', href: '/ss-pipe-fittings' },
-                  { name: 'Panel Buildings', href: '/panel-buildings' },
-                  { name: 'Wireless System', href: '/wireless-system' }
-                ].map(item => (
+              <ul className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4 mb-6">
+                {footerCategories.map(item => (
                   <li key={item.name}>
                     <Link href={item.href} className="text-white/60 hover:text-white transition-all text-[10px] font-black uppercase tracking-[0.15em] flex items-start gap-2 group/link leading-relaxed">
                       <div className="w-1 h-1 bg-white/10 rounded-full group-hover/link:bg-secondary transition-colors mt-1.5 shrink-0" />
@@ -74,28 +68,28 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
+
+              {/* Company Link Set - Moved Below and made Horizontal */}
+              <div className="pt-6 border-t border-white/5">
+                <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-secondary/50 mb-6">Company</h4>
+                <ul className="flex flex-wrap gap-x-12 gap-y-4">
+                  {[
+                    { name: 'About Us', href: '/about' },
+                    { name: 'Contact', href: '/contact' },
+                    { name: 'Privacy Policy', href: '/privacy-policy' },
+                    { name: 'Terms of Service', href: '/terms-of-service' }
+                  ].map(item => (
+                    <li key={item.name}>
+                      <Link href={item.href} className="text-white/60 hover:text-white transition-colors text-[11px] font-black uppercase tracking-[0.2em] hover:text-secondary">
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            {/* Company Link Set */}
-            <div className="md:col-span-3 lg:col-span-3">
-              <h4 className="text-xs font-black uppercase tracking-[0.2em] text-secondary mb-8">Company</h4>
-              <ul className="space-y-4">
-                {[
-                  { name: 'About Us', href: '/about' },
-                  { name: 'Contact', href: '/contact' },
-                  { name: 'Privacy Policy', href: '/privacy-policy' },
-                  { name: 'Terms of Service', href: '/terms-of-service' }
-                ].map(item => (
-                  <li key={item.name}>
-                    <Link href={item.href} className="text-white/60 hover:text-white transition-colors text-[11px] font-black uppercase tracking-[0.1em]">
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Tactical Contact Desk */}
+            {/* Tactical Contact Desk - Now on the right of the 3-col Solutions */}
             <div className="md:col-span-3 lg:col-span-3">
               <h4 className="text-xs font-black uppercase tracking-[0.2em] text-secondary mb-8">Contact</h4>
               <div className="space-y-6">

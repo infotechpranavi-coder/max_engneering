@@ -1,3 +1,8 @@
+export interface ProductFeature {
+  title: string
+  description: string
+}
+
 export interface Product {
   id: string
   name: string
@@ -9,7 +14,21 @@ export interface Product {
   specifications: {
     [key: string]: string
   }
+  features?: ProductFeature[]
+  documents?: {
+    technical_datasheet: string
+  }
+  images?: string[]
 }
+
+export const productCategories = [
+  'Transmitters', 'Gauges', 'Switches', 'Temperature Sensors', 'Digital Indicators & Controllers', 
+  'Multimeters & Testers', 'Variable Wires & Cables', 'Online Moisture Analyser', 
+  'SS Pipe & Fittings', 'Panel Buildings', 'Wireless System', 'Dust Monitor',
+  'Level Transmitter', 'Pressure / Flow Switch', 'Emission Monitoring Analyzer',
+  'Gas Analyzer', 'Sampling & Water Analysis', 'Industrial Communication', 'Ultrasonic Transmitter', 
+  'Radar Level Sensor', 'Flow Measuring Equipments', 'Gas Detectors'
+]
 
 export const products: Product[] = [
   // Transmitters
@@ -796,26 +815,500 @@ export const products: Product[] = [
       protection: 'IP67'
     }
   },
+  {
+    id: 'ut-102',
+    name: 'Micropilot FMR30B',
+    category: 'Ultrasonic Transmitter',
+    description: 'The Micropilot FMR30B is a compact non-contact radar level transmitter designed for continuous measurement of liquids and bulk solids.',
+    longDescription: 'The Micropilot FMR30B is a compact non-contact radar level transmitter designed for continuous measurement of liquids and bulk solids. It is ideal for utility and basic industrial applications such as water treatment, storage tanks, and silos, offering reliable performance with simple setup and wireless access. Features include: Easy Setup with guided commissioning, Wireless Access via Bluetooth, Compact Design for small tanks, and Smart Diagnostics using Heartbeat Technology.',
+    price: 'Custom Quote',
+    image: '/orifice assmebly.jpg',
+    images: ['/orifice assmebly.jpg', '/orifce condition.jpeg'],
+    specifications: {
+      type: 'Non-contact Radar Level Transmitter',
+      application: 'Water, wastewater, tanks, silos',
+      range: 'Up to 30 m',
+      accuracy: '±2 mm',
+      frequency: '80 GHz',
+      connectivity: 'Bluetooth, SmartBlue App',
+      principle: 'Radar (Free Space)',
+      temperature: '-40°C to +80°C',
+      pressure: '-1 to 3 bar',
+      power: '2-wire system',
+      output: '4–20mA, HART',
+      display: 'Color touch display'
+    },
+    features: [
+      {
+        title: "Easy Setup",
+        description: "Guided commissioning simplifies installation and configuration."
+      },
+      {
+        title: "Wireless Access",
+        description: "Bluetooth connectivity enables remote monitoring and setup."
+      },
+      {
+        title: "Compact Design",
+        description: "Suitable for small tanks and utility applications."
+      },
+      {
+        title: "Reliable Measurement",
+        description: "Provides stable level readings for liquids and solids."
+      },
+      {
+        title: "Smart Diagnostics",
+        description: "Heartbeat Technology enables device verification without shutdown."
+      }
+    ],
+    documents: {
+      technical_datasheet: "/profile.pdf"
+    }
+  },
+  {
+    id: 'ut-103',
+    name: 'Micropilot FMR67B',
+    category: 'Ultrasonic Transmitter',
+    description: 'The Micropilot FMR67B is a high-performance 80 GHz radar level transmitter designed for demanding solid applications such as silos, bunkers, and stockpiles.',
+    longDescription: 'The Micropilot FMR67B is a high-performance 80 GHz radar level transmitter designed for demanding solid applications such as silos, bunkers, and stockpiles. It delivers highly accurate, non-contact level measurement even under extreme temperatures, pressures, and challenging process conditions. Key features: High Performance for long-range solids, Extreme Condition operation (up to 450°C), Narrow Beam for complex vessels, and Heartbeat Technology for advanced diagnostics.',
+    price: 'Custom Quote',
+    image: '/orifce condition.jpeg',
+    images: ['/orifce condition.jpeg', '/orifice assmebly.jpg'],
+    specifications: {
+      type: '80 GHz Radar Level Transmitter',
+      application: 'Silos, bunkers, bulk solids',
+      range: 'Up to 125 m',
+      accuracy: '±3 mm',
+      temperature: '-40°C to +450°C',
+      pressure: 'Vacuum to 160 bar',
+      principle: 'Radar (80 GHz)',
+      frequency: 'W-band (~80 GHz)',
+      communication: '4–20mA HART, PROFIBUS, PROFINET, Bluetooth',
+      ambientTemp: '-40°C to +85°C',
+      connection: 'Flanged',
+      material: '316L stainless steel / PTFE'
+    },
+    features: [
+      {
+        title: "High Performance",
+        description: "Designed for long-range and complex solid level applications."
+      },
+      {
+        title: "Extreme Conditions",
+        description: "Operates reliably in high temperature and pressure environments."
+      },
+      {
+        title: "Narrow Beam",
+        description: "Ensures accurate measurement in narrow silos and complex vessels."
+      },
+      {
+        title: "Smart Monitoring",
+        description: "Heartbeat Technology enables diagnostics and verification."
+      },
+      {
+        title: "Flexible Integration",
+        description: "Supports multiple industrial communication protocols."
+      }
+    ],
+    documents: {
+      technical_datasheet: "/profile.pdf"
+    }
+  },
+  // Flow Measuring Equipments
+  {
+    id: 'fm-101',
+    name: 'Orifice Flow Meter Assemblies',
+    category: 'Flow Measuring Equipments',
+    description: 'Precision flow measurement solutions featuring both standard Orifice Assemblies and advanced Orifice Conditioning Assemblies for varied piping requirements.',
+    longDescription: 'Our Orifice Flow Meter line offers versatile solutions for industrial fluid measurement. This includes the standard Orifice Assembly for traditional applications and the high-performance Orifice Conditioning Assembly. The conditioning assembly uses a unique multi-hole design that "conditions" the flow, significantly reducing the required straight pipe runs while maintaining high accuracy. Both assemblies are robust, cost-effective, and suitable for liquids, gases, and steam.',
+    price: 'Custom Quote',
+    image: '/orifice assmebly.jpg',
+    images: ['/orifice assmebly.jpg', '/orifce condition.jpeg'],
+    specifications: {
+      type: 'Differential Pressure Flow Meter',
+      application: 'Liquid, gas, and steam flow measurement',
+      principle: 'Bernoulli’s equation',
+      accuracy: '±2–4%',
+      pressureLoss: 'High permanent loss',
+      installation: 'Simple and low cost',
+      measurementPrinciple: 'Differential pressure across restriction',
+      rangeability: '3:1 to 4:1',
+      fluidType: 'Liquids, gases, steam'
+    },
+    features: [
+      {
+        title: "Standard Orifice Assembly",
+        description: "Traditional plate design for reliable flow measurement in standard piping."
+      },
+      {
+        title: "Conditioning Assembly",
+        description: "Advanced multi-hole plate that reduces required straight pipe runs by up to 70%."
+      },
+      {
+        title: "Versatile Media",
+        description: "Suitable for high-pressure and high-temperature liquids, gases, and steam."
+      },
+      {
+        title: "Robust Build",
+        description: "Manufactured from high-grade stainless steel and exotic alloys for harsh environments."
+      },
+      {
+        title: "Cost Effective",
+        description: "Economical solution for accurate flow measurement across various industries."
+      }
+    ],
+    documents: {
+      technical_datasheet: "/profile.pdf"
+    }
+  },
+  {
+    id: 'fm-102',
+    name: 'Annubar Flow Meter',
+    category: 'Flow Measuring Equipments',
+    description: 'An Annubar flow meter is an insertion-type differential pressure device that measures flow by averaging velocity pressure across a pipe.',
+    longDescription: 'An Annubar flow meter is an insertion-type differential pressure device that measures flow by averaging velocity pressure across a pipe. It uses multiple sensing ports to provide accurate and stable flow measurement with minimal pressure loss. This averaging design provides accurate measurement across the full pipe profile and can be installed without major pipeline changes, often being hot-tap capable.',
+    price: 'Custom Quote',
+    image: '/annubar-flow-meter-with-flow-totalizer.jpg',
+    specifications: {
+      type: 'Averaging Pitot Tube',
+      application: 'Gas, liquid, and steam flow',
+      principle: 'Velocity averaging with differential pressure',
+      pressureLoss: 'Very low',
+      accuracy: '±0.75–2%',
+      installation: 'Insertion type / Hot tap capable',
+      measurementPrinciple: 'Averaging Pitot (ΔP)',
+      pressureTaps: 'Multiple upstream ports',
+      fluidType: 'Liquids, gases, steam'
+    },
+    features: [
+      {
+        title: "Low Loss",
+        description: "Minimizes pressure drop and energy consumption."
+      },
+      {
+        title: "Averaging Design",
+        description: "Provides accurate measurement across full pipe profile."
+      },
+      {
+        title: "Easy Retrofit",
+        description: "Can be installed without major pipeline changes."
+      },
+      {
+        title: "High Efficiency",
+        description: "Improves performance in non-ideal flow conditions."
+      },
+      {
+        title: "No Moving Parts",
+        description: "Ensures long-term reliability and low maintenance."
+      }
+    ],
+    documents: {
+      technical_datasheet: "/profile.pdf"
+    }
+  },
+  {
+    id: 'fm-103',
+    name: 'Venturi Tube Flow Meter',
+    category: 'Flow Measuring Equipments',
+    description: 'A Venturi tube flow meter measures fluid flow by creating a smooth constriction in the pipeline and calculating flow from the pressure difference.',
+    longDescription: 'A Venturi tube flow meter measures fluid flow by creating a smooth constriction in the pipeline and calculating flow from the pressure difference between inlet and throat. It offers high accuracy with low permanent pressure loss, making it suitable for large and critical flow applications. The smooth design resists fouling and buildup, providing long-term stability and high accuracy.',
+    price: 'Custom Quote',
+    image: '/orifce condition.jpeg',
+    images: ['/orifce condition.jpeg', '/orifice assmebly.jpg'],
+    specifications: {
+      type: 'Venturi Differential Pressure Meter',
+      application: 'Clean, dirty, and viscous fluids',
+      principle: 'Bernoulli’s equation',
+      accuracy: '±1%',
+      pressureLoss: 'Low',
+      rangeability: '4:1',
+      construction: 'Converging, throat, diverging sections',
+      pressureRecovery: 'High',
+      fluidCompatibility: 'Liquids, gases, slurries'
+    },
+    features: [
+      {
+        title: "High Accuracy",
+        description: "Provides precise flow measurement with stable output."
+      },
+      {
+        title: "Low Loss",
+        description: "Ensures minimal permanent pressure drop."
+      },
+      {
+        title: "Energy Efficient",
+        description: "Reduces pumping energy requirements."
+      },
+      {
+        title: "Self Cleaning",
+        description: "Smooth design resists fouling and buildup."
+      },
+      {
+        title: "Versatile Use",
+        description: "Suitable for a wide range of fluids and industries."
+      }
+    ],
+    documents: {
+      technical_datasheet: "/profile.pdf"
+    }
+  },
+  // Gas Detectors
+  {
+    id: 'gd-101',
+    name: 'Dräger Polytron Series',
+    category: 'Gas Detectors',
+    description: 'The Dräger Polytron series offers high-performance fixed gas detection for toxic gases, oxygen, and combustible gases.',
+    longDescription: 'The Dräger Polytron series (5000, 8000) is a robust and flexible gas detector for continuous monitoring in hazardous environments. It features a high-visibility backlit display, 3-wire installation, and a modular design that supports both electrochemical and catalytic sensors. The system is designed for easy integration with existing plant control systems and provides reliable, accurate readings even in the toughest industrial conditions.',
+    price: 'Custom Quote',
+    image: '/fixed 1.jpeg',
+    images: ['/fixed 1.jpeg', '/fixed 2.jpeg'],
+    specifications: {
+      type: 'Fixed Installation',
+      sensorType: 'Electrochemical / Catalytic / Infrared',
+      output: '4–20mA / RS485 Modbus',
+      protection: 'IP66 / ATEX / IECEx Certified',
+      gases: 'O2, CO, H2S, LEL, NH3, Cl2, CO2',
+      display: 'OLED / LCD Local Display',
+      power: '24V DC'
+    },
+    features: [
+      {
+        title: "Continuous Monitoring",
+        description: "24/7 detection for maximum facility safety."
+      },
+      {
+        title: "Explosion Proof",
+        description: "Certified for use in Zone 1 and Zone 2 hazardous areas."
+      },
+      {
+        title: "Smart Sensors",
+        description: "Plug-and-play sensors for easy field maintenance."
+      },
+      {
+        title: "Versatile Output",
+        description: "Supports analog and digital industrial protocols."
+      }
+    ],
+    documents: {
+      technical_datasheet: "/profile.pdf"
+    }
+  },
+  {
+    id: 'gd-104',
+    name: 'Honeywell Sensepoint XCD',
+    category: 'Gas Detectors',
+    description: 'The Sensepoint XCD provides comprehensive monitoring of combustible, toxic and Oxygen gas hazards in potentially explosive atmospheres.',
+    longDescription: 'The Honeywell Sensepoint XCD provides high-performance gas detection in a rugged, explosion-proof housing. It features a unique tri-color backlit LCD that indicates its status at a glance, even from a distance. The XCD is designed for ease of installation and use, with a non-intrusive one-man operation that reduces maintenance costs. It supports a wide range of plug-in sensors and is suitable for both indoor and outdoor use in hazardous locations.',
+    price: 'Custom Quote',
+    image: '/fixed 2.jpeg',
+    images: ['/fixed 2.jpeg', '/fixed 1.jpeg'],
+    specifications: {
+      type: 'Fixed Transmitter',
+      housing: 'Epoxy-coated aluminum or 316 SS',
+      display: 'Tri-color backlit LCD (Green, Yellow, Red)',
+      output: '4-20mA, RS485 Modbus, 3 Relays',
+      sensors: 'Plug-in Electrochemical, IR, and Catalytic Bead',
+      protection: 'IP66 / NEMA 4X / ATEX / IECEx Certified',
+      operatingTemp: '-40°C to +75°C'
+    },
+    features: [
+      {
+        title: "Tri-Color Display",
+        description: "Instantly identify device status via green (normal), yellow (fault), or red (alarm) backlight."
+      },
+      {
+        title: "Non-Intrusive Operation",
+        description: "Magnetically-actuated interface allows for configuration without opening the enclosure."
+      },
+      {
+        title: "Flexible Installation",
+        description: "Common transmitter for all sensor types reduces parts inventory and training."
+      },
+      {
+        title: "Robust Performance",
+        description: "Certified for use in Zone 1 and Zone 2 hazardous areas with harsh environment protection."
+      }
+    ],
+    documents: {
+      technical_datasheet: "/profile.pdf"
+    }
+  },
+  {
+    id: 'gd-102',
+    name: 'Honeywell BW Solo',
+    category: 'Gas Detectors',
+    description: 'The Honeywell BW Solo is a next-generation single-gas detector that helps you reduce cost, ensure compliance and know your workers are safe.',
+    longDescription: 'The Honeywell BW Solo is a service-friendly single-gas detector with Bluetooth connectivity that provides real-time visibility into the status and safety of hazardous-area workers. It is the easiest single-gas detector to service, with no need to take it apart to replace sensors or batteries. Features include high-speed 1-Series sensors for reliability, high-visibility alarms, and the ability to manage the device from your smartphone.',
+    price: 'Custom Quote',
+    image: '/hand 1.jpeg',
+    images: ['/hand 1.jpeg', '/hand 2.jpeg'],
+    specifications: {
+      type: 'Single-gas Portable Detector',
+      sensors: '1-Series high-performance sensors',
+      connectivity: 'Bluetooth Low Energy (BLE)',
+      battery: 'Replaceable Lithium (up to 12 months)',
+      display: 'High-resolution LCD',
+      alarms: '95dB audible, visual (vibrant LEDs), vibration',
+      protection: 'IP66/68 rating',
+      gases: 'H2S, CO, O2, NH3, SO2, HCN, Cl2, NO, NO2, PH3, ETO, O3'
+    },
+    features: [
+      {
+        title: "Service Friendly",
+        description: "Easiest single-gas detector to service with no-tools sensor/battery replacement."
+      },
+      {
+        title: "Real-time Monitoring",
+        description: "Bluetooth connectivity for remote monitoring via the Safety Suite Device Configurator app."
+      },
+      {
+        title: "One-Button Operation",
+        description: "Simple user interface for easy use even with heavy gloves."
+      },
+      {
+        title: "High Precision",
+        description: "Uses 1-Series sensors for fast response and long-term stability."
+      }
+    ],
+    documents: {
+      technical_datasheet: "/profile.pdf"
+    }
+  },
+  {
+    id: 'gd-103',
+    name: 'Dräger Pac Series',
+    category: 'Gas Detectors',
+    description: 'The Dräger Pac series provides reliable personal gas detection for a variety of toxic gases and oxygen.',
+    longDescription: 'The Dräger Pac series (6000, 6500, 8000) is designed for tough industrial conditions. These personal single-gas detection devices are reliable, precise, and easy to use. Equipped with powerful Dräger XXS sensors, they provide fast response times and clear warnings. The robust housing is chemical-resistant and meets IP68 requirements, ensuring durability in the most demanding environments.',
+    price: 'Custom Quote',
+    image: '/hand 2.jpeg',
+    images: ['/hand 2.jpeg', '/hand 1.jpeg'],
+    specifications: {
+      type: 'Personal Single-gas Detector',
+      sensorTechnology: 'Dräger XXS Sensors',
+      durability: 'IP68 water and dust resistance',
+      connectivity: 'Bluetooth integration (on select models)',
+      indicators: 'D-Light for device status verification',
+      alarms: '360° visual, audible, and vibration',
+      dataLogger: 'Event and concentration logging',
+      maintenance: 'Quick bump test and calibration'
+    },
+    features: [
+      {
+        title: "Robust Performance",
+        description: "Shock-proof and chemical-resistant housing for extreme durability."
+      },
+      {
+        title: "Clear Status",
+        description: "D-Light indicator confirms the device is tested and ready for use."
+      },
+      {
+        title: "User-Centric",
+        description: "Large, language-free display clearly indicates gas concentration."
+      },
+      {
+        title: "Fast Response",
+        description: "Powerful sensors ensure the shortest possible response times."
+      }
+    ],
+    documents: {
+      technical_datasheet: "/profile.pdf"
+    }
+  },
   // Radar Level Sensor
   {
     id: 'rls-101',
-    name: 'VEGAPULS C 21',
+    name: '80 GHz Radar Level Transmitter',
     category: 'Radar Level Sensor',
-    description: 'Compact 80 GHz radar sensor for continuous, non-contact level measurement of liquids and bulk solids.',
-    longDescription: 'VEGAPULS C 21 is a compact 80 GHz radar sensor for continuous, non-contact level measurement of liquids and bulk solids. It provides high accuracy independent of process conditions and is ideal for water treatment, open channels, and general industrial applications. The device ensures maintenance-free operation with robust protection for harsh environments. Bluetooth connectivity enables easy setup and monitoring via mobile devices. Supports multiple communication protocols including HART, SDI-12, and Modbus.',
+    description: 'A compact 80 GHz radar level transmitter designed for continuous, non-contact measurement of liquids and bulk solids.',
+    longDescription: 'A compact 80 GHz radar level transmitter designed for continuous, non-contact measurement of liquids and bulk solids. It delivers accurate and stable readings independent of process conditions, making it suitable for water treatment, open channels, and general industrial applications. The device features robust construction for harsh environments and supports wireless configuration via Bluetooth and multiple communication protocols including HART, SDI-12, and Modbus.',
     price: 'Custom Quote',
-    image: '/vegac21.png',
+    image: '/80hz radar level.png',
     specifications: {
-      technology: '80 GHz Radar',
+      measurementPrinciple: 'Radar (80 GHz)',
       range: 'Up to 15 m',
       output: '4–20 mA / HART',
-      temperature: '-40 to +80 °C',
-      pressure: '-1 to +3 bar',
-      protection: 'IP66/IP68',
+      operatingTemperature: '-40 to +80 °C',
+      pressureRange: '-1 to +3 bar',
+      ingressProtection: 'IP66/IP68',
       material: 'PVDF',
       communication: 'HART, SDI-12, Modbus'
+    },
+    features: [
+      {
+        title: "High Accuracy",
+        description: "Ensures precise level measurement independent of process conditions."
+      },
+      {
+        title: "Non Contact",
+        description: "Eliminates wear and enables maintenance-free operation."
+      },
+      {
+        title: "Rugged Build",
+        description: "Designed for reliable use in harsh industrial environments."
+      },
+      {
+        title: "Wireless Setup",
+        description: "Bluetooth connectivity allows easy configuration and monitoring."
+      },
+      {
+        title: "Flexible Integration",
+        description: "Supports multiple industrial communication protocols."
+      },
+      {
+        title: "Low Maintenance",
+        description: "Stable performance reduces calibration and servicing needs."
+      }
+    ],
+    documents: {
+      technical_datasheet: "/profile.pdf"
     }
-  }
+  },
+  {
+    id: 'rls-102',
+    name: 'NivoRadar NR 7100',
+    category: 'Radar Level Sensor',
+    description: 'The NivoRadar NR 7100 is a non-contact 80 GHz FMCW radar level transmitter designed for continuous level measurement in liquids and solids.',
+    longDescription: 'The NivoRadar NR 7100 is a high-precision, non-contact 80 GHz FMCW radar level transmitter designed for continuous measurement in both liquids and solids. With its narrow 8° beam angle, it ensures reliable and accurate performance even in narrow tanks, silos, and IBC containers. The device is particularly effective in aggressive or viscous media and is compatible with food industry requirements, offering a robust and low-maintenance solution for challenging industrial environments.',
+    price: 'Custom Quote',
+    image: '/nr7100.jpg',
+    specifications: {
+      type: 'Non-contact Radar Level Transmitter',
+      application: 'Silos, tanks, IBC containers',
+      frequency: '80 GHz FMCW',
+      range: 'Up to 10 m',
+      beamAngle: '8° narrow beam',
+      media: 'Liquids and solids',
+      measurementPrinciple: 'FMCW Radar',
+      processConnection: '1½ inch (PVDF)',
+      applicationMedia: 'Acids, alkalis, solvents, viscous liquids',
+      compliance: 'Food industry compatible'
+    },
+    features: [
+      {
+        title: "High Precision",
+        description: "Provides accurate level measurement independent of medium properties."
+      },
+      {
+        title: "Narrow Beam",
+        description: "8° beam ensures reliable measurement in confined spaces."
+      },
+      {
+        title: "Robust Design",
+        description: "Durable construction suitable for harsh industrial environments."
+      },
+      {
+        title: "Low Maintenance",
+        description: "Non-contact design eliminates wear and reduces servicing."
+      },
+      {
+        title: "Easy Setup",
+        description: "User-friendly configuration and diagnostics via mobile app."
+      }
+    ],
+    documents: {
+      technical_datasheet: "/profile.pdf"
+    }
+  },
 ]
 
 export function getProductById(id: string): Product | undefined {

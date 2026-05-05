@@ -96,16 +96,25 @@ export default function AboutPage() {
 
               <div className="flex w-fit whitespace-nowrap animate-marquee group-hover:[animation-play-state:paused]">
                 {[...Array(2)].map((_, setIdx) => (
-                  <div key={setIdx} className="flex items-center gap-16 pr-16">
-                    {Array.from({ length: 30 }, (_, i) => (
+                  <div key={setIdx} className="flex items-center gap-24 pr-24">
+                    {[
+                      { name: 'Dräger', logo: '/partners/drager.png' },
+                      { name: 'Endress+Hauser', logo: '/partners/eand h.png' },
+                      { name: 'K-TEK', logo: '/partners/kled.jpg' },
+                      { name: 'Radix', logo: '/partners/radix.jpg' },
+                      { name: 'Siemens', logo: '/partners/siemens.jpg' },
+                      { name: 'Tempsens', logo: '/partners/tempsens.jpeg' },
+                      { name: 'Toshniwal', logo: '/partners/toshiniwal.jpeg' },
+                      { name: 'UWT', logo: '/partners/uwt.png' }
+                    ].map((partner, i) => (
                       <div
-                        key={`${setIdx}-${i + 1}`}
+                        key={`${setIdx}-${i}`}
                         className="w-48 h-20 flex items-center justify-center pointer-events-none"
                       >
                         <img
-                          src={`/partners/${i + 1}.jpg`}
-                          alt={`Strategic Partner Logo ${i + 1}`}
-                          className="max-w-full max-h-full object-contain grayscale hover:grayscale-0 transition-all duration-500"
+                          src={partner.logo}
+                          alt={partner.name}
+                          className="max-w-full max-h-full object-contain transition-all duration-500 hover:scale-110"
                         />
                       </div>
                     ))}
