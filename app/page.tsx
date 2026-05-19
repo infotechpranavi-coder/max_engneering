@@ -30,7 +30,7 @@ export default function Home() {
     { name: 'Temperature Sensors', icon: Thermometer, href: '/temperature-sensors', description: 'Precision RTDs and Thermocouples for accurate thermal monitoring.' },
     { name: 'Digital Indicators & Controllers', icon: Activity, href: '/digital-indicators-controllers', description: 'Advanced signal processing and display units for real-time control.' },
     { name: 'Multimeters & Testers', icon: Zap, href: '/multimeters-testers', description: 'Professional-grade electrical testing and calibration instruments.' },
-    { name: 'Variable Wires & Cables', icon: Link2, href: '/variable-wires-cables', description: 'High-integrity industrial cables for instrumentation and power.' },
+    { name: 'Wires & Cables', icon: Link2, href: '/wires-cables', description: 'High-integrity industrial cables for instrumentation and power.' },
     { name: 'Online Moisture Analyser', icon: Droplets, href: '/online-moisture-analyser', description: 'Continuous moisture detection solutions for bulk materials.' },
     { name: 'SS Pipe & Fittings', icon: CircleDot, href: '/ss-pipe-fittings', description: 'Corrosion-resistant stainless steel plumbing for industrial instrumentation.' },
     { name: 'Panel Buildings', icon: Layout, href: '/panel-buildings', description: 'Custom engineered control panels and industrial enclosures.' },
@@ -41,9 +41,7 @@ export default function Home() {
     { name: 'Emission Monitoring Analyzer', icon: CloudFog, href: '/emission-monitoring-analyzer', description: 'Dust, opacity, and zirconia analyzers for complete stack emission compliance.' },
     { name: 'Gas Analyzer', icon: FlaskConical, href: '/gas-analyzer', description: 'SOx and NOx continuous analyzers for combustion control and environmental compliance.' },
     { name: 'Sampling & Water Analysis', icon: TestTube2, href: '/sampling-water-analysis', description: 'SWAS panel systems for steam and water chemistry monitoring in power plants.' },
-    { name: 'Industrial Communication', icon: Headphones, href: '/industrial-communication', description: 'IoT-enabled walkie-talkie systems for plant-wide workforce coordination and tracking.' },
-    { name: 'Ultrasonic Transmitter', icon: Waves, href: '/ultrasonic-transmitter', description: 'Non-contact ultrasonic pulse echo transmitters for reliable liquid and solid level sensing.' },
-    { name: 'Radar Level Sensor', icon: Rss, href: '/radar-level-sensor', description: 'Compact 80 GHz radar sensors for continuous, non-contact level measurement.' }
+    { name: 'Industrial Communication', icon: Headphones, href: '/industrial-communication', description: 'IoT-enabled walkie-talkie systems for plant-wide workforce coordination and tracking.' }
   ]
 
   return (

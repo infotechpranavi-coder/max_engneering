@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { Geist, Geist_Mono, Poppins } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { FloatingContact } from '@/components/floating-contact'
@@ -33,8 +34,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${_geist.variable} ${_geistMono.variable} ${poppins.variable}`}>
-      <body className="font-sans antialiased">
+    <html lang="en" className={`${_geist.variable} ${_geistMono.variable} ${poppins.variable}`} suppressHydrationWarning>
+      <body className="font-sans antialiased" suppressHydrationWarning>
         {children}
         <Analytics />
         <FloatingContact />

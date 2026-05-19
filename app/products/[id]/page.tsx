@@ -2,6 +2,7 @@ import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import { ProductCard } from '@/components/product-card'
 import { SpecificationsTable } from '@/components/specifications-table'
+import { ProductImageGallery } from '@/components/product-image-gallery'
 import { getProductById, getProductsByCategory } from '@/lib/products'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -65,39 +66,11 @@ export default async function ProductDetailPage(props: ProductDetailPageProps) {
               
               {/* Cinematic Product Display */}
               {product.image && product.image !== '/placeholder.jpg' && product.image !== '/placeholder.svg' && (
-                <div className="space-y-6 max-w-2xl mx-auto w-full">
-                  <div className="relative aspect-[4/3] bg-[#F8F9FA] rounded-[2.5rem] p-12 flex items-center justify-center overflow-hidden group border border-border/40">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      width={600}
-                      height={600}
-                      className="object-contain mix-blend-multiply transition-transform duration-1000 group-hover:scale-105"
-                    />
-                    <div className="absolute top-8 left-8">
-                       <div className="w-12 h-12 bg-primary/5 rounded-[1.2rem] flex items-center justify-center rotate-3 group-hover:rotate-12 transition-transform duration-700">
-                          <Package className="text-primary size-6" />
-                       </div>
-                    </div>
-                  </div>
-                  
-                  {/* Thumbnail Gallery */}
-                  {product.images && product.images.length > 1 && (
-                    <div className="grid grid-cols-4 gap-4">
-                      {product.images.map((img, idx) => (
-                        <div key={idx} className="aspect-square bg-[#F8F9FA] rounded-2xl p-4 border border-border/40 flex items-center justify-center cursor-pointer hover:border-secondary transition-colors overflow-hidden group/thumb">
-                          <Image
-                            src={img}
-                            alt={`${product.name} view ${idx + 1}`}
-                            width={100}
-                            height={100}
-                            className="object-contain mix-blend-multiply transition-transform group-hover/thumb:scale-110"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                <ProductImageGallery
+                  name={product.name}
+                  primaryImage={product.image}
+                  images={product.images}
+                />
               )}
 
               {/* Product Info - Editorial Style */}

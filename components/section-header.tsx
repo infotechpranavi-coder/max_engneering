@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
 interface SectionHeaderProps {
-  preTitle: string
+  preTitle?: string
   title: string
   highlightedTitle?: string
   description?: string
@@ -10,7 +10,7 @@ interface SectionHeaderProps {
 }
 
 export function SectionHeader({
-  preTitle,
+  preTitle = '',
   title,
   highlightedTitle,
   description,

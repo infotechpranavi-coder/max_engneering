@@ -23,11 +23,11 @@ export interface Product {
 
 export const productCategories = [
   'Transmitters', 'Gauges', 'Switches', 'Temperature Sensors', 'Digital Indicators & Controllers', 
-  'Multimeters & Testers', 'Variable Wires & Cables', 'Online Moisture Analyser', 
+  'Multimeters & Testers', 'Wires & Cables', 'Online Moisture Analyser', 
   'SS Pipe & Fittings', 'Panel Buildings', 'Wireless System', 'Dust Monitor',
   'Level Transmitter', 'Pressure / Flow Switch', 'Emission Monitoring Analyzer',
-  'Gas Analyzer', 'Sampling & Water Analysis', 'Industrial Communication', 'Ultrasonic Transmitter', 
-  'Radar Level Sensor', 'Flow Measuring Equipments', 'Gas Detectors'
+  'Gas Analyzer', 'Sampling & Water Analysis', 'Industrial Communication', 
+  'Flow Measuring Equipments', 'Gas Detectors'
 ]
 
 export const products: Product[] = [
@@ -79,32 +79,433 @@ export const products: Product[] = [
   },
   {
     id: 'tr-104',
-    name: 'Magnetic Flow Meters',
+    name: 'Magnetic Flow Meter',
     category: 'Transmitters',
-    description: 'Flexible configurations for industrial use providing accurate measurement of conductive liquids in most process areas.',
-    longDescription: 'Flow meters provide accurate measurement of mass flow, density, volumetric flow rate and temperature for gases, pastes, liquids with low viscosity and applications where users are unwilling/unable to cut into the process measurement line to install an in-line meter. Max experience with magnetic flowmeters spans decades. Our magnetic flow meters provide flexible configurations for industrial use in most areas.',
+    description: 'A magnetic flow meter is an electromagnetic flow measurement device used for accurate monitoring of conductive liquids in industrial pipelines. It provides maintenance-free operation with no moving parts and is widely used in water treatment, chemical processing, wastewater, and slurry applications.',
+    longDescription: 'A magnetic flow meter is an electromagnetic flow measurement device used for accurate monitoring of conductive liquids in industrial pipelines. It provides maintenance-free operation with no moving parts and is widely used in water treatment, chemical processing, wastewater, and slurry applications.',
     price: 'Custom Quote',
-    image: '/transmit_4.jpg',
+    image: '/magnetic-flowmeter-1.jpg',
     specifications: {
-      type: 'Electromagnetic / Magnetic',
-      output: '4-20mA / Pulse / HART',
-      lining: 'PTFE, Rubber, PFA',
-      protection: 'IP67 / IP68'
+      type: 'Electromagnetic Flow Meter',
+      application: 'Water, chemicals, slurry',
+      measurement: 'Volumetric flow',
+      output: '4–20mA, Pulse, Modbus',
+      accuracy: '±0.5%',
+      media: 'Conductive liquids',
+      'measurement principle': 'Electromagnetic induction',
+      'pipe size': 'DN10 to DN2000',
+      'lining material': 'PTFE / Rubber',
+      'electrode material': 'SS316 / Hastelloy',
+      protection: 'IP67/IP68',
+      'power supply': '24 Vdc / 230 Vac'
+    },
+    features: [
+      {
+        title: 'No Moving',
+        description: 'Maintenance-free measurement technology.'
+      },
+      {
+        title: 'High Accuracy',
+        description: 'Provides precise conductive liquid flow measurement.'
+      },
+      {
+        title: 'Low Pressure',
+        description: 'Minimal pressure drop during operation.'
+      },
+      {
+        title: 'Industrial Grade',
+        description: 'Designed for harsh process environments.'
+      },
+      {
+        title: 'Digital Output',
+        description: 'Supports modern industrial communication systems.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
     }
   },
   {
     id: 'tr-105',
     name: 'Vortex Flow Meter',
     category: 'Transmitters',
-    description: 'High performance and reliability in liquid, gas and steam measurements with advanced DSP and filtering techniques.',
-    longDescription: 'The robust design of Max vortex flowmeters provides high performance and reliability in liquid, gas and steam measurements. Equipped with digital signal processing (DSP) and advanced filtering techniques, these innovative flowmeters from ABB allow excellent flow signal detection and provide measurement immunity from the effects of hydraulic noise and pipeline vibration.',
+    description: 'A vortex flow meter measures the flow of liquids, gases, and steam using the vortex shedding principle. It offers reliable performance, high durability, and accurate measurement for utility, steam, and industrial process applications.',
+    longDescription: 'A vortex flow meter measures the flow of liquids, gases, and steam using the vortex shedding principle. It offers reliable performance, high durability, and accurate measurement for utility, steam, and industrial process applications.',
     price: 'Custom Quote',
-    image: '/transmit_5.jpg',
+    image: '/vortex-flow-meter1.jpeg',
     specifications: {
-      media: 'Liquid, Gas, Steam',
-      technology: 'Vortex Shedding + DSP',
-      output: '4-20mA HART / Pulse',
-      protection: 'IP67, ATEX / IECEx'
+      type: 'Vortex Flow Meter',
+      application: 'Steam, gas, liquid flow',
+      measurement: 'Mass and volumetric flow',
+      output: '4–20mA, Pulse, HART',
+      accuracy: '±1%',
+      process: 'High-temperature compatible',
+      'measurement principle': 'Vortex shedding',
+      'fluid type': 'Steam, gas, liquids',
+      'temperature range': 'Up to 400°C',
+      'pressure rating': 'Up to 100 bar',
+      'body material': 'SS316',
+      communication: 'HART / Modbus'
+    },
+    features: [
+      {
+        title: 'Steam Ready',
+        description: 'Ideal for steam and utility applications.'
+      },
+      {
+        title: 'Stable Output',
+        description: 'Reliable flow measurement under varying conditions.'
+      },
+      {
+        title: 'No Moving',
+        description: 'Reduces maintenance requirements.'
+      },
+      {
+        title: 'Industrial Build',
+        description: 'Designed for demanding industrial environments.'
+      },
+      {
+        title: 'Wide Compatibility',
+        description: 'Suitable for liquids, gases, and steam.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
+  {
+    id: 'tr-106',
+    name: 'Remote Seal Type Pressure Transmitter',
+    category: 'Transmitters',
+    description: 'A remote seal type pressure transmitter is designed for accurate pressure measurement in challenging process conditions where direct sensor exposure is not suitable. Using diaphragm seals and capillary systems, it enables reliable pressure monitoring for corrosive, viscous, high-temperature, or sanitary applications in industrial processes.',
+    longDescription: 'A remote seal type pressure transmitter is designed for accurate pressure measurement in challenging process conditions where direct sensor exposure is not suitable. Using diaphragm seals and capillary systems, it enables reliable pressure monitoring for corrosive, viscous, high-temperature, or sanitary applications in industrial processes.',
+    price: 'Custom Quote',
+    image: '/remote seal type transmitter.jpg',
+    specifications: {
+      type: 'Remote Seal Pressure Transmitter',
+      application: 'Corrosive and high-temperature processes',
+      measurement: 'Gauge, absolute, differential pressure',
+      output: '4–20mA, HART',
+      'seal system': 'Diaphragm seal with capillary',
+      material: 'SS316 / Hastelloy',
+      'measurement principle': 'Piezoresistive / Capacitive',
+      'pressure range': 'Vacuum to high pressure',
+      'process temperature': 'Up to 400°C',
+      accuracy: '±0.075% FS',
+      communication: 'HART / Modbus',
+      protection: 'IP65/IP67'
+    },
+    features: [
+      {
+        title: 'Remote Sensing',
+        description: 'Protects sensor from harsh process conditions.'
+      },
+      {
+        title: 'High Accuracy',
+        description: 'Provides stable and precise pressure readings.'
+      },
+      {
+        title: 'Corrosion Resistant',
+        description: 'Suitable for aggressive chemical applications.'
+      },
+      {
+        title: 'Temperature Ready',
+        description: 'Operates in high-temperature processes.'
+      },
+      {
+        title: 'Flexible Mounting',
+        description: 'Supports various diaphragm seal configurations.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
+  {
+    id: 'tr-107',
+    name: 'Magnetic Flow Transmitter',
+    category: 'Transmitters',
+    description: 'A magnetic flow transmitter is an electromagnetic flow measurement device designed for conductive liquids in industrial pipelines. It delivers accurate and maintenance-free flow monitoring with no moving parts, making it suitable for water treatment, chemical processing, food, and wastewater applications.',
+    longDescription: 'A magnetic flow transmitter is an electromagnetic flow measurement device designed for conductive liquids in industrial pipelines. It delivers accurate and maintenance-free flow monitoring with no moving parts, making it suitable for water treatment, chemical processing, food, and wastewater applications.',
+    price: 'Custom Quote',
+    image: '/Electro-Magnetic-Flow-Meter.jpg',
+    specifications: {
+      type: 'Electromagnetic Flow Transmitter',
+      application: 'Conductive liquid flow measurement',
+      measurement: 'Volumetric flow',
+      output: '4–20mA, Pulse, Modbus',
+      accuracy: '±0.5%',
+      installation: 'Inline pipeline mounting',
+      'measurement principle': 'Electromagnetic induction',
+      'fluid type': 'Conductive liquids',
+      'pipe size': 'DN10 to DN2000',
+      'power supply': '24 Vdc / 230 Vac',
+      'lining material': 'PTFE / Rubber',
+      protection: 'IP67/IP68'
+    },
+    features: [
+      {
+        title: 'No Moving',
+        description: 'Maintenance-free design improves reliability.'
+      },
+      {
+        title: 'High Accuracy',
+        description: 'Ensures precise liquid flow measurement.'
+      },
+      {
+        title: 'Low Pressure',
+        description: 'Minimal pressure loss during operation.'
+      },
+      {
+        title: 'Wide Application',
+        description: 'Suitable for water, chemicals, and slurry.'
+      },
+      {
+        title: 'Digital Output',
+        description: 'Supports industrial communication protocols.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
+  {
+    id: 'tr-108',
+    name: 'Vortex Flow Transmitter',
+    category: 'Transmitters',
+    description: 'A vortex flow transmitter measures the flow of liquids, gases, and steam using the vortex shedding principle. It provides reliable and accurate flow measurement with robust construction and is widely used in process industries for utility and energy monitoring applications.',
+    longDescription: 'A vortex flow transmitter measures the flow of liquids, gases, and steam using the vortex shedding principle. It provides reliable and accurate flow measurement with robust construction and is widely used in process industries for utility and energy monitoring applications.',
+    price: 'Custom Quote',
+    image: '/vortex-flow-meter.jpg',
+    specifications: {
+      type: 'Vortex Flow Transmitter',
+      application: 'Steam, gas, and liquid flow',
+      measurement: 'Mass and volumetric flow',
+      output: '4–20mA, Pulse, HART',
+      accuracy: '±1%',
+      process: 'High temperature compatible',
+      'measurement principle': 'Vortex shedding',
+      'fluid type': 'Liquids, gases, steam',
+      'temperature range': 'Up to 400°C',
+      'pressure rating': 'Up to 100 bar',
+      'body material': 'SS316',
+      communication: 'HART / Modbus'
+    },
+    features: [
+      {
+        title: 'Steam Ready',
+        description: 'Ideal for steam and utility flow monitoring.'
+      },
+      {
+        title: 'No Moving',
+        description: 'Reduces wear and maintenance requirements.'
+      },
+      {
+        title: 'Stable Output',
+        description: 'Provides reliable measurement under varying conditions.'
+      },
+      {
+        title: 'Industrial Build',
+        description: 'Designed for demanding process applications.'
+      },
+      {
+        title: 'Wide Compatibility',
+        description: 'Suitable for gases, liquids, and steam.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
+  {
+    id: 'tr-109',
+    name: 'Coriolis Flow Meter',
+    category: 'Transmitters',
+    description: 'A Coriolis flow meter measures mass flow directly using the Coriolis effect and provides highly accurate flow, density, and temperature measurement. It is widely used in chemical, oil & gas, food, and pharmaceutical industries for critical process applications.',
+    longDescription: 'A Coriolis flow meter measures mass flow directly using the Coriolis effect and provides highly accurate flow, density, and temperature measurement. It is widely used in chemical, oil & gas, food, and pharmaceutical industries for critical process applications.',
+    price: 'Custom Quote',
+    image: '/corilois flow meter.jpg',
+    specifications: {
+      type: 'Mass Flow Meter',
+      application: 'Chemical, oil & gas, food processing',
+      measurement: 'Mass flow, density, temperature',
+      accuracy: '±0.1%',
+      output: '4–20mA, HART, Modbus',
+      media: 'Liquids and gases',
+      'measurement principle': 'Coriolis effect',
+      'flow measurement': 'Direct mass flow',
+      'additional measurement': 'Density and temperature',
+      'accuracy rating': '±0.1% to ±0.2%',
+      communication: 'HART / Modbus / Pulse',
+      construction: 'Dual vibrating tube'
+    },
+    features: [
+      {
+        title: 'Mass Flow',
+        description: 'Directly measures true mass flow.'
+      },
+      {
+        title: 'High Precision',
+        description: 'Provides extremely accurate process measurement.'
+      },
+      {
+        title: 'Multi Variable',
+        description: 'Measures flow, density, and temperature simultaneously.'
+      },
+      {
+        title: 'Wide Application',
+        description: 'Suitable for critical industrial processes.'
+      },
+      {
+        title: 'Reliable Design',
+        description: 'Stable operation with minimal maintenance.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
+  {
+    id: 'tr-110',
+    name: 'Thermal Mass Flow Meter',
+    category: 'Transmitters',
+    description: 'A thermal mass flow meter measures gas flow based on heat transfer principles and provides direct mass flow measurement without pressure or temperature compensation. It is commonly used for compressed air, natural gas, nitrogen, and industrial gas monitoring applications.',
+    longDescription: 'A thermal mass flow meter measures gas flow based on heat transfer principles and provides direct mass flow measurement without pressure or temperature compensation. It is commonly used for compressed air, natural gas, nitrogen, and industrial gas monitoring applications.',
+    price: 'Custom Quote',
+    image: '/thermal flow metere.webp',
+    specifications: {
+      type: 'Thermal Mass Flow Meter',
+      application: 'Compressed air and gas monitoring',
+      measurement: 'Direct mass flow',
+      media: 'Air and industrial gases',
+      output: '4–20mA, Pulse, Modbus',
+      installation: 'Inline or insertion type',
+      'measurement principle': 'Thermal dispersion',
+      'fluid type': 'Air and gases',
+      accuracy: '±1% FS',
+      'temperature compensation': 'Integrated',
+      communication: 'Modbus / HART',
+      'power supply': '24 Vdc'
+    },
+    features: [
+      {
+        title: 'Direct Mass',
+        description: 'Measures gas mass flow directly.'
+      },
+      {
+        title: 'Low Pressure',
+        description: 'Minimal pressure loss in pipeline.'
+      },
+      {
+        title: 'Gas Optimized',
+        description: 'Designed specifically for gas applications.'
+      },
+      {
+        title: 'Energy Saving',
+        description: 'Helps optimize compressed air systems.'
+      },
+      {
+        title: 'Easy Integration',
+        description: 'Supports industrial communication protocols.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
+  {
+    id: 'tr-111',
+    name: 'Insertion Flow Meter',
+    category: 'Transmitters',
+    description: 'An insertion flow meter is a probe-style flow measuring device inserted directly into pipelines for monitoring liquid or gas flow. It offers economical installation and is suitable for large pipe sizes in water, air, and industrial utility applications.',
+    longDescription: 'An insertion flow meter is a probe-style flow measuring device inserted directly into pipelines for monitoring liquid or gas flow. It offers economical installation and is suitable for large pipe sizes in water, air, and industrial utility applications.',
+    price: 'Custom Quote',
+    image: '/insertion-type-electromagnetic-flow-meter.jpg',
+    specifications: {
+      type: 'Insertion Flow Meter',
+      application: 'Large pipelines and utilities',
+      installation: 'Probe insertion type',
+      media: 'Liquids and gases',
+      output: '4–20mA, Pulse',
+      maintenance: 'Easy installation and servicing',
+      'installation type': 'Hot tap / insertion',
+      'pipe size': 'Large diameter pipelines',
+      'measurement principle': 'Velocity / thermal / electromagnetic',
+      communication: 'Pulse / Modbus',
+      construction: 'SS316 probe'
+    },
+    features: [
+      {
+        title: 'Easy Install',
+        description: 'Suitable for large pipeline retrofits.'
+      },
+      {
+        title: 'Low Cost',
+        description: 'Economical compared to full bore meters.'
+      },
+      {
+        title: 'Flexible Use',
+        description: 'Supports liquid and gas applications.'
+      },
+      {
+        title: 'Compact Probe',
+        description: 'Minimal piping modification required.'
+      },
+      {
+        title: 'Industrial Ready',
+        description: 'Designed for utility and process systems.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
+  {
+    id: 'tr-112',
+    name: 'Clamp-On Ultrasonic Flow Meter',
+    category: 'Transmitters',
+    description: 'A clamp-on ultrasonic flow meter measures liquid flow externally using ultrasonic transit-time technology without cutting the pipe or interrupting the process. It is ideal for temporary monitoring, retrofit installations, and non-invasive flow measurement applications.',
+    longDescription: 'A clamp-on ultrasonic flow meter measures liquid flow externally using ultrasonic transit-time technology without cutting the pipe or interrupting the process. It is ideal for temporary monitoring, retrofit installations, and non-invasive flow measurement applications.',
+    price: 'Custom Quote',
+    image: '/clamp-on-ultrasonic-flow-meter.jpg',
+    specifications: {
+      type: 'Clamp-On Ultrasonic Flow Meter',
+      application: 'Non-invasive liquid flow measurement',
+      measurement: 'Transit-time ultrasonic',
+      installation: 'External clamp mounting',
+      output: '4–20mA, Pulse, Modbus',
+      'pipe access': 'No pipe cutting required',
+      'measurement principle': 'Ultrasonic transit-time',
+      'fluid type': 'Clean liquids',
+      'installation type': 'Clamp-on external sensors',
+      'pipe material': 'Metal and plastic pipes',
+      communication: 'Modbus / Pulse',
+      'power supply': '24 Vdc / Battery'
+    },
+    features: [
+      {
+        title: 'Non Invasive',
+        description: 'No pipe cutting or process interruption required.'
+      },
+      {
+        title: 'Easy Retrofit',
+        description: 'Quick installation on existing pipelines.'
+      },
+      {
+        title: 'Portable Option',
+        description: 'Available in fixed and portable versions.'
+      },
+      {
+        title: 'Low Maintenance',
+        description: 'External sensors reduce servicing requirements.'
+      },
+      {
+        title: 'Accurate Reading',
+        description: 'Provides reliable liquid flow measurement.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
     }
   },
   // Gauges
@@ -168,6 +569,101 @@ export const products: Product[] = [
       application: 'Hydraulic / Pressure Systems'
     }
   },
+  {
+    id: 'ga-105',
+    name: 'Capsule Pressure Gauge',
+    category: 'Gauges',
+    description: 'A capsule pressure gauge is a low-pressure measuring instrument designed for accurate monitoring of gaseous media at very low pressures. It uses a capsule sensing element formed by joined diaphragms that expand or contract with pressure changes, making it suitable for HVAC, medical, laboratory, and industrial applications.',
+    longDescription: 'A capsule pressure gauge is a low-pressure measuring instrument designed for accurate monitoring of gaseous media at very low pressures. It uses a capsule sensing element formed by joined diaphragms that expand or contract with pressure changes, making it suitable for HVAC, medical, laboratory, and industrial applications.',
+    price: 'Custom Quote',
+    image: '/capsule.webp',
+    specifications: {
+      type: 'Low Pressure Gauge',
+      application: 'Gas and air pressure measurement',
+      measurement: 'Low differential pressure',
+      range: 'Vacuum to low positive pressure',
+      media: 'Non-corrosive gases',
+      display: 'Analog dial indication',
+      'measurement principle': 'Capsule diaphragm element',
+      'accuracy': '±1.6% FS',
+      'dial size': '63 mm / 100 mm',
+      'connection': 'Bottom or back entry',
+      'material': 'SS304 / Brass'
+    },
+    features: [
+      {
+        title: 'Low Pressure',
+        description: 'Designed for precise low-pressure gas measurement.'
+      },
+      {
+        title: 'Sensitive Element',
+        description: 'Capsule diaphragm ensures accurate response.'
+      },
+      {
+        title: 'Compact Design',
+        description: 'Suitable for panel and field mounting.'
+      },
+      {
+        title: 'Reliable Reading',
+        description: 'Provides stable analog pressure indication.'
+      },
+      {
+        title: 'Industrial Use',
+        description: 'Ideal for HVAC and laboratory applications.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
+  {
+    id: 'ga-106',
+    name: 'Magnetic Level Gauge',
+    category: 'Gauges',
+    description: 'A magnetic level gauge is a visual level indication device used for continuous monitoring of liquid levels in tanks and vessels. It operates using a magnetic float inside a chamber that drives an external indicator, providing clear level indication without direct contact with the process fluid.',
+    longDescription: 'A magnetic level gauge is a visual level indication device used for continuous monitoring of liquid levels in tanks and vessels. It operates using a magnetic float inside a chamber that drives an external indicator, providing clear level indication without direct contact with the process fluid.',
+    price: 'Custom Quote',
+    image: '/magnetic-level-gauge-500x500.webp',
+    specifications: {
+      type: 'Magnetic Level Gauge',
+      application: 'Tank and vessel level indication',
+      measurement: 'Continuous liquid level',
+      media: 'Liquids and chemicals',
+      indication: 'Magnetic flap / roller display',
+      installation: 'Side mounted',
+      'measurement principle': 'Magnetic float coupling',
+      'pressure rating': 'Up to 40 bar',
+      'temperature range': '-20°C to +350°C',
+      'chamber material': 'SS304 / SS316',
+      'output option': 'Switches / Transmitter optional',
+      'mounting': 'Side / top mounted'
+    },
+    features: [
+      {
+        title: 'Clear Indication',
+        description: 'Provides highly visible liquid level display.'
+      },
+      {
+        title: 'Non Contact',
+        description: 'Indicator operates without process fluid exposure.'
+      },
+      {
+        title: 'High Pressure',
+        description: 'Suitable for demanding industrial vessels.'
+      },
+      {
+        title: 'Corrosion Resistant',
+        description: 'Available in stainless steel construction.'
+      },
+      {
+        title: 'Low Maintenance',
+        description: 'Simple magnetic operation minimizes servicing.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
   // Switches
   {
     id: 'sw-101',
@@ -212,6 +708,54 @@ export const products: Product[] = [
       precision: 'High Switch Point Accuracy',
       resistance: 'High Vibration Resistance',
       sensors: 'Bellows / Membrane / Piston'
+    }
+  },
+  {
+    id: 'sw-104',
+    name: 'Differential Pressure Switch',
+    category: 'Switches',
+    description: 'A differential pressure switch is an industrial switching device used to monitor the pressure difference between two process points. It activates electrical contacts when the differential pressure reaches a predefined set point, making it suitable for filter monitoring, pump protection, HVAC systems, compressors, clean rooms, and industrial process control applications.',
+    longDescription: 'A differential pressure switch is an industrial switching device used to monitor the pressure difference between two process points. It activates electrical contacts when the differential pressure reaches a predefined set point, making it suitable for filter monitoring, pump protection, HVAC systems, compressors, clean rooms, and industrial process control applications.',
+    price: 'Custom Quote',
+    image: '/diffential pressuer switch.jpg',
+    specifications: {
+      type: 'Differential Pressure Switch',
+      application: 'Filter, pump, HVAC monitoring',
+      measurement: 'Differential pressure',
+      output: 'SPDT / DPDT switching',
+      protection: 'IP65/IP67',
+      media: 'Air, gas, liquids',
+      'measurement principle': 'Diaphragm / piston operated',
+      'pressure range': 'Low pressure to high differential pressure',
+      'switch type': 'Micro switch / Reed switch',
+      accuracy: '±1% repeatability',
+      'enclosure protection': 'IP65 / IP67',
+      'electrical output': 'SPDT / DPDT contacts'
+    },
+    features: [
+      {
+        title: 'Reliable Switching',
+        description: 'Provides accurate differential pressure switching.'
+      },
+      {
+        title: 'Industrial Duty',
+        description: 'Designed for harsh industrial environments.'
+      },
+      {
+        title: 'Adjustable Setpoint',
+        description: 'Allows flexible switching configuration.'
+      },
+      {
+        title: 'Low Maintenance',
+        description: 'Robust construction ensures long service life.'
+      },
+      {
+        title: 'Wide Application',
+        description: 'Suitable for HVAC, filtration, and process systems.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
     }
   },
   // Temperature Sensors
@@ -320,6 +864,102 @@ export const products: Product[] = [
       range: 'Above 0°K'
     }
   },
+  {
+    id: 'ts-108',
+    name: 'R Type Thermocouple',
+    category: 'Temperature Sensors',
+    description: 'An R type thermocouple is a high-temperature sensor made from platinum-rhodium and platinum conductors for accurate and stable temperature measurement in demanding industrial processes. It is widely used in furnaces, kilns, glass manufacturing, and heat treatment applications requiring long-term reliability at elevated temperatures.',
+    longDescription: 'An R type thermocouple is a high-temperature sensor made from platinum-rhodium and platinum conductors for accurate and stable temperature measurement in demanding industrial processes. It is widely used in furnaces, kilns, glass manufacturing, and heat treatment applications requiring long-term reliability at elevated temperatures.',
+    price: 'Custom Quote',
+    image: '/r-type-thermocouple.webp',
+    specifications: {
+      type: 'Noble Metal Thermocouple',
+      application: 'Furnaces, kilns, heat treatment',
+      'temperature range': '0°C to 1600°C',
+      accuracy: 'High stability and precision',
+      material: 'Platinum / Platinum-Rhodium',
+      output: 'Millivolt signal',
+      'thermocouple type': 'Type R',
+      'positive leg': 'PtRh13%',
+      'negative leg': 'Platinum',
+      'temperature limit': 'Up to 1600°C',
+      'protection tube': 'Ceramic / Alumina',
+      'application media': 'High-temperature industrial processes'
+    },
+    features: [
+      {
+        title: 'High Temperature',
+        description: 'Suitable for extreme heat applications.'
+      },
+      {
+        title: 'Stable Output',
+        description: 'Provides reliable long-term temperature measurement.'
+      },
+      {
+        title: 'Precision Grade',
+        description: 'Ensures excellent measurement accuracy.'
+      },
+      {
+        title: 'Industrial Duty',
+        description: 'Designed for furnace and kiln environments.'
+      },
+      {
+        title: 'Corrosion Resistant',
+        description: 'Noble metal construction improves durability.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
+  {
+    id: 'ts-109',
+    name: 'S Type Thermocouple',
+    category: 'Temperature Sensors',
+    description: 'An S type thermocouple is a precision noble-metal temperature sensor designed for accurate measurement in high-temperature industrial environments. It offers excellent stability, repeatability, and oxidation resistance, making it ideal for laboratory, glass, ceramic, and metallurgical applications.',
+    longDescription: 'An S type thermocouple is a precision noble-metal temperature sensor designed for accurate measurement in high-temperature industrial environments. It offers excellent stability, repeatability, and oxidation resistance, making it ideal for laboratory, glass, ceramic, and metallurgical applications.',
+    price: 'Custom Quote',
+    image: '/stype-thermocouple.webp',
+    specifications: {
+      type: 'Noble Metal Thermocouple',
+      application: 'Glass, ceramic, metallurgy',
+      'temperature range': '0°C to 1600°C',
+      stability: 'Excellent long-term accuracy',
+      material: 'Platinum / Platinum-Rhodium',
+      output: 'Millivolt signal',
+      'thermocouple type': 'Type S',
+      'positive leg': 'PtRh10%',
+      'negative leg': 'Platinum',
+      'temperature limit': 'Up to 1600°C',
+      'sensor construction': 'Mineral insulated / ceramic protected',
+      'application media': 'High-temperature process monitoring'
+    },
+    features: [
+      {
+        title: 'Precision Sensor',
+        description: 'Provides highly accurate temperature readings.'
+      },
+      {
+        title: 'Long Stability',
+        description: 'Maintains calibration over extended operation.'
+      },
+      {
+        title: 'Heat Resistant',
+        description: 'Designed for continuous high-temperature exposure.'
+      },
+      {
+        title: 'Industrial Grade',
+        description: 'Suitable for demanding process industries.'
+      },
+      {
+        title: 'Oxidation Resistant',
+        description: 'Noble metal construction improves sensor life.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
   // Digital Indicators & Controllers
   {
     id: 'dc-101',
@@ -367,11 +1007,153 @@ export const products: Product[] = [
       test: 'Diode / Continuity / Buzzer'
     }
   },
-  // Variable Wires & Cables
+  {
+    id: 'mt-103',
+    name: 'Clamp Meter',
+    category: 'Multimeters & Testers',
+    description: 'A clamp meter is an electrical testing instrument used to measure current without disconnecting wiring or interrupting the circuit. It combines current sensing with multimeter functions such as voltage, resistance, continuity, and frequency measurement, making it ideal for industrial maintenance and troubleshooting.',
+    longDescription: 'A clamp meter is an electrical testing instrument used to measure current without disconnecting wiring or interrupting the circuit. It combines current sensing with multimeter functions such as voltage, resistance, continuity, and frequency measurement, making it ideal for industrial maintenance and troubleshooting.',
+    price: 'Custom Quote',
+    image: '/clamp meters.png',
+    specifications: {
+      type: 'Digital Clamp Meter',
+      application: 'Electrical testing and maintenance',
+      measurements: 'Current, voltage, resistance',
+      'current type': 'AC / DC',
+      display: 'Digital LCD',
+      safety: 'CAT III / CAT IV',
+      'current measurement': 'AC/DC',
+      'voltage measurement': 'Up to 1000 V',
+      'resistance measurement': 'Up to MΩ range',
+      'continuity test': 'Audible buzzer',
+      'display type': 'Backlit LCD',
+      'power supply': 'Battery operated'
+    },
+    features: [
+      {
+        title: 'Non Intrusive',
+        description: 'Measures current without disconnecting cables.'
+      },
+      {
+        title: 'Multi Function',
+        description: 'Combines current and multimeter measurements.'
+      },
+      {
+        title: 'Portable Design',
+        description: 'Compact handheld instrument for field use.'
+      },
+      {
+        title: 'Safe Operation',
+        description: 'Provides insulated measurement for live circuits.'
+      },
+      {
+        title: 'Industrial Use',
+        description: 'Suitable for maintenance and troubleshooting.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
+  {
+    id: 'mt-104',
+    name: 'Milliamp Source Injector',
+    category: 'Multimeters & Testers',
+    description: 'A milliamp source injector is a precision calibration instrument used to simulate and measure 4–20 mA process signals in industrial control systems. It is commonly used for testing transmitters, PLCs, control loops, and instrumentation equipment during commissioning and maintenance.',
+    longDescription: 'A milliamp source injector is a precision calibration instrument used to simulate and measure 4–20 mA process signals in industrial control systems. It is commonly used for testing transmitters, PLCs, control loops, and instrumentation equipment during commissioning and maintenance.',
+    price: 'Custom Quote',
+    image: '/sourcemiliamp.webp',
+    specifications: {
+      type: 'Loop Calibrator / mA Injector',
+      application: 'Process loop testing and calibration',
+      'signal range': '0–24 mA',
+      function: 'Source and measure current',
+      display: 'Digital LCD',
+      portability: 'Handheld instrument',
+      'output signal': '0–24 mA',
+      'measurement accuracy': '±0.02% FS',
+      'loop power': '24 V loop supply',
+      'display type': 'Digital display',
+      'power supply': 'Battery operated'
+    },
+    features: [
+      {
+        title: 'Precise Calibration',
+        description: 'Generates accurate milliamp process signals.'
+      },
+      {
+        title: 'Loop Testing',
+        description: 'Tests transmitters and control loops efficiently.'
+      },
+      {
+        title: 'Portable Unit',
+        description: 'Compact handheld design for field calibration.'
+      },
+      {
+        title: 'Dual Function',
+        description: 'Supports both sourcing and measurement modes.'
+      },
+      {
+        title: 'Easy Operation',
+        description: 'Simple controls improve maintenance efficiency.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
+  {
+    id: 'mt-105',
+    name: 'Electrical Testing Equipment',
+    category: 'Multimeters & Testers',
+    description: 'Electrical testing equipment includes instruments used for measuring, testing, calibrating, and troubleshooting electrical and electronic systems. These devices support preventive maintenance, commissioning, and industrial diagnostics across power, automation, and process industries.',
+    longDescription: 'Electrical testing equipment includes instruments used for measuring, testing, calibrating, and troubleshooting electrical and electronic systems. These devices support preventive maintenance, commissioning, and industrial diagnostics across power, automation, and process industries.',
+    price: 'Custom Quote',
+    image: '/multi_1.jpg',
+    specifications: {
+      type: 'Electrical Testing Instrument',
+      application: 'Industrial testing and diagnostics',
+      function: 'Measurement and calibration',
+      measurements: 'Voltage, current, resistance',
+      portability: 'Portable and handheld options',
+      safety: 'Industrial protection standards',
+      'measurement functions': 'Voltage, current, continuity',
+      display: 'Digital LCD',
+      'power source': 'Battery / AC powered',
+      'safety category': 'CAT III / CAT IV',
+      'application area': 'Electrical and industrial systems'
+    },
+    features: [
+      {
+        title: 'Accurate Testing',
+        description: 'Provides reliable electrical measurements.'
+      },
+      {
+        title: 'Industrial Grade',
+        description: 'Designed for demanding field environments.'
+      },
+      {
+        title: 'Portable Design',
+        description: 'Easy to carry for onsite diagnostics.'
+      },
+      {
+        title: 'Safe Operation',
+        description: 'Built with electrical safety protection.'
+      },
+      {
+        title: 'Multi Purpose',
+        description: 'Supports testing, troubleshooting, and calibration.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
+  // Wires & Cables
   {
     id: 'wc-101',
     name: 'Power cables',
-    category: 'Variable Wires & Cables',
+    category: 'Wires & Cables',
     description: 'Power transmission and distribution cables for overhead, underground, and submarine industrial systems.',
     longDescription: 'Power cables are principally used for power transmission and distribution systems (overhead, underground and submarine) in the power and other industries. We manufacture a range of cables with high to low voltage and different sheathings such as PVC, XLPE, flame retardant and low smoke. The main structural components include conductor, insulation and sheath.',
     price: 'Custom Quote',
@@ -386,7 +1168,7 @@ export const products: Product[] = [
   {
     id: 'wc-102',
     name: 'Control cables',
-    category: 'Variable Wires & Cables',
+    category: 'Wires & Cables',
     description: 'Automation control cables with galvanized steel braiding for equipment signal distribution.',
     longDescription: 'Control cables send signals to control the functioning of an equipment and allow distribution of data or signals that have low voltage. Designed specifically for automation controls, these cables have a copper conductor, which is enveloped in galvanized steel braid. Usually bear a PVC/XLPE insulation that protects them from impacts and harsh climatic conditions.',
     price: 'Custom Quote',
@@ -401,7 +1183,7 @@ export const products: Product[] = [
   {
     id: 'wc-103',
     name: 'Instrumentation cables',
-    category: 'Variable Wires & Cables',
+    category: 'Wires & Cables',
     description: 'Precision measurement and supervision cables for oil, gas, and power industries.',
     longDescription: 'Instrumentation cables find a wide variety of applications for process instrumentation for measurement, supervision and control in oil & gas, power and chemical industries. Prone to external interferences, these cables demand stringent quality requirements and special electrical properties. Tinned copper conductors are laid up in pair/triad/quad either overall shielded or individually and overall shielded.',
     price: 'Custom Quote',
@@ -416,7 +1198,7 @@ export const products: Product[] = [
   {
     id: 'wc-104',
     name: 'Solar cables',
-    category: 'Variable Wires & Cables',
+    category: 'Wires & Cables',
     description: 'Specialized DC and AC cables for photovoltaic module interconnection and grid connection.',
     longDescription: 'DC solar cables connect photovoltaic modules. LT solar AC cables connect inverters to transformers, and HT Solar AC cables connect transformers to the grid. Solar cables must withstand extreme weather conditions, be flame and fire retardant, and operate at consistent high temperatures in air or underground trays.',
     price: 'Custom Quote',
@@ -431,7 +1213,7 @@ export const products: Product[] = [
   {
     id: 'wc-105',
     name: 'Building Wires',
-    category: 'Variable Wires & Cables',
+    category: 'Wires & Cables',
     description: 'Environmentally friendly wires for building electrification and household appliances.',
     longDescription: 'Suitable where high flexibility is of prime importance for indoor and outdoor applications. Meets stringent European Euroclass and Construction Product Regulations. Energy efficient, recyclable, RoHS compliant, and emissions-optimized in fire situations. Ideal for household appliances like refrigerators and air conditioners.',
     price: 'Custom Quote',
@@ -446,7 +1228,7 @@ export const products: Product[] = [
   {
     id: 'wc-106',
     name: 'Flexible single/Multi core',
-    category: 'Variable Wires & Cables',
+    category: 'Wires & Cables',
     description: 'Energy efficient Class 5 copper rods with various insulation properties for multicore segments.',
     longDescription: 'Manufacture of energy efficient class 5 wire with properties such as PVC, HRFR, HR and HR-FRLS. Constructed from 0.5 to 1000 Sq.mm. in single core copper rods, and up to 61 cores in multicore segments. Provides excellent electrical efficiency and mechanical durability.',
     price: 'Custom Quote',
@@ -461,7 +1243,7 @@ export const products: Product[] = [
   {
     id: 'wc-107',
     name: 'Communication cables',
-    category: 'Variable Wires & Cables',
+    category: 'Wires & Cables',
     description: 'Wide range of telephone, LAN, co-axial, and speaker cables for data and signal transmission.',
     longDescription: 'Comprehensive range of communication cables designed for clear signal transmission. Includes telephone wiring, high-speed LAN cables for networking, co-axial cables for video/radio, and high-fidelity speaker cables.',
     price: 'Custom Quote',
@@ -476,7 +1258,7 @@ export const products: Product[] = [
   {
     id: 'wc-108',
     name: 'Other cables',
-    category: 'Variable Wires & Cables',
+    category: 'Wires & Cables',
     description: 'Specialty cables including welding, submersible, rubber, and specialty industrial conductors.',
     longDescription: 'Includes welding cables, submersible flat and round cables, rubber cables, overhead conductors, railway signaling cables and specialty cables. Specialty cables are engineered for marine, oil and gas, extreme fire conditions, space station systems, and traffic signaling.',
     price: 'Custom Quote',
@@ -496,7 +1278,8 @@ export const products: Product[] = [
     description: 'A Reliable, Rugged and Accurate Transmitter',
     longDescription: 'Online Moisture Analyser has been developed to provide reliable performance in the harsher industrial operating environments found in the minerals, ceramics, ore processing, chemical, sinter and similar processes. Each MT56 measurement produces analog and digital outputs for control. An Ethernet interface is available as an option. The MT56 is made up of 5 basic components: a quartz halogen lamp, a filter wheel motor, multiple NIR interference filters in a rotating filter wheel assembly, a Lead Sulfide detector and a single “smart” circuit board. The MT56 is fully modular – each of these components can be replaced in the field within minutes.',
     price: 'Custom Quote',
-    image: '/mois_1.jpg',
+    image: '/kled online moist analyers.avif',
+    images: ['/kled online moist analyers.avif', '/mois_1.jpg'],
     specifications: {
       operation: 'Simple to Operate',
       installation: 'Easy to Install',
@@ -657,6 +1440,54 @@ export const products: Product[] = [
       logic: 'Microprocessor Controlled'
     }
   },
+  {
+    id: 'ws-102',
+    name: 'LoRa Wireless Communication System',
+    category: 'Wireless System',
+    description: 'A LoRa wireless communication system is a long-range, low-power industrial networking solution designed for remote monitoring and IoT applications. It enables reliable wireless data transmission between field instruments, sensors, gateways, and control systems across large industrial areas with minimal power consumption.',
+    longDescription: 'A LoRa wireless communication system is a long-range, low-power industrial networking solution designed for remote monitoring and IoT applications. It enables reliable wireless data transmission between field instruments, sensors, gateways, and control systems across large industrial areas with minimal power consumption.',
+    price: 'Custom Quote',
+    image: '/lora bancd wireless.jpg',
+    specifications: {
+      type: 'Long Range Wireless System',
+      application: 'Industrial IoT and remote monitoring',
+      communication: 'LoRa / LoRaWAN',
+      range: 'Up to several kilometers',
+      power: 'Low power consumption',
+      connectivity: 'Sensor and gateway integration',
+      'wireless technology': 'LoRa / LoRaWAN',
+      'communication range': '2–15 km depending on environment',
+      'frequency band': '433 MHz / 868 MHz / 915 MHz',
+      'power supply': 'Battery / 24 Vdc',
+      'network topology': 'Star network',
+      'data interface': 'Modbus / RS485 / Ethernet'
+    },
+    features: [
+      {
+        title: 'Long Range',
+        description: 'Supports wireless communication across large industrial sites.'
+      },
+      {
+        title: 'Low Power',
+        description: 'Optimized for battery-powered remote devices.'
+      },
+      {
+        title: 'IoT Ready',
+        description: 'Enables smart industrial monitoring applications.'
+      },
+      {
+        title: 'Reliable Network',
+        description: 'Provides stable communication in challenging environments.'
+      },
+      {
+        title: 'Easy Integration',
+        description: 'Compatible with industrial sensors and gateways.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
   // Dust Monitor
   {
     id: 'dm-101',
@@ -726,7 +1557,7 @@ export const products: Product[] = [
     description: 'Comprehensive stack emission monitoring for particulate concentration, combustion efficiency, and oxygen analysis for industrial compliance and process optimization.',
     longDescription: 'Dust, opacity, and zirconia analyzers provide comprehensive stack emission monitoring for particulate concentration, combustion efficiency, and oxygen analysis. These systems are designed for industrial compliance, process optimization, and complete analytical monitoring solutions.\n\nThis integrated analytical platform combines multiple emission parameters — dust, opacity, and O₂ — in a single system. Using optical and zirconia technology, these analyzers support environmental regulations and provide high long-term stability. They simplify plant monitoring architecture and enhance combustion and emission control efficiency.',
     price: 'Custom Quote',
-    image: '/zirconia-oxygen-analyzer-for-stack-gas-emission-control-systems-500x500.webp',
+    image: '/Zirconia-Oxygen-Analyzer2.jpg',
     specifications: {
       type: 'Continuous Emission Monitoring',
       dustRange: '0–1000 mg/m³',
@@ -738,6 +1569,98 @@ export const products: Product[] = [
       application: 'Stack, boiler, process gas'
     }
   },
+  {
+    id: 'em-102',
+    name: 'NDIR Type Gas Analyzer',
+    category: 'Emission Monitoring Analyzer',
+    description: 'An NDIR (Non-Dispersive Infrared) gas analyzer is designed for continuous measurement of industrial gases using infrared absorption technology. It is widely used for emission monitoring, combustion control, and process gas analysis in power plants, chemical industries, and environmental monitoring systems.',
+    longDescription: 'An NDIR (Non-Dispersive Infrared) gas analyzer is designed for continuous measurement of industrial gases using infrared absorption technology. It is widely used for emission monitoring, combustion control, and process gas analysis in power plants, chemical industries, and environmental monitoring systems.',
+    price: 'Custom Quote',
+    image: '/ndir_product.avif',
+    specifications: {
+      type: 'NDIR Gas Analyzer',
+      application: 'Emission and process gas monitoring',
+      measurements: 'CO, CO₂, SO₂, NOx',
+      technology: 'Infrared absorption',
+      output: '4–20mA, Modbus, Digital',
+      system: 'Continuous online monitoring',
+      'measurement principle': 'Non-Dispersive Infrared (NDIR)',
+      'response time': '<60 seconds',
+      accuracy: '±1% FS',
+      'power supply': '24 Vdc / 230 Vac'
+    },
+    features: [
+      {
+        title: 'High Accuracy',
+        description: 'Infrared technology provides precise gas analysis.'
+      },
+      {
+        title: 'Continuous Monitoring',
+        description: 'Supports real-time industrial emission analysis.'
+      },
+      {
+        title: 'Multi Gas',
+        description: 'Measures multiple process gases simultaneously.'
+      },
+      {
+        title: 'Stable Operation',
+        description: 'Reliable performance for long-term industrial use.'
+      },
+      {
+        title: 'Low Maintenance',
+        description: 'Minimal servicing requirements with stable sensors.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
+  {
+    id: 'em-103',
+    name: 'Extractive Type Gas Analyzer',
+    category: 'Emission Monitoring Analyzer',
+    description: 'An extractive type gas analyzer continuously extracts gas samples from industrial stacks or process lines for conditioning and analysis. It is commonly used in emission monitoring systems for accurate measurement of pollutant and combustion gases under demanding industrial conditions.',
+    longDescription: 'An extractive type gas analyzer continuously extracts gas samples from industrial stacks or process lines for conditioning and analysis. It is commonly used in emission monitoring systems for accurate measurement of pollutant and combustion gases under demanding industrial conditions.',
+    price: 'Custom Quote',
+    image: '/extract-gas-analyzer.jpg',
+    specifications: {
+      type: 'Extractive Gas Analyzer',
+      application: 'Stack and process gas monitoring',
+      measurements: 'SOx, NOx, CO, O₂',
+      system: 'Sample extraction and conditioning',
+      output: '4–20mA, Modbus, Ethernet',
+      installation: 'CEMS and industrial plants',
+      'measurement method': 'Extractive sampling',
+      'sample conditioning': 'Integrated filtration and cooling',
+      'response time': '<120 seconds',
+      'power supply': '230 Vac'
+    },
+    features: [
+      {
+        title: 'Precise Sampling',
+        description: 'Provides stable and conditioned gas analysis.'
+      },
+      {
+        title: 'Multi Parameter',
+        description: 'Measures multiple emission gases simultaneously.'
+      },
+      {
+        title: 'Industrial Grade',
+        description: 'Designed for harsh stack monitoring environments.'
+      },
+      {
+        title: 'Compliance Ready',
+        description: 'Suitable for continuous emission monitoring systems.'
+      },
+      {
+        title: 'Integrated System',
+        description: 'Combines sampling, conditioning, and analysis functions.'
+      }
+    ],
+    documents: {
+      technical_datasheet: '/profile.pdf'
+    }
+  },
   // Gas Analyzer
   {
     id: 'gz-101',
@@ -747,6 +1670,7 @@ export const products: Product[] = [
     longDescription: 'SOx and NOx analyzers continuously monitor sulfur oxides and nitrogen oxides in industrial emissions, combustion processes, and environmental systems. They support regulatory compliance, process optimization, and pollution control.\n\nUsing UV, NDIR, and chemiluminescence technology, these analyzers measure SO₂, SO₃, NO, and NO₂ at ppm to percent levels with ±1% accuracy and response times under 60 seconds. Designed for harsh plant conditions, they provide real-time emission data to enhance combustion efficiency and ensure environmental compliance.',
     price: 'Custom Quote',
     image: '/sox-nox-analyzer.jpg',
+    images: ['/sox-nox-analyzer.jpg', '/sox-nox-analyzer 2.jpg'],
     specifications: {
       type: 'Continuous Gas Analyzer',
       measurements: 'SO₂, SO₃, NO, NO₂',
@@ -795,11 +1719,11 @@ export const products: Product[] = [
       application: 'Industrial tracking & coordination'
     }
   },
-  // Ultrasonic Transmitter
+  // Ultrasonic Transmitter (merged into Level Transmitter)
   {
     id: 'ut-101',
     name: 'Ultrasonic Level Transmitter',
-    category: 'Ultrasonic Transmitter',
+    category: 'Level Transmitter',
     description: 'Reliable non-contact level measurement for liquids and solids using ultrasonic pulse echo technology, suitable for tanks, reservoirs, wastewater, and process applications.',
     longDescription: 'Ultrasonic transmitters provide reliable non-contact level measurement for liquids and solids using sound wave reflection technology. They are suitable for tanks, reservoirs, wastewater, and process applications.\n\nUsing the ultrasonic pulse echo principle, these transmitters measure level without touching the media, offering ±0.25% accuracy with ranges up to 15 m. Simple mounting and setup, IP67 protection, and stable continuous readings make them a low-maintenance choice for water treatment, chemical storage, and general process industries.',
     price: 'Custom Quote',
@@ -818,12 +1742,12 @@ export const products: Product[] = [
   {
     id: 'ut-102',
     name: 'Micropilot FMR30B',
-    category: 'Ultrasonic Transmitter',
+    category: 'Level Transmitter',
     description: 'The Micropilot FMR30B is a compact non-contact radar level transmitter designed for continuous measurement of liquids and bulk solids.',
     longDescription: 'The Micropilot FMR30B is a compact non-contact radar level transmitter designed for continuous measurement of liquids and bulk solids. It is ideal for utility and basic industrial applications such as water treatment, storage tanks, and silos, offering reliable performance with simple setup and wireless access. Features include: Easy Setup with guided commissioning, Wireless Access via Bluetooth, Compact Design for small tanks, and Smart Diagnostics using Heartbeat Technology.',
     price: 'Custom Quote',
-    image: '/orifice assmebly.jpg',
-    images: ['/orifice assmebly.jpg', '/orifce condition.jpeg'],
+    image: '/Micropilot_FMR30B.jpg',
+    images: ['/Micropilot_FMR30B.jpg'],
     specifications: {
       type: 'Non-contact Radar Level Transmitter',
       application: 'Water, wastewater, tanks, silos',
@@ -867,12 +1791,12 @@ export const products: Product[] = [
   {
     id: 'ut-103',
     name: 'Micropilot FMR67B',
-    category: 'Ultrasonic Transmitter',
+    category: 'Level Transmitter',
     description: 'The Micropilot FMR67B is a high-performance 80 GHz radar level transmitter designed for demanding solid applications such as silos, bunkers, and stockpiles.',
     longDescription: 'The Micropilot FMR67B is a high-performance 80 GHz radar level transmitter designed for demanding solid applications such as silos, bunkers, and stockpiles. It delivers highly accurate, non-contact level measurement even under extreme temperatures, pressures, and challenging process conditions. Key features: High Performance for long-range solids, Extreme Condition operation (up to 450°C), Narrow Beam for complex vessels, and Heartbeat Technology for advanced diagnostics.',
     price: 'Custom Quote',
-    image: '/orifce condition.jpeg',
-    images: ['/orifce condition.jpeg', '/orifice assmebly.jpg'],
+    image: '/FMR67B.jpg',
+    images: ['/FMR67B.jpg'],
     specifications: {
       type: '80 GHz Radar Level Transmitter',
       application: 'Silos, bunkers, bulk solids',
@@ -1012,8 +1936,8 @@ export const products: Product[] = [
     description: 'A Venturi tube flow meter measures fluid flow by creating a smooth constriction in the pipeline and calculating flow from the pressure difference.',
     longDescription: 'A Venturi tube flow meter measures fluid flow by creating a smooth constriction in the pipeline and calculating flow from the pressure difference between inlet and throat. It offers high accuracy with low permanent pressure loss, making it suitable for large and critical flow applications. The smooth design resists fouling and buildup, providing long-term stability and high accuracy.',
     price: 'Custom Quote',
-    image: '/orifce condition.jpeg',
-    images: ['/orifce condition.jpeg', '/orifice assmebly.jpg'],
+    image: '/venturi-tube-500x500.webp',
+    images: ['/venturi-tube-500x500.webp'],
     specifications: {
       type: 'Venturi Differential Pressure Meter',
       application: 'Clean, dirty, and viscous fluids',
@@ -1214,11 +2138,11 @@ export const products: Product[] = [
       technical_datasheet: "/profile.pdf"
     }
   },
-  // Radar Level Sensor
+  // Radar Level Sensor (merged into Level Transmitter)
   {
     id: 'rls-101',
     name: '80 GHz Radar Level Transmitter',
-    category: 'Radar Level Sensor',
+    category: 'Level Transmitter',
     description: 'A compact 80 GHz radar level transmitter designed for continuous, non-contact measurement of liquids and bulk solids.',
     longDescription: 'A compact 80 GHz radar level transmitter designed for continuous, non-contact measurement of liquids and bulk solids. It delivers accurate and stable readings independent of process conditions, making it suitable for water treatment, open channels, and general industrial applications. The device features robust construction for harsh environments and supports wireless configuration via Bluetooth and multiple communication protocols including HART, SDI-12, and Modbus.',
     price: 'Custom Quote',
@@ -1266,7 +2190,7 @@ export const products: Product[] = [
   {
     id: 'rls-102',
     name: 'NivoRadar NR 7100',
-    category: 'Radar Level Sensor',
+    category: 'Level Transmitter',
     description: 'The NivoRadar NR 7100 is a non-contact 80 GHz FMCW radar level transmitter designed for continuous level measurement in liquids and solids.',
     longDescription: 'The NivoRadar NR 7100 is a high-precision, non-contact 80 GHz FMCW radar level transmitter designed for continuous measurement in both liquids and solids. With its narrow 8° beam angle, it ensures reliable and accurate performance even in narrow tanks, silos, and IBC containers. The device is particularly effective in aggressive or viscous media and is compatible with food industry requirements, offering a robust and low-maintenance solution for challenging industrial environments.',
     price: 'Custom Quote',
