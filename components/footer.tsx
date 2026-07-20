@@ -75,9 +75,12 @@ export function Footer() {
                 <ul className="flex flex-wrap gap-x-12 gap-y-4">
                   {[
                     { name: 'About Us', href: '/about' },
+                    { name: 'Services', href: '/services' },
+                    { name: 'Projects', href: '/projects' },
+                    { name: 'Gallery', href: '/gallery' },
                     { name: 'Contact', href: '/contact' },
                     { name: 'Privacy Policy', href: '/privacy-policy' },
-                    { name: 'Terms of Service', href: '/terms-of-service' }
+                    { name: 'Terms of Service', href: '/terms-of-service' },
                   ].map(item => (
                     <li key={item.name}>
                       <Link href={item.href} className="text-white/60 hover:text-white transition-colors text-[11px] font-black uppercase tracking-[0.2em] hover:text-secondary">

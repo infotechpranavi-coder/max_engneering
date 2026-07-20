@@ -1,5 +1,7 @@
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
+import { AboutCompanySection } from '@/components/about-company-section'
+import { AboutMissionSection } from '@/components/about-mission-section'
 import { ScrollReveal } from '@/components/scroll-reveal'
 import { ShieldCheck, Award, ArrowUpRight } from 'lucide-react'
 import type { Metadata } from 'next'
@@ -123,6 +125,12 @@ export default function AboutPage() {
               </div>
            </div>
         </section>
+
+        {/* Company Overview & Leadership */}
+        <AboutCompanySection />
+
+        {/* Mission, Vision & Strength */}
+        <AboutMissionSection />
 
         {/* Certification Section - Premium Layout */}
         <section className="py-32 bg-white relative overflow-hidden">

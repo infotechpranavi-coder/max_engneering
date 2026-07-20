@@ -105,6 +105,18 @@ export function Navigation() {
             <span className={`text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white`}>About Us</span>
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500 rounded-full"></span>
           </Link>
+          <Link href="/services" className="group relative py-2">
+            <span className={`text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white`}>Services</span>
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500 rounded-full"></span>
+          </Link>
+          <Link href="/projects" className="group relative py-2">
+            <span className={`text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white`}>Projects</span>
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500 rounded-full"></span>
+          </Link>
+          <Link href="/gallery" className="group relative py-2">
+            <span className={`text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white`}>Gallery</span>
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500 rounded-full"></span>
+          </Link>
           <Link href="/contact" className="group relative py-2">
             <span className={`text-xs font-black uppercase tracking-[0.2em] transition-colors duration-500 text-white/70 group-hover:text-white`}>Contact</span>
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500 rounded-full"></span>
@@ -158,6 +170,9 @@ export function Navigation() {
           </div>
 
           <Link href="/about" className="text-3xl font-black text-white hover:text-secondary transition-colors tracking-tighter uppercase italic" onClick={() => setIsOpen(false)}>About Us</Link>
+          <Link href="/services" className="text-3xl font-black text-white hover:text-secondary transition-colors tracking-tighter uppercase italic" onClick={() => setIsOpen(false)}>Services</Link>
+          <Link href="/projects" className="text-3xl font-black text-white hover:text-secondary transition-colors tracking-tighter uppercase italic" onClick={() => setIsOpen(false)}>Projects</Link>
+          <Link href="/gallery" className="text-3xl font-black text-white hover:text-secondary transition-colors tracking-tighter uppercase italic" onClick={() => setIsOpen(false)}>Gallery</Link>
           <Link href="/contact" className="text-3xl font-black text-white hover:text-secondary transition-colors tracking-tighter uppercase italic" onClick={() => setIsOpen(false)}>Contact</Link>
           <a href="/profile.pdf" target="_blank" rel="noopener noreferrer" className="text-3xl font-black text-white hover:text-secondary transition-colors tracking-tighter uppercase italic" onClick={() => setIsOpen(false)}>Download</a>
         </div>
