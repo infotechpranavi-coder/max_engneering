@@ -220,14 +220,18 @@ export default function Home() {
               {/* Two sets of same items for infinite seamless scroll */}
               {[...Array(2)].map((_, setIdx) => (
                 <div key={setIdx} className="flex items-center gap-16 pr-16">
-                  {Array.from({ length: 30 }, (_, i) => (
+                  {[
+                    1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                    12, 13, 14, 15, 16, 17, 18, 19, 20,
+                    24, 26, 27, 28, 29, 30,
+                  ].map((id) => (
                     <div
-                      key={`${setIdx}-${i + 1}`}
+                      key={`${setIdx}-${id}`}
                       className="w-48 h-20 flex items-center justify-center pointer-events-none"
                     >
                       <img
-                        src={`/partners/${i + 1}.jpg`}
-                        alt={`Strategic Partner Logo ${i + 1}`}
+                        src={`/partners/${id}.jpg`}
+                        alt={`Strategic Partner Logo ${id}`}
                         className="max-w-full max-h-full object-contain"
                       />
                     </div>
